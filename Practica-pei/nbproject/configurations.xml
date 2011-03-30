@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configurationDescriptor version="69">
+  <logicalFolder name="root" displayName="root" projectFiles="true">
+    <logicalFolder name="HeaderFiles"
+                   displayName="Header Files"
+                   projectFiles="true"
+                   kind="SOURCE_LOGICAL_FOLDER">
+      <logicalFolder name="f1"
+                     displayName="Modelo"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Modelo/Asignatura.h</itemPath>
+        <itemPath>Codigo/Modelo/Asignaturas.h</itemPath>
+        <itemPath>Codigo/Modelo/Cita.h</itemPath>
+        <itemPath>Codigo/Modelo/Companero.h</itemPath>
+        <itemPath>Codigo/Modelo/Fecha.h</itemPath>
+        <itemPath>Codigo/Modelo/Modelo.h</itemPath>
+        <itemPath>Codigo/Modelo/Nota.h</itemPath>
+        <itemPath>Codigo/Modelo/Profesor.h</itemPath>
+        <itemPath>Codigo/Modelo/Sesion.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2"
+                     displayName="Vista"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista/Vista.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f4"
+                     displayName="Vista-gtkmm"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+      </logicalFolder>
+      <logicalFolder name="f3"
+                     displayName="Vista-qt"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+      </logicalFolder>
+      <logicalFolder name="f5"
+                     displayName="Vista-txt"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="ResourceFiles"
+                   displayName="Resource Files"
+                   projectFiles="true"
+                   kind="SOURCE_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="SourceFiles"
+                   displayName="Source Files"
+                   projectFiles="true"
+                   kind="SOURCE_LOGICAL_FOLDER">
+      <logicalFolder name="f1"
+                     displayName="Modelo"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Modelo/Cita.cpp</itemPath>
+        <itemPath>Codigo/Modelo/Companero.cpp</itemPath>
+        <itemPath>Codigo/Modelo/Fecha.cpp</itemPath>
+        <itemPath>Codigo/Modelo/Modelo.cpp</itemPath>
+        <itemPath>Codigo/Modelo/Nota.cpp</itemPath>
+        <itemPath>Codigo/Modelo/Profesor.cpp</itemPath>
+        <itemPath>Codigo/Modelo/Sesion.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f2"
+                     displayName="Vista"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista/Vista.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f3"
+                     displayName="Vista-txt"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+      </logicalFolder>
+    </logicalFolder>
+    <logicalFolder name="TestFiles"
+                   displayName="Test Files"
+                   projectFiles="false"
+                   kind="TEST_LOGICAL_FOLDER">
+    </logicalFolder>
+    <logicalFolder name="ExternalFiles"
+                   displayName="Important Files"
+                   projectFiles="false"
+                   kind="IMPORTANT_FILES_FOLDER">
+    </logicalFolder>
+  </logicalFolder>
+  <projectmakefile>Makefile</projectmakefile>
+  <confs>
+    <conf name="Debug" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <ccTool>
+          <incDir>
+            <pElem>Codigo/Modelo</pElem>
+            <pElem>Codigo/Vista</pElem>
+            <pElem>Codigo/Vista-gtkmm</pElem>
+            <pElem>Codigo/Vista-qt</pElem>
+            <pElem>Codigo/Vista-txt</pElem>
+          </incDir>
+        </ccTool>
+      </compileType>
+    </conf>
+    <conf name="Release" type="1">
+      <toolsSet>
+        <developmentServer>localhost</developmentServer>
+        <compilerSet>GNU|GNU</compilerSet>
+        <platform>2</platform>
+      </toolsSet>
+      <compileType>
+        <cTool>
+          <developmentMode>5</developmentMode>
+        </cTool>
+        <ccTool>
+          <developmentMode>5</developmentMode>
+        </ccTool>
+        <fortranCompilerTool>
+          <developmentMode>5</developmentMode>
+        </fortranCompilerTool>
+        <asmTool>
+          <developmentMode>5</developmentMode>
+        </asmTool>
+      </compileType>
+    </conf>
+  </confs>
+</configurationDescriptor>
