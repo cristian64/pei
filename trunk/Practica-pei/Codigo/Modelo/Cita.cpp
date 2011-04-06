@@ -10,7 +10,7 @@ void Cita::setDescripcion(const std::string &descripcion)
     this->descripcion = descripcion;
 }
 
-/*Fecha Cita::getFecha() const
+Fecha Cita::getFecha() const
 {
     return fecha;
 }
@@ -18,7 +18,7 @@ void Cita::setDescripcion(const std::string &descripcion)
 void Cita::setFecha(Fecha fecha)
 {
     this->fecha = fecha;
-}*/
+}
 
 int Cita::getDuracion() const
 {
