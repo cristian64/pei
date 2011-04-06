@@ -1,8 +1,8 @@
 PROJECT(PEI)
 cmake_minimum_required(VERSION 2.8)
 
-# Definiciones generales a la hora de compilar
-ADD_DEFINITIONS("-Wall -g -W -Wextra")
+# Definiciones generales a la hora de compilar.
+ADD_DEFINITIONS("-Wall -g -W -Wextra -O2")
 
 # Especificamos dónde se generan las librerías (.a, .lib).
 SET(LIBRARY_OUTPUT_PATH ${PEI_SOURCE_DIR}/Lib)

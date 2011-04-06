@@ -8,12 +8,16 @@ class Sesion
 {
 public:
     enum Dia { LUNES = 0, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO };
-    
+    enum Tipo { TEORIA = 0, PRACTICAS };
+
+    Sesion::Tipo getTipo() const;
+    void setTipo(Sesion::Tipo tipo);
+
     std::string getLugar() const;
     void setLugar(const std::string &lugar);
 
-    Dia getDia() const;
-    void setDia(Dia dia);
+    Sesion::Dia getDia() const;
+    void setDia(Sesion::Dia dia);
 
     Fecha getFechaInicio() const;
     void setFechaInicio(Fecha fechaInicio);
@@ -22,6 +26,7 @@ public:
     void setFechaFin(Fecha fechaFin);
 
 private:
+    Tipo tipo;
     std::string lugar;
     Dia dia;
     Fecha fechaInicio;
