@@ -54,6 +54,8 @@
                      displayName="Modelo"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Modelo/Asignatura.cpp</itemPath>
+        <itemPath>Codigo/Modelo/Asignaturas.cpp</itemPath>
         <itemPath>Codigo/Modelo/Cita.cpp</itemPath>
         <itemPath>Codigo/Modelo/Companero.cpp</itemPath>
         <itemPath>Codigo/Modelo/Fecha.cpp</itemPath>
@@ -68,10 +70,23 @@
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista/Vista.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f4"
+                     displayName="Vista-gtkmm"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-gtkmm/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f5"
+                     displayName="Vista-qt"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-qt/main.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f3"
                      displayName="Vista-txt"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-txt/main.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
