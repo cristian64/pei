@@ -20,7 +20,7 @@ public:
     virtual void refrescar() = 0;
     void ponerModelo(Modelo *modelo);
     
-private:
+protected:
     Modelo *modelo;
 };
 

@@ -9,8 +9,11 @@ Vista::Vista()
 Vista::~Vista()
 {
     // Se avisa al modelo de que la vista va a dejar de existir.
-    modelo->quitarVista(this);
-    modelo = NULL;
+    if (modelo != NULL)
+    {
+        modelo->quitarVista(this);
+        modelo = NULL;
+    }
 }
 
 void Vista::ponerModelo(Modelo *modelo)

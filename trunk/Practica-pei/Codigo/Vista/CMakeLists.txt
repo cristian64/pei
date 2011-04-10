@@ -1,3 +1,4 @@
 SET(OBJ Vista)
 ADD_LIBRARY(Vista ${OBJ})
+TARGET_LINK_LIBRARIES(Vista Modelo)
 

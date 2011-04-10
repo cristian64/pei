@@ -6,6 +6,8 @@
 class Nota
 {
 public:
+    Nota();
+
     std::string getDescripcion() const;
     void setDescripcion(const std::string &descripcion);
 

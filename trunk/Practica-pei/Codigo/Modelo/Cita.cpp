@@ -1,5 +1,10 @@
 #include "Cita.h"
 
+Cita::Cita()
+{
+    duracion = 60;
+}
+
 std::string Cita::getDescripcion() const
 {
     return descripcion;
