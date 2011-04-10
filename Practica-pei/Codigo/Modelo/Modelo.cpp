@@ -8,6 +8,7 @@ Modelo::~Modelo()
     {
         Vista *vistaAux = *i;
         vistaAux->modelo = NULL;
+        vistaAux->refrescar();
     }
     vistas.clear();
 }

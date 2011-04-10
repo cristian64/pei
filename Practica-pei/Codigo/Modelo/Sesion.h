@@ -10,6 +10,8 @@ public:
     enum Dia { LUNES = 0, MARTES, MIERCOLES, JUEVES, VIERNES, SABADO, DOMINGO };
     enum Tipo { TEORIA = 0, PRACTICAS };
 
+    Sesion();
+
     Sesion::Tipo getTipo() const;
     void setTipo(Sesion::Tipo tipo);
 

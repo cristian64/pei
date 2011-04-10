@@ -86,6 +86,12 @@
                      displayName="Vista-txt"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-txt/Auxiliar.cpp</itemPath>
+        <itemPath>Codigo/Vista-txt/Auxiliar.h</itemPath>
+        <itemPath>Codigo/Vista-txt/VistaTxtAsignatura.cpp</itemPath>
+        <itemPath>Codigo/Vista-txt/VistaTxtAsignatura.h</itemPath>
+        <itemPath>Codigo/Vista-txt/VistaTxtAsignaturas.cpp</itemPath>
+        <itemPath>Codigo/Vista-txt/VistaTxtAsignaturas.h</itemPath>
         <itemPath>Codigo/Vista-txt/main.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>

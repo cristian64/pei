@@ -17,7 +17,7 @@ include_directories(${PEI_SOURCE_DIR}/Modelo
 
 # Especificamos los directorios con las librerias
 # (si hubiera .so con los que enlazar (o .a o .lib generados previamente), también se indican así).
-link_directories(${PEI_SOURCE_DIR}/lib)
+link_directories(${PEI_SOURCE_DIR}/Lib)
 
 # Especificamos los subdirectorios a los que hay que profundizar.
 ADD_SUBDIRECTORY(Modelo)
@@ -28,7 +28,7 @@ ADD_SUBDIRECTORY(Vista-txt)
 
 # Generamos los ejecutables.
 ADD_EXECUTABLE(VistaTXT ${PEI_SOURCE_DIR}/Vista-txt/main)
-TARGET_LINK_LIBRARIES(VistaTXT Modelo Vista)# Vista-txt)
+TARGET_LINK_LIBRARIES(VistaTXT Modelo Vista Vista-txt)
 
 ADD_EXECUTABLE(VistaQt ${PEI_SOURCE_DIR}/Vista-qt/main)
 TARGET_LINK_LIBRARIES(VistaQt Modelo Vista)# Vista-qt)

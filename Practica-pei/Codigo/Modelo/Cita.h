@@ -7,6 +7,8 @@
 class Cita
 {
 public:
+    Cita();
+
     std::string getDescripcion() const;
     void setDescripcion(const std::string &descripcion);
 

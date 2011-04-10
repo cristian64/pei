@@ -13,7 +13,7 @@ public:
 
     void anadirAsignatura(Asignatura *asignatura);
     void quitarAsignatura(Asignatura *asignatura);
-    std::list<Asignatura*> obtenerAsignaturas() const;
+    const std::list<Asignatura*>& obtenerAsignaturas() const;
 
 private:
     std::list<Asignatura*> asignaturas;

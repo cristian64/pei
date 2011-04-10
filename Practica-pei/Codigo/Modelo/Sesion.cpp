@@ -1,5 +1,11 @@
 #include "Sesion.h"
 
+Sesion::Sesion()
+{
+    tipo = TEORIA;
+    dia = LUNES;
+}
+
 Sesion::Tipo Sesion::getTipo() const
 {
     return tipo;

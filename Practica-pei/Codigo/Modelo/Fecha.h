@@ -4,6 +4,8 @@
 class Fecha
 {
 public:
+    Fecha();
+
     int segundo;
     int minuto;
     int hora;

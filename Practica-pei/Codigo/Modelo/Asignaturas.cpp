@@ -25,7 +25,7 @@ void Asignaturas::quitarAsignatura(Asignatura *asignatura)
     asignaturas.remove(asignatura);
 }
 
-std::list<Asignatura*> Asignaturas::obtenerAsignaturas() const
+const std::list<Asignatura*>& Asignaturas::obtenerAsignaturas() const
 {
     return asignaturas;
 }

@@ -1,5 +1,10 @@
 #include "Nota.h"
 
+Nota::Nota()
+{
+    nota = 0.0f;
+}
+
 std::string Nota::getDescripcion() const
 {
     return descripcion;

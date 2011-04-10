@@ -23,19 +23,25 @@ public:
     void anadirCompanero(Companero *companero);
     void anadirNota(Nota *nota);
     void anadirCita(Cita *cita);
-    void anadirSesionTeoria(Sesion *sesion);
+    void anadirSesion(Sesion *sesion);
 
     void quitarProfesor(Profesor *profesor);
     void quitarCompanero(Companero *companero);
     void quitarNota(Nota *nota);
     void quitarCita(Cita *cita);
-    void quitarSesionTeoria(Sesion *sesion);
+    void quitarSesion(Sesion *sesion);
 
-    std::list<Profesor*> obtenerProfesores() const;
-    std::list<Companero*> obtenerCompaneros() const;
-    std::list<Nota*> obtenerNotas() const;
-    std::list<Cita*> obtenerCitas() const;
-    std::list<Sesion*> obtenerSesiones() const;
+    const std::list<Profesor*>& obtenerProfesores() const;
+    const std::list<Companero*>& obtenerCompaneros() const;
+    const std::list<Nota*>& obtenerNotas() const;
+    const std::list<Cita*>& obtenerCitas() const;
+    const std::list<Sesion*>& obtenerSesiones() const;
+
+    std::list<Profesor*>& obtenerProfesores();
+    std::list<Companero*>& obtenerCompaneros();
+    std::list<Nota*>& obtenerNotas();
+    std::list<Cita*>& obtenerCitas();
+    std::list<Sesion*>& obtenerSesiones();
 
 private:
     std::string nombre;
