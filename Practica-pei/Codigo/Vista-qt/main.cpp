@@ -1,9 +1,11 @@
-#include <iostream>
-using namespace std;
+#include <QtGui/QApplication>
+#include "MainWindow.h"
 
-#include "Profesor.h"
-
-int main()
+int main(int argc, char *argv[])
 {
-	Profesor profesor;
+    QApplication a(argc, argv);
+    MainWindow w;
+    w.show();
+
+    return a.exec();
 }
