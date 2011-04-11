@@ -4,8 +4,9 @@ cmake_minimum_required(VERSION 2.8)
 # Definiciones generales a la hora de compilar.
 ADD_DEFINITIONS("-Wall -g -W -Wextra -O2")
 
-# Especificamos dónde se generan las librerías (.a, .lib).
+# Especificamos dónde se generan las librerías (.a, .lib) y los ejecutables.
 SET(LIBRARY_OUTPUT_PATH ${PEI_SOURCE_DIR}/Lib)
+SET(EXECUTABLE_OUTPUT_PATH ${PEI_SOURCE_DIR})
 
 # Espeficicamos los directorios con las cabeceras.
 include_directories(${PEI_SOURCE_DIR}/Modelo
@@ -16,7 +17,7 @@ include_directories(${PEI_SOURCE_DIR}/Modelo
 )
 
 # Especificamos los directorios con las librerias
-# (si hubiera .so con los que enlazar (o .a o .lib generados previamente), también se indican así).
+# (si hubiera .so con los que enlazar (o .a o .lib generados previamente), también se indican aquí).
 link_directories(${PEI_SOURCE_DIR}/Lib)
 
 # Especificamos los subdirectorios a los que hay que profundizar.
@@ -25,14 +26,4 @@ ADD_SUBDIRECTORY(Vista)
 ADD_SUBDIRECTORY(Vista-qt)
 ADD_SUBDIRECTORY(Vista-gtkmm)
 ADD_SUBDIRECTORY(Vista-txt)
-
-# Generamos los ejecutables.
-ADD_EXECUTABLE(VistaTXT ${PEI_SOURCE_DIR}/Vista-txt/main)
-TARGET_LINK_LIBRARIES(VistaTXT Modelo Vista Vista-txt)
-
-ADD_EXECUTABLE(VistaQt ${PEI_SOURCE_DIR}/Vista-qt/main)
-TARGET_LINK_LIBRARIES(VistaQt Modelo Vista)# Vista-qt)
-
-ADD_EXECUTABLE(VistaGtkmm ${PEI_SOURCE_DIR}/Vista-gtkmm/main)
-TARGET_LINK_LIBRARIES(VistaGtkmm Modelo Vista)# Vista-gtkmm)
 
