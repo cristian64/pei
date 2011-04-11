@@ -14,6 +14,8 @@ include_directories(${PEI_SOURCE_DIR}/Modelo
 	${PEI_SOURCE_DIR}/Vista-qt
 	${PEI_SOURCE_DIR}/Vista-gtkmm
 	${PEI_SOURCE_DIR}/Vista-txt
+	${PEI_SOURCE_DIR}/Vista-xforms
+	${PEI_SOURCE_DIR}/Vista-multiple
 )
 
 # Especificamos los directorios con las librerias
@@ -26,4 +28,6 @@ ADD_SUBDIRECTORY(Vista)
 ADD_SUBDIRECTORY(Vista-qt)
 ADD_SUBDIRECTORY(Vista-gtkmm)
 ADD_SUBDIRECTORY(Vista-txt)
+ADD_SUBDIRECTORY(Vista-xforms)
+ADD_SUBDIRECTORY(Vista-multiple)
 
