@@ -29,16 +29,20 @@
                      displayName="Vista-gtkmm"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-gtkmm/MainWindow.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f3"
                      displayName="Vista-qt"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-qt/MainWindow.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5"
                      displayName="Vista-txt"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-txt/VistaTxtAsignatura.h</itemPath>
+        <itemPath>Codigo/Vista-txt/VistaTxtAsignaturas.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -74,12 +78,14 @@
                      displayName="Vista-gtkmm"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-gtkmm/MainWindow.cpp</itemPath>
         <itemPath>Codigo/Vista-gtkmm/main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f5"
                      displayName="Vista-qt"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-qt/MainWindow.cpp</itemPath>
         <itemPath>Codigo/Vista-qt/main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3"
@@ -89,9 +95,7 @@
         <itemPath>Codigo/Vista-txt/Auxiliar.cpp</itemPath>
         <itemPath>Codigo/Vista-txt/Auxiliar.h</itemPath>
         <itemPath>Codigo/Vista-txt/VistaTxtAsignatura.cpp</itemPath>
-        <itemPath>Codigo/Vista-txt/VistaTxtAsignatura.h</itemPath>
         <itemPath>Codigo/Vista-txt/VistaTxtAsignaturas.cpp</itemPath>
-        <itemPath>Codigo/Vista-txt/VistaTxtAsignaturas.h</itemPath>
         <itemPath>Codigo/Vista-txt/main.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
@@ -122,6 +126,42 @@
             <pElem>Codigo/Vista-gtkmm</pElem>
             <pElem>Codigo/Vista-qt</pElem>
             <pElem>Codigo/Vista-txt</pElem>
+            <pElem>/usr/include/atk-1.0</pElem>
+            <pElem>/usr/include/atkmm-1.6</pElem>
+            <pElem>/usr/include/cairo</pElem>
+            <pElem>/usr/include/cairomm-1.0</pElem>
+            <pElem>/usr/include/directfb</pElem>
+            <pElem>/usr/include/freetype2</pElem>
+            <pElem>/usr/include/gdkmm-2.4</pElem>
+            <pElem>/usr/include/giomm-2.4</pElem>
+            <pElem>/usr/include/gio-unix-2.0/</pElem>
+            <pElem>/usr/include/glib-2.0</pElem>
+            <pElem>/usr/include/glibmm-2.4</pElem>
+            <pElem>/usr/include/gtk-2.0</pElem>
+            <pElem>/usr/include/gtkmm-2.4</pElem>
+            <pElem>/usr/include/gtk-unix-print-2.0</pElem>
+            <pElem>/usr/include/libglade-2.0</pElem>
+            <pElem>/usr/include/libglademm-2.4</pElem>
+            <pElem>/usr/include/libpng12</pElem>
+            <pElem>/usr/include/libxml2</pElem>
+            <pElem>/usr/include/pango-1.0</pElem>
+            <pElem>/usr/include/pangomm-1.4</pElem>
+            <pElem>/usr/include/pixman-1</pElem>
+            <pElem>/usr/include/sigc++-2.0</pElem>
+            <pElem>/usr/lib/cairomm-1.0/include</pElem>
+            <pElem>/usr/lib/gdkmm-2.4/include</pElem>
+            <pElem>/usr/lib/giomm-2.4/include</pElem>
+            <pElem>/usr/lib/glib-2.0/include</pElem>
+            <pElem>/usr/lib/glibmm-2.4/include</pElem>
+            <pElem>/usr/lib/gtk-2.0/include</pElem>
+            <pElem>/usr/lib/gtkmm-2.4/include</pElem>
+            <pElem>/usr/lib/libglademm-2.4/include</pElem>
+            <pElem>/usr/lib/pangomm-1.4/include</pElem>
+            <pElem>/usr/lib/sigc++-2.0/include</pElem>
+            <pElem>/usr/include/glibmm-2.4</pElem>
+            <pElem>/usr/include/qt4/</pElem>
+            <pElem>/usr/include/qt4/QtGui</pElem>
+            <pElem>/usr/include/qt4/QtCore</pElem>
           </incDir>
         </ccTool>
       </compileType>
