@@ -31,6 +31,11 @@
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista-gtkmm/MainWindow.h</itemPath>
       </logicalFolder>
+      <logicalFolder name="f7"
+                     displayName="Vista-multiple"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+      </logicalFolder>
       <logicalFolder name="f3"
                      displayName="Vista-qt"
                      projectFiles="true"
@@ -43,6 +48,12 @@
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista-txt/VistaTxtAsignatura.h</itemPath>
         <itemPath>Codigo/Vista-txt/VistaTxtAsignaturas.h</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f6"
+                     displayName="Vista-xforms"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-xforms/Formulario.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -81,6 +92,12 @@
         <itemPath>Codigo/Vista-gtkmm/MainWindow.cpp</itemPath>
         <itemPath>Codigo/Vista-gtkmm/main.cpp</itemPath>
       </logicalFolder>
+      <logicalFolder name="f7"
+                     displayName="Vista-multiple"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-multiple/main.cpp</itemPath>
+      </logicalFolder>
       <logicalFolder name="f5"
                      displayName="Vista-qt"
                      projectFiles="true"
@@ -97,6 +114,14 @@
         <itemPath>Codigo/Vista-txt/VistaTxtAsignatura.cpp</itemPath>
         <itemPath>Codigo/Vista-txt/VistaTxtAsignaturas.cpp</itemPath>
         <itemPath>Codigo/Vista-txt/main.cpp</itemPath>
+      </logicalFolder>
+      <logicalFolder name="f6"
+                     displayName="Vista-xforms"
+                     projectFiles="true"
+                     kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-xforms/Formulario.cpp</itemPath>
+        <itemPath>Codigo/Vista-xforms/Formulario_cb.cpp</itemPath>
+        <itemPath>Codigo/Vista-xforms/main.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="TestFiles"
