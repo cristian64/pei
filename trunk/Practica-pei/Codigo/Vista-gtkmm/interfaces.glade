@@ -4,8 +4,9 @@
   <!-- interface-naming-policy project-wide -->
   <widget class="GtkWindow" id="MainWindow">
     <property name="title" translatable="yes">Vista Gtkmm</property>
-    <property name="default_width">700</property>
-    <property name="default_height">500</property>
+    <property name="default_width">900</property>
+    <property name="default_height">700</property>
+    <property name="icon_name">applications-other</property>
     <child>
       <widget class="GtkVBox" id="vbox1">
         <property name="visible">True</property>
@@ -104,6 +105,7 @@
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Nuevo documento en blanco</property>
                 <property name="use_underline">True</property>
+                <property name="icon_name">document-new</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -115,6 +117,7 @@
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Abrir asignaturas</property>
                 <property name="use_underline">True</property>
+                <property name="icon_name">document-open</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -126,6 +129,19 @@
                 <property name="visible">True</property>
                 <property name="label" translatable="yes">Guardar asignaturas</property>
                 <property name="use_underline">True</property>
+                <property name="icon_name">document-save</property>
+              </widget>
+              <packing>
+                <property name="expand">False</property>
+                <property name="homogeneous">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkToolButton" id="toolbuttonGuardarComo">
+                <property name="visible">True</property>
+                <property name="label" translatable="yes">Guardar asignaturas como</property>
+                <property name="use_underline">True</property>
+                <property name="icon_name">document-save-as</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -144,8 +160,10 @@
             <child>
               <widget class="GtkToolButton" id="toolbuttonAnadir">
                 <property name="visible">True</property>
+                <property name="is_important">True</property>
                 <property name="label" translatable="yes">A&#xF1;adir asignatura</property>
                 <property name="use_underline">True</property>
+                <property name="icon_name">add</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -155,8 +173,10 @@
             <child>
               <widget class="GtkToolButton" id="toolbuttonQuitar">
                 <property name="visible">True</property>
+                <property name="is_important">True</property>
                 <property name="label" translatable="yes">Quitar asignatura</property>
                 <property name="use_underline">True</property>
+                <property name="icon_name">remove</property>
               </widget>
               <packing>
                 <property name="expand">False</property>
@@ -170,7 +190,131 @@
           </packing>
         </child>
         <child>
-          <placeholder/>
+          <widget class="GtkHPaned" id="hpaned">
+            <property name="visible">True</property>
+            <property name="can_focus">True</property>
+            <property name="position">200</property>
+            <property name="position_set">True</property>
+            <child>
+              <widget class="GtkTreeView" id="treeviewAsignaturas">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+              </widget>
+              <packing>
+                <property name="resize">False</property>
+                <property name="shrink">True</property>
+              </packing>
+            </child>
+            <child>
+              <widget class="GtkNotebook" id="notebookDetalles">
+                <property name="visible">True</property>
+                <property name="can_focus">True</property>
+                <child>
+                  <widget class="GtkLabel" id="label4">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Profesores</property>
+                  </widget>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="labelProfesores">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Profesores</property>
+                  </widget>
+                  <packing>
+                    <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label24">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Compa&#xF1;eros</property>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="labelCompaneros">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Compa&#xF1;eros</property>
+                  </widget>
+                  <packing>
+                    <property name="position">1</property>
+                    <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label14">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Sesiones</property>
+                  </widget>
+                  <packing>
+                    <property name="position">2</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="labelSesiones">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Sesiones</property>
+                  </widget>
+                  <packing>
+                    <property name="position">2</property>
+                    <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label8">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Citas</property>
+                  </widget>
+                  <packing>
+                    <property name="position">3</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="labelNotas">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Notas</property>
+                  </widget>
+                  <packing>
+                    <property name="position">2</property>
+                    <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="label5">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Notas</property>
+                  </widget>
+                  <packing>
+                    <property name="position">4</property>
+                  </packing>
+                </child>
+                <child>
+                  <widget class="GtkLabel" id="labelCitas">
+                    <property name="visible">True</property>
+                    <property name="label" translatable="yes">Citas</property>
+                  </widget>
+                  <packing>
+                    <property name="position">2</property>
+                    <property name="tab_fill">False</property>
+                    <property name="type">tab</property>
+                  </packing>
+                </child>
+              </widget>
+              <packing>
+                <property name="resize">True</property>
+                <property name="shrink">True</property>
+              </packing>
+            </child>
+          </widget>
+          <packing>
+            <property name="position">2</property>
+          </packing>
         </child>
         <child>
           <widget class="GtkStatusbar" id="statusbar">

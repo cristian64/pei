@@ -12,7 +12,14 @@ int main (int argc, char **argv)
 
     try
     {
-        refXml = Gnome::Glade::Xml::create("interfaces.glade");
+        // Extrae la interfaz desde el fichero "interfaces.glade.h", que contiene el fichero .glade entrecomillado y asignado a interfacesGlade.
+        // De esta forma, se añade la interfaz al binario y no es necesario el fichero .glade junto al binario.
+        std::string interfacesGlade = "";
+        #include "interfaces.glade.h"
+
+        // Carga la interfaz y crea la ventana principal.
+        refXml = Gnome::Glade::Xml::create_from_buffer(interfacesGlade.c_str(), interfacesGlade.length());
+		//refXml = Gnome::Glade::Xml::create("Vista-gtkmm/interfaces.glade");
 
         refXml->get_widget("MainWindow", ventana);
         if (ventana)
