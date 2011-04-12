@@ -30,6 +30,7 @@
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista-gtkmm/MainWindow.h</itemPath>
+        <itemPath>Codigo/Vista-gtkmm/interfaces.glade.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f7"
                      displayName="Vista-multiple"
