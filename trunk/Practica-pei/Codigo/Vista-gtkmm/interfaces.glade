@@ -199,6 +199,7 @@
               <widget class="GtkTreeView" id="treeviewAsignaturas">
                 <property name="visible">True</property>
                 <property name="can_focus">True</property>
+                <property name="reorderable">True</property>
               </widget>
               <packing>
                 <property name="resize">False</property>

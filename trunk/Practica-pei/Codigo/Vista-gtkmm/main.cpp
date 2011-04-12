@@ -19,7 +19,7 @@ int main (int argc, char **argv)
 
         // Carga la interfaz y crea la ventana principal.
         refXml = Gnome::Glade::Xml::create_from_buffer(interfacesGlade.c_str(), interfacesGlade.length());
-		//refXml = Gnome::Glade::Xml::create("Vista-gtkmm/interfaces.glade");
+        //refXml = Gnome::Glade::Xml::create("Vista-gtkmm/interfaces.glade");
 
         refXml->get_widget("MainWindow", ventana);
         if (ventana)
