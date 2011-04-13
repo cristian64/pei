@@ -148,6 +148,7 @@
         <ccTool>
           <incDir>
             <pElem>Codigo/Modelo</pElem>
+            <pElem>Codigo/Modelo/tinyxml</pElem>
             <pElem>Codigo/Vista</pElem>
             <pElem>Codigo/Vista-gtkmm</pElem>
             <pElem>Codigo/Vista-qt</pElem>

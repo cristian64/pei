@@ -1,4 +1,5 @@
 #include "Sesion.h"
+#include <sstream>
 
 Sesion::Sesion()
 {
@@ -53,4 +54,22 @@ Fecha Sesion::getFechaFin() const
 void Sesion::setFechaFin(Fecha fechaFin)
 {
     this->fechaFin = fechaFin;
+}
+
+std::string Sesion::toXml() const
+{
+    std::stringstream flujo;
+    flujo << "\t<sesion>" << std::endl;
+    flujo << "\t\t<tipo>" << tipo << "</tipo>" << std::endl;
+    flujo << "\t\t<lugar>" << lugar << "</lugar>" << std::endl;
+    flujo << "\t\t<dia>" << dia << "</dia>" << std::endl;
+    flujo << "\t\t<fechaInicio>" << fechaInicio.toString() << "</fechaInicio>" << std::endl;
+    flujo << "\t\t<fechaFin>" << fechaFin.toString() << "</fechaFin>" << std::endl;
+    flujo << "\t</sesion>" << std::endl;
+    return flujo.str();
+}
+
+void Sesion::fromXml(const std::string &xml)
+{
+    //TODO: usar tinyxml y leer el fichero y procesar el fichero
 }

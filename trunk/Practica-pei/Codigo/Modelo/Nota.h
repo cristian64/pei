@@ -14,6 +14,9 @@ public:
     float getNota() const;
     void setEmail(float nota);
 
+    std::string toXml() const;
+    void fromXml(const std::string &xml);
+
 private:
     std::string descripcion;
     float nota;

@@ -1,4 +1,6 @@
 #include "Asignatura.h"
+#include "tinyxml.h"
+#include <sstream>
 
 Asignatura::Asignatura(const std::string &nombre) :
     nombre(nombre)
@@ -133,4 +135,71 @@ std::list<Cita*>& Asignatura::obtenerCitas()
 std::list<Sesion*>& Asignatura::obtenerSesiones()
 {
     return sesiones;
+}
+
+std::string Asignatura::toXml() const
+{
+    std::stringstream flujo;
+    flujo << "<asignatura>" << std::endl;
+    flujo << "\t<nombre>" << nombre << "</nombre>" << std::endl;
+    for (std::list<Profesor*>::const_iterator i = profesores.begin(); i != profesores.end(); i++)
+        flujo << (*i)->toXml();
+    for (std::list<Companero*>::const_iterator i = companeros.begin(); i != companeros.end(); i++)
+        flujo << (*i)->toXml();
+    for (std::list<Nota*>::const_iterator i = notas.begin(); i != notas.end(); i++)
+        flujo << (*i)->toXml();
+    for (std::list<Cita*>::const_iterator i = citas.begin(); i != citas.end(); i++)
+        flujo << (*i)->toXml();
+    for (std::list<Sesion*>::const_iterator i = sesiones.begin(); i != sesiones.end(); i++)
+        flujo << (*i)->toXml();
+    flujo << "</asignatura>" << std::endl;
+    return flujo.str();
+}
+
+void Asignatura::fromXml(const std::string &xml)
+{
+    // Limpia la información anterior.
+    for (std::list<Profesor*>::iterator i = profesores.begin(); i != profesores.end(); i++)
+        delete *i;
+    profesores.clear();
+    for (std::list<Companero*>::iterator i = companeros.begin(); i != companeros.end(); i++)
+        delete *i;
+    companeros.clear();
+    for (std::list<Nota*>::iterator i = notas.begin(); i != notas.end(); i++)
+        delete *i;
+    notas.clear();
+    for (std::list<Cita*>::iterator i = citas.begin(); i != citas.end(); i++)
+        delete *i;
+    citas.clear();
+    for (std::list<Sesion*>::iterator i = sesiones.begin(); i != sesiones.end(); i++)
+        delete *i;
+    sesiones.clear();
+
+    // Crea un documento XML a partir de la cadena recibida.
+    TiXmlDocument documento("");
+    documento.Parse(xml.c_str(), NULL, TIXML_ENCODING_UTF8);
+
+    // Busca todas las etiquetas <asignatura> y crea una asignatura a partir de ella.
+    TiXmlElement *etiqueta = documento.FirstChildElement("asignatura");
+    if (etiqueta != NULL)
+    {
+        /*etiqueta = etiqueta->FirstChildElement("nombre");
+        nombre = etiqueta->ToText()->;
+        printf("%s", nombre.c_str());
+
+        while (etiqueta != NULL)
+        {
+            // Convierte el objeto TiXmlElement en std::string usando TiXmlPrinter.
+            TiXmlPrinter printer;
+            etiqueta->Accept(&printer);
+
+            // Crea, parsea y añade la asignatura.
+            Asignatura *asignatura = new Asignatura();
+            asignatura->fromXml(printer.CStr());
+            asignaturas.push_back(asignatura);
+
+            // Busca la siguiente etiqueta <asignatura>.
+            etiqueta = etiqueta->NextSiblingElement();
+        }*/
+    }
 }

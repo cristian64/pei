@@ -28,6 +28,8 @@ int main()
     Companero *companero = new Companero();
     companero->setNombre("Ernesto García");
     asignatura->anadirCompanero(companero);
-    
     vista2.refrescar();
+
+    cout << asignaturas.toXml() << endl;
+    asignaturas.fromXml(asignaturas.toXml());
 }

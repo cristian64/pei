@@ -13,7 +13,7 @@
 class Asignatura : public Modelo
 {
 public:
-    Asignatura(const std::string &nombre);
+    Asignatura(const std::string &nombre = "");
     ~Asignatura();
     
     std::string getNombre() const;
@@ -42,6 +42,9 @@ public:
     std::list<Nota*>& obtenerNotas();
     std::list<Cita*>& obtenerCitas();
     std::list<Sesion*>& obtenerSesiones();
+
+    std::string toXml() const;
+    void fromXml(const std::string &xml);
 
 private:
     std::string nombre;
