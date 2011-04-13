@@ -11,6 +11,7 @@ public:
     enum Tipo { TEORIA = 0, PRACTICAS };
 
     Sesion();
+    Sesion(Sesion::Tipo tipo, const std::string &lugar, Sesion::Dia dia, const Fecha &fechaInicio, const Fecha &fechaFin);
 
     Sesion::Tipo getTipo() const;
     void setTipo(Sesion::Tipo tipo);

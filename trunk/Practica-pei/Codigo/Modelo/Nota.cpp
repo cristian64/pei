@@ -1,9 +1,17 @@
 #include "Nota.h"
+#include "tinyxml.h"
 #include <sstream>
+#include <cstdlib>
 
-Nota::Nota()
+Nota::Nota() :
+    nota(0.0f)
 {
-    nota = 0.0f;
+}
+
+Nota::Nota(const std::string &descripcion, float nota) :
+    descripcion(descripcion),
+    nota(nota)
+{
 }
 
 std::string Nota::getDescripcion() const
@@ -21,7 +29,7 @@ float Nota::getNota() const
     return nota;
 }
 
-void Nota::setEmail(float nota)
+void Nota::setNota(float nota)
 {
     this->nota = nota;
 }
@@ -38,5 +46,20 @@ std::string Nota::toXml() const
 
 void Nota::fromXml(const std::string &xml)
 {
-    //TODO: usar tinyxml y leer el fichero y procesar el fichero
+    // Crea un documento XML a partir de la cadena recibida.
+    TiXmlDocument documento("");
+    documento.Parse(xml.c_str(), NULL, TIXML_ENCODING_UTF8);
+
+    // Extrae la etiqueta raíz.
+    TiXmlElement *etiqueta = documento.FirstChildElement("nota");
+    if (etiqueta != NULL)
+    {
+        // Extraemos los atributos propios.
+        TiXmlElement *auxiliar = etiqueta->FirstChildElement("descripcion");
+        if (auxiliar != NULL)
+            descripcion = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
+        auxiliar = etiqueta->FirstChildElement("nota");
+        if (auxiliar != NULL)
+            nota = auxiliar->FirstChild() != NULL ? atof(auxiliar->FirstChild()->Value()) : 0.0f;
+    }
 }

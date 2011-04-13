@@ -1,9 +1,17 @@
 #include "Cita.h"
+#include "tinyxml.h"
 #include <sstream>
 
-Cita::Cita()
+Cita::Cita() :
+    duracion(duracion)
 {
-    duracion = 60;
+}
+
+Cita::Cita(const std::string &descripcion, const Fecha &fecha, int duracion) :
+    descripcion(descripcion),
+    fecha(fecha),
+    duracion(duracion)
+{
 }
 
 std::string Cita::getDescripcion() const
@@ -49,5 +57,23 @@ std::string Cita::toXml() const
 
 void Cita::fromXml(const std::string &xml)
 {
-    //TODO: usar tinyxml y leer el fichero y procesar el fichero
+    // Crea un documento XML a partir de la cadena recibida.
+    TiXmlDocument documento("");
+    documento.Parse(xml.c_str(), NULL, TIXML_ENCODING_UTF8);
+
+    // Extrae la etiqueta raíz.
+    TiXmlElement *etiqueta = documento.FirstChildElement("cita");
+    if (etiqueta != NULL)
+    {
+        // Extraemos los atributos propios.
+        TiXmlElement *auxiliar = etiqueta->FirstChildElement("descripcion");
+        if (auxiliar != NULL)
+            descripcion = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
+        auxiliar = etiqueta->FirstChildElement("fecha");
+        if (auxiliar != NULL)
+            fecha = auxiliar->FirstChild() != NULL ? Fecha(auxiliar->FirstChild()->Value()) : Fecha();
+        auxiliar = etiqueta->FirstChildElement("duracion");
+        if (auxiliar != NULL)
+            duracion = auxiliar->FirstChild() != NULL ? atoi(auxiliar->FirstChild()->Value()) : 60;
+    }
 }

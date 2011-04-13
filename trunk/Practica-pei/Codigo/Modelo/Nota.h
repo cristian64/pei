@@ -7,12 +7,13 @@ class Nota
 {
 public:
     Nota();
+    Nota(const std::string &descripcion, float nota);
 
     std::string getDescripcion() const;
     void setDescripcion(const std::string &descripcion);
 
     float getNota() const;
-    void setEmail(float nota);
+    void setNota(float nota);
 
     std::string toXml() const;
     void fromXml(const std::string &xml);

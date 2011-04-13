@@ -17,6 +17,9 @@ public:
 
     std::string toXml() const;
     void fromXml(const std::string &xml);
+
+    void guardar(const std::string &rutaFichero) const;
+    void cargar(const std::string &rutaFichero);
     
 private:
     std::list<Asignatura*> asignaturas;
