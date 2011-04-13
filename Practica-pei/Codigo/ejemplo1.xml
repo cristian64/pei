@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<asignatura>
+	<nombre>Educación física</nombre>
+	<profesor>
+		<nombre>Antonio Pérez</nombre>
+		<email></email>
+	</profesor>
+	<profesor>
+		<nombre>Fernando Ortiz Soriano</nombre>
+		<email>fernando@yopmail.com</email>
+	</profesor>
+	<profesor>
+		<nombre>Paula García</nombre>
+		<email>paula@yopmail.com</email>
+	</profesor>
+	<profesor>
+		<nombre>Rodrigo Quesada</nombre>
+		<email>rodrigo@yopmail.com</email>
+	</profesor>
+	<companero>
+		<nombre>Ernesto García</nombre>
+		<email></email>
+	</companero>
+	<companero>
+		<nombre>Julián David Blanco</nombre>
+		<email>julian@yopmail.com</email>
+	</companero>
+	<nota>
+		<descripcion>Examen de teoría primera convocatoria</descripcion>
+		<nota>9.56</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen de prácticas 1</descripcion>
+		<nota>8</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen de prácticas 1</descripcion>
+		<nota>7.75</nota>
+	</nota>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aulario 2 B13</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 11:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>EPS I L22</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 14:30:00</fechaInicio>
+		<fechaFin>0000/00/00 16:30:00</fechaFin>
+	</sesion>
+	<cita>
+		<descripcion>Examen de teoría</descripcion>
+		<fecha>2011/04/30 17:29:13</fecha>
+		<duracion>180</duracion>
+	</cita>
+</asignatura>
+<asignatura>
+	<nombre>Matemáticas</nombre>
+</asignatura>
+<asignatura>
+	<nombre>Química</nombre>
+</asignatura>
+<asignatura>
+	<nombre>Historia</nombre>
+	<cita>
+		<descripcion>Examen de teoría</descripcion>
+		<fecha>2011/04/30 17:29:13</fecha>
+		<duracion>180</duracion>
+	</cita>
+</asignatura>
+

@@ -59,7 +59,7 @@ void Asignatura::anadirCita(Cita *cita)
 
 void Asignatura::anadirSesion(Sesion *sesion)
 {
-    sesiones.remove(sesion);
+    sesiones.push_back(sesion);
 }
 
 void Asignatura::quitarProfesor(Profesor *profesor)
