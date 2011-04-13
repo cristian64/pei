@@ -12,6 +12,9 @@ public:
     std::string getEmail() const;
     void setEmail(const std::string &email);
 
+    std::string toXml() const;
+    void fromXml(const std::string &xml);
+    
 private:
     std::string nombre;
     std::string email;

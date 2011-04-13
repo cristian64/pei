@@ -27,6 +27,9 @@ public:
     Fecha getFechaFin() const;
     void setFechaFin(Fecha fechaFin);
 
+    std::string toXml() const;
+    void fromXml(const std::string &xml);
+
 private:
     Tipo tipo;
     std::string lugar;

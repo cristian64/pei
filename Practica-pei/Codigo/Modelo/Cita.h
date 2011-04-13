@@ -18,6 +18,9 @@ public:
     int getDuracion() const;
     void setDuracion(int duracion);
 
+    std::string toXml() const;
+    void fromXml(const std::string &xml);
+
 private:
     std::string descripcion;
     Fecha fecha;

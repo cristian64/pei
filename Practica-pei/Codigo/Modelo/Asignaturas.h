@@ -15,6 +15,9 @@ public:
     void quitarAsignatura(Asignatura *asignatura);
     const std::list<Asignatura*>& obtenerAsignaturas() const;
 
+    std::string toXml() const;
+    void fromXml(const std::string &xml);
+    
 private:
     std::list<Asignatura*> asignaturas;
 };
