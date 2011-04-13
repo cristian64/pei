@@ -1,10 +1,21 @@
 #include "Sesion.h"
+#include "tinyxml.h"
+#include <cstdlib>
 #include <sstream>
 
-Sesion::Sesion()
+Sesion::Sesion() :
+    tipo(TEORIA),
+    dia(LUNES)
 {
-    tipo = TEORIA;
-    dia = LUNES;
+}
+
+Sesion::Sesion(Sesion::Tipo tipo, const std::string &lugar, Sesion::Dia dia, const Fecha &fechaInicio, const Fecha &fechaFin) :
+    tipo(tipo),
+    lugar(lugar),
+    dia(dia),
+    fechaInicio(fechaInicio),
+    fechaFin(fechaFin)
+{
 }
 
 Sesion::Tipo Sesion::getTipo() const
@@ -71,5 +82,29 @@ std::string Sesion::toXml() const
 
 void Sesion::fromXml(const std::string &xml)
 {
-    //TODO: usar tinyxml y leer el fichero y procesar el fichero
+    // Crea un documento XML a partir de la cadena recibida.
+    TiXmlDocument documento("");
+    documento.Parse(xml.c_str(), NULL, TIXML_ENCODING_UTF8);
+
+    // Extrae la etiqueta raíz..
+    TiXmlElement *etiqueta = documento.FirstChildElement("sesion");
+    if (etiqueta != NULL)
+    {
+        // Extraemos los atributos propios.
+        TiXmlElement *auxiliar = etiqueta->FirstChildElement("tipo");
+        if (auxiliar != NULL)
+            tipo = (Tipo) (auxiliar->FirstChild() != NULL ? atoi(auxiliar->FirstChild()->Value()) : TEORIA);
+        auxiliar = etiqueta->FirstChildElement("lugar");
+        if (auxiliar != NULL)
+            lugar = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
+        auxiliar = etiqueta->FirstChildElement("dia");
+        if (auxiliar != NULL)
+            dia = (Dia) (auxiliar->FirstChild() != NULL ? atoi(auxiliar->FirstChild()->Value()) : LUNES);
+        auxiliar = etiqueta->FirstChildElement("fechaInicio");
+        if (auxiliar != NULL)
+            fechaInicio = auxiliar->FirstChild() != NULL ? Fecha(auxiliar->FirstChild()->Value()) : Fecha();
+        auxiliar = etiqueta->FirstChildElement("fechaFin");
+        if (auxiliar != NULL)
+            fechaFin = auxiliar->FirstChild() != NULL ? Fecha(auxiliar->FirstChild()->Value()) : Fecha();
+    }
 }

@@ -1,5 +1,6 @@
 #include "Asignaturas.h"
 #include <sstream>
+#include <fstream>
 #include "tinyxml.h"
 #include <iostream>
 
@@ -65,5 +66,26 @@ void Asignaturas::fromXml(const std::string &xml)
 
         // Busca la siguiente etiqueta <asignatura>.
         etiqueta = etiqueta->NextSiblingElement();
+    }
+}
+
+void Asignaturas::guardar(const std::string &rutaFichero) const
+{
+    std::ofstream fichero(rutaFichero.c_str(), std::ios::out);
+    if (fichero.is_open())
+    {
+        fichero << toXml() << std::endl;
+        fichero.close();
+    }
+}
+void Asignaturas::cargar(const std::string &rutaFichero)
+{
+    std::ifstream fichero(rutaFichero.c_str(), std::ios::in);
+    if (fichero.is_open())
+    {
+        std::stringstream flujo;
+        flujo << fichero.rdbuf();
+        fromXml(flujo.str());
+        fichero.close();
     }
 }

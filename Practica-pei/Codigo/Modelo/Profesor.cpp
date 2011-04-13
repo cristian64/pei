@@ -1,5 +1,16 @@
 #include "Profesor.h"
 #include <sstream>
+#include "tinyxml.h"
+
+Profesor::Profesor()
+{
+}
+
+Profesor::Profesor(const std::string &nombre, const std::string &email) :
+    nombre(nombre),
+    email(email)
+{
+}
 
 std::string Profesor::getNombre() const
 {
@@ -33,5 +44,20 @@ std::string Profesor::toXml() const
 
 void Profesor::fromXml(const std::string &xml)
 {
-    //TODO: usar tinyxml y leer el fichero y procesar el fichero
+    // Crea un documento XML a partir de la cadena recibida.
+    TiXmlDocument documento("");
+    documento.Parse(xml.c_str(), NULL, TIXML_ENCODING_UTF8);
+
+    // Extrae la etiqueta raíz..
+    TiXmlElement *etiqueta = documento.FirstChildElement("profesor");
+    if (etiqueta != NULL)
+    {
+        // Extraemos los atributos propios.
+        TiXmlElement *auxiliar = etiqueta->FirstChildElement("nombre");
+        if (auxiliar != NULL)
+            nombre = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
+        auxiliar = etiqueta->FirstChildElement("email");
+        if (auxiliar != NULL)
+            email = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
+    }
 }

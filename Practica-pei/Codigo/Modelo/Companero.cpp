@@ -1,5 +1,16 @@
 #include "Companero.h"
+#include "tinyxml.h"
 #include <sstream>
+
+Companero::Companero()
+{
+}
+
+Companero::Companero(const std::string &nombre, const std::string &email) :
+    nombre(nombre),
+    email(email)
+{
+}
 
 std::string Companero::getNombre() const
 {
@@ -33,5 +44,20 @@ std::string Companero::toXml() const
 
 void Companero::fromXml(const std::string &xml)
 {
-    //TODO: usar tinyxml y leer el fichero y procesar el fichero
+    // Crea un documento XML a partir de la cadena recibida.
+    TiXmlDocument documento("");
+    documento.Parse(xml.c_str(), NULL, TIXML_ENCODING_UTF8);
+
+    // Extrae la etiqueta raíz.
+    TiXmlElement *etiqueta = documento.FirstChildElement("companero");
+    if (etiqueta != NULL)
+    {
+        // Extraemos los atributos propios.
+        TiXmlElement *auxiliar = etiqueta->FirstChildElement("nombre");
+        if (auxiliar != NULL)
+            nombre = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
+        auxiliar = etiqueta->FirstChildElement("email");
+        if (auxiliar != NULL)
+            email = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
+    }
 }

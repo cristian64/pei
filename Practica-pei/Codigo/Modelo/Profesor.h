@@ -6,6 +6,9 @@
 class Profesor
 {
 public:
+    Profesor();
+    Profesor(const std::string &nombre, const std::string &email);
+
     std::string getNombre() const;
     void setNombre(const std::string &nombre);
 

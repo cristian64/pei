@@ -183,23 +183,53 @@ void Asignatura::fromXml(const std::string &xml)
     TiXmlElement *etiqueta = documento.FirstChildElement("asignatura");
     if (etiqueta != NULL)
     {
-        /*etiqueta = etiqueta->FirstChildElement("nombre");
-        nombre = etiqueta->ToText()->;
-        printf("%s", nombre.c_str());
+        // Extraemos los atributos propios de la asignatura.
+        TiXmlElement *auxiliar = etiqueta->FirstChildElement("nombre");
+        if (auxiliar != NULL)
+            nombre = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
 
-        while (etiqueta != NULL)
+        // Finalmente, extraemos los profesores, compañeros, etc.
+        auxiliar = etiqueta->FirstChildElement();
+        while (auxiliar != NULL)
         {
             // Convierte el objeto TiXmlElement en std::string usando TiXmlPrinter.
             TiXmlPrinter printer;
-            etiqueta->Accept(&printer);
+            auxiliar->Accept(&printer);
 
-            // Crea, parsea y añade la asignatura.
-            Asignatura *asignatura = new Asignatura();
-            asignatura->fromXml(printer.CStr());
-            asignaturas.push_back(asignatura);
+            // Crea, parsea y añade el tipo de elemento correspondiente.
+            if (auxiliar->Value() == std::string("profesor"))
+            {
+                Profesor *profesor = new Profesor();
+                profesor->fromXml(printer.CStr());
+                profesores.push_back(profesor);
+            }
+            else if (auxiliar->Value() == std::string("companero"))
+            {
+                Companero *companero = new Companero();
+                companero->fromXml(printer.CStr());
+                companeros.push_back(companero);
+            }
+            else if (auxiliar->Value() == std::string("sesion"))
+            {
+                Sesion *sesion = new Sesion();
+                sesion->fromXml(printer.CStr());
+                sesiones.push_back(sesion);
+            }
+            else if (auxiliar->Value() == std::string("nota"))
+            {
+                Nota *nota = new Nota();
+                nota->fromXml(printer.CStr());
+                notas.push_back(nota);
+            }
+            else if (auxiliar->Value() == std::string("cita"))
+            {
+                Cita *cita = new Cita();
+                cita->fromXml(printer.CStr());
+                citas.push_back(cita);
+            }
 
-            // Busca la siguiente etiqueta <asignatura>.
-            etiqueta = etiqueta->NextSiblingElement();
-        }*/
+            // Busca la siguiente etiqueta.
+            auxiliar = auxiliar->NextSiblingElement();
+        }
     }
 }
