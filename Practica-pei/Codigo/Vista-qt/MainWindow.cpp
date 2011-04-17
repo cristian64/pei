@@ -11,6 +11,9 @@ MainWindow::MainWindow(Asignaturas *asignaturas, QWidget *parent) :
 	ui->setupUi(this);
 	ui->vistaQtAsignaturas->ponerModelo(asignaturas);
 	ui->vistaQtAsignaturas->refrescar();
+
+	ui->actionQuitar->setEnabled(false);
+	connect(ui->vistaQtAsignaturas, SIGNAL(asignaturaSeleccionadaCambio(Asignatura*)), SLOT(asignaturaSeleccionadaCambio(Asignatura*)));
 }
 
 MainWindow::~MainWindow()
@@ -107,4 +110,16 @@ void MainWindow::on_actionSalir_triggered()
 void MainWindow::on_actionAcercaDe_triggered()
 {
 
+}
+
+void MainWindow::asignaturaSeleccionadaCambio(Asignatura *asignatura)
+{
+	if (asignatura == NULL)
+	{
+		ui->actionQuitar->setEnabled(false);
+	}
+	else
+	{
+		ui->actionQuitar->setEnabled(true);
+	}
 }
