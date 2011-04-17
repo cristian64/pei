@@ -114,12 +114,7 @@ void MainWindow::on_actionAcercaDe_triggered()
 
 void MainWindow::asignaturaSeleccionadaCambio(Asignatura *asignatura)
 {
-	if (asignatura == NULL)
-	{
-		ui->actionQuitar->setEnabled(false);
-	}
-	else
-	{
-		ui->actionQuitar->setEnabled(true);
-	}
+	ui->actionQuitar->setEnabled(asignatura != NULL);
+	ui->vistaQtAsignatura->ponerModelo(asignatura);
+	ui->vistaQtAsignatura->refrescar();
 }
