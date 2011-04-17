@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Vista Qt</string>
   </property>
-  <widget class="QTabWidget" name="tabWidget"/>
+  <widget class="VistaQtAsignatura" name="vistaQtAsignatura" />
   <widget class="QDockWidget" name="dockWidgetAsignaturas">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -22,22 +22,12 @@
     </sizepolicy>
    </property>
    <property name="windowTitle">
-    <string>Asignaturas</string>
+    <string>Lista de asignaturas</string>
    </property>
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="VistaQtAsignaturas" name="vistaQtAsignaturas">
-    <property name="sizePolicy">
-     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-      <horstretch>0</horstretch>
-      <verstretch>0</verstretch>
-     </sizepolicy>
-    </property>
-    <property name="autoScrollMargin" stdset="0">
-     <number>16</number>
-    </property>
-   </widget>
+   <widget class="VistaQtAsignaturas" name="vistaQtAsignaturas" />
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -194,6 +184,11 @@
    <class>VistaQtAsignaturas</class>
    <extends>QWidget</extends>
    <header>VistaQtAsignaturas.h</header>
+  </customwidget>
+  <customwidget>
+   <class>VistaQtAsignatura</class>
+   <extends>QWidget</extends>
+   <header>VistaQtAsignatura.h</header>
   </customwidget>
  </customwidgets>
  <resources>

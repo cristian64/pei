@@ -22,47 +22,40 @@ VistaQtAsignaturas::~VistaQtAsignaturas()
 void VistaQtAsignaturas::refrescar()
 {
 	Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
-	if (asignaturas != NULL)
+	const std::list<Asignatura*> lista = asignaturas->obtenerAsignaturas();
+
+	// Cada asignatura de "vinculos" que no esté en la lista, se elimina de "vinculos" y de la QListWidget.
+	std::map<Asignatura*, QListWidgetItem*>::iterator j = vinculos.begin();
+	while (j != vinculos.end())
 	{
-		const std::list<Asignatura*> lista = asignaturas->obtenerAsignaturas();
-
-		// Cada asignatura de la lista que no este en "vinculos", se añade a "vinculos" y a la QListWidget.
-		std::list<Asignatura*>::const_iterator i = lista.begin();
-		for (; i != lista.end(); i++)
+		if (std::find(lista.begin(), lista.end(), j->first) == lista.end())
 		{
-			// Si no está, se añade; si sí está, sólo se actualiza.
-			if (vinculos.find(*i) == vinculos.end())
-			{
-				QListWidgetItem *item = new QListWidgetItem(QString::fromStdString((*i)->getNombre()));
-				item->setFlags(item->flags() | Qt::ItemIsEditable);
-				vinculos[*i] = item;
-				addItem(item);
-			}
-			else
-			{
-				vinculos[*i]->setText(QString::fromStdString((*i)->getNombre()));
-			}
+			delete j->second;
+			std::map<Asignatura*, QListWidgetItem*>::iterator aux = j++;
+			vinculos.erase(aux);
 		}
-
-		// Cada asignatura de "vinculos" que no esté en la lista, se elimina de "vinculos" y de la QListWidget.
-		std::map<Asignatura*, QListWidgetItem*>::iterator j = vinculos.begin();
-		while (j != vinculos.end())
+		else
 		{
-			if (std::find(lista.begin(), lista.end(), j->first) == lista.end())
-			{
-				delete j->second;
-				std::map<Asignatura*, QListWidgetItem*>::iterator aux = j++;
-				vinculos.erase(aux);
-			}
-			else
-			{
-				j++;
-			}
+			j++;
 		}
 	}
-	else
+
+	// Cada asignatura de la lista que no este en "vinculos", se añade a "vinculos" y a la QListWidget.
+	std::list<Asignatura*>::const_iterator i = lista.begin();
+	for (; i != lista.end(); i++)
 	{
-		//TODO: si fuera NULL; hay que limpiar todo, por si se ha desasociado del modelo que tenia
+		// Si no está, se añade; si sí está, sólo se actualiza.
+		if (vinculos.find(*i) == vinculos.end())
+		{
+			QListWidgetItem *item = new QListWidgetItem(QString::fromStdString((*i)->getNombre()));
+			item->setFlags(item->flags() | Qt::ItemIsEditable);
+			vinculos[*i] = item;
+			addItem(item);
+		}
+		else
+		{
+			vinculos[*i]->setText(QString::fromStdString((*i)->getNombre()));
+		}
 	}
 }
 
@@ -101,7 +94,11 @@ Asignatura* VistaQtAsignaturas::obtenerSeleccionada() const
 		{
 			if (i->second == seleccionada)
 			{
-				return i->first;
+				const std::list<Asignatura*> asignaturas = static_cast<Asignaturas*>(modelo)->obtenerAsignaturas();
+				if (std::find(asignaturas.begin(), asignaturas.end(), i->first) != asignaturas.end())
+					return i->first;
+				else
+					return NULL;
 			}
 		}
 	}
