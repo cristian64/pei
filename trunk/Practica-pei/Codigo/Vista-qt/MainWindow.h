@@ -22,6 +22,7 @@ private:
 	std::string nombreFichero;
 
 private slots:
+	void asignaturaSeleccionadaCambio(Asignatura *asignatura);
 	void on_actionAnadir_triggered();
 	void on_actionQuitar_triggered();
 	void on_actionNuevo_triggered();
