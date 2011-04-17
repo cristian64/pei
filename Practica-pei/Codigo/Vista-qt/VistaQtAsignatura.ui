@@ -13,10 +13,16 @@
   <property name="windowTitle">
    <string>Vista de una asignatura</string>
   </property>
+  <property name="currentIndex">
+   <number>0</number>
+  </property>
   <property name="movable">
    <bool>true</bool>
   </property>
   <widget class="QWidget" name="tabProfesores">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <attribute name="title">
     <string>Profesores</string>
    </attribute>
@@ -87,28 +93,237 @@
    </layout>
   </widget>
   <widget class="QWidget" name="tabCompaneros">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <attribute name="title">
     <string>Compañeros</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout"/>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonAnadirCompanero">
+        <property name="text">
+         <string>Añadir compañero</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonQuitarCompanero">
+        <property name="text">
+         <string>Quitar compañero</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidgetCompaneros">
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>103</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Nombre</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Correo electrónico</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QWidget" name="tabSesiones">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <attribute name="title">
     <string>Sesiones</string>
    </attribute>
    <layout class="QVBoxLayout" name="verticalLayout"/>
   </widget>
   <widget class="QWidget" name="tabCitas">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <attribute name="title">
     <string>Citas</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout"/>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonAnadirCita">
+        <property name="text">
+         <string>Añadir cita</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonQuitarCita">
+        <property name="text">
+         <string>Quitar cita</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidgetCitas">
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>103</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Descripción</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Fecha</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Duración</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QWidget" name="tabNotas">
+   <property name="autoFillBackground">
+    <bool>true</bool>
+   </property>
    <attribute name="title">
     <string>Notas</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout"/>
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <spacer name="horizontalSpacer">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>40</width>
+          <height>20</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonAnadirNota">
+        <property name="text">
+         <string>Añadir nota</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButtonQuitarNota">
+        <property name="text">
+         <string>Quitar nota</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidgetNotas">
+      <property name="alternatingRowColors">
+       <bool>true</bool>
+      </property>
+      <property name="selectionMode">
+       <enum>QAbstractItemView::SingleSelection</enum>
+      </property>
+      <property name="selectionBehavior">
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="sortingEnabled">
+       <bool>true</bool>
+      </property>
+      <attribute name="horizontalHeaderDefaultSectionSize">
+       <number>103</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
+      </attribute>
+      <column>
+       <property name="text">
+        <string>Descripción</string>
+       </property>
+      </column>
+      <column>
+       <property name="text">
+        <string>Nota</string>
+       </property>
+      </column>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources/>
