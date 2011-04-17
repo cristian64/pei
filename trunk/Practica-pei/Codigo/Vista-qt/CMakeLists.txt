@@ -14,13 +14,13 @@ SET(VISTAQT_RESOURCES icons.qrc)
 # Genera los ficheros moc y las cabeceras de los ficheros ui.
 qt4_wrap_cpp(VISTAQT_SOURCES ${VISTAQT_HEADERS})
 qt4_wrap_ui(VISTAQT_UIS_H ${VISTAQT_UIS})
-qt4_add_resources(VISTAQT_SOURCES ${VISTAQT_RESOURCES})
+qt4_add_resources(VISTAQT_RESOURCES_SOURCES ${VISTAQT_RESOURCES})
 
 # Genera la librería y la enlaza con Qt y Modelo y Vista.
 ADD_LIBRARY(Vista-qt ${VISTAQT_SOURCES} ${VISTAQT_UIS_H})
 TARGET_LINK_LIBRARIES(Vista-qt Modelo Vista ${QT_LIBRARIES})
 
 # Genera el ejecutable y se enlaza con la librería anterior.
-ADD_EXECUTABLE(VistaQt main.cpp)
+ADD_EXECUTABLE(VistaQt main.cpp ${VISTAQT_RESOURCES_SOURCES})
 TARGET_LINK_LIBRARIES(VistaQt Vista-qt)
 
