@@ -6,38 +6,36 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>970</width>
+    <height>509</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Vista Qt</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QPushButton" name="pushButton">
-    <property name="geometry">
-     <rect>
-      <x>80</x>
-      <y>80</y>
-      <width>93</width>
-      <height>27</height>
-     </rect>
+  <widget class="QTabWidget" name="tabWidget"/>
+  <widget class="QDockWidget" name="dockWidgetAsignaturas">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>Asignaturas</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="VistaQtAsignaturas" name="vistaQtAsignaturas">
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
-    <property name="text">
-     <string>PushButton</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="pushButton_2">
-    <property name="geometry">
-     <rect>
-      <x>260</x>
-      <y>160</y>
-      <width>93</width>
-      <height>27</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>PushButton</string>
+    <property name="autoScrollMargin" stdset="0">
+     <number>16</number>
     </property>
    </widget>
   </widget>
@@ -46,22 +44,160 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>970</width>
      <height>25</height>
     </rect>
    </property>
+   <widget class="QMenu" name="menuArchivo">
+    <property name="title">
+     <string>Archivo</string>
+    </property>
+    <addaction name="actionNuevo"/>
+    <addaction name="actionAbrir"/>
+    <addaction name="actionGuardar"/>
+    <addaction name="actionGuardarComo"/>
+    <addaction name="separator"/>
+    <addaction name="actionSalir"/>
+   </widget>
+   <widget class="QMenu" name="menuAyuda">
+    <property name="title">
+     <string>Ayuda</string>
+    </property>
+    <addaction name="actionAcercaDe"/>
+   </widget>
+   <addaction name="menuArchivo"/>
+   <addaction name="menuAyuda"/>
   </widget>
-  <widget class="QToolBar" name="mainToolBar">
+  <widget class="QToolBar" name="toolBarArchivo">
+   <property name="windowTitle">
+    <string>File</string>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
    <attribute name="toolBarBreak">
     <bool>false</bool>
    </attribute>
+   <addaction name="actionNuevo"/>
+   <addaction name="actionAbrir"/>
+   <addaction name="actionGuardar"/>
+   <addaction name="actionGuardarComo"/>
+  </widget>
+  <widget class="QToolBar" name="toolBarAsignaturas">
+   <property name="windowTitle">
+    <string>Asignaturas</string>
+   </property>
+   <property name="toolButtonStyle">
+    <enum>Qt::ToolButtonTextBesideIcon</enum>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionAnadir"/>
+   <addaction name="actionQuitar"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
+  <action name="actionNuevo">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/new.png</normaloff>:/icons/new.png</iconset>
+   </property>
+   <property name="text">
+    <string>Nuevo</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionAbrir">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/open.png</normaloff>:/icons/open.png</iconset>
+   </property>
+   <property name="text">
+    <string>Abrir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionGuardar">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/save.png</normaloff>:/icons/save.png</iconset>
+   </property>
+   <property name="text">
+    <string>Guardar</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionGuardarComo">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/saveas.png</normaloff>:/icons/saveas.png</iconset>
+   </property>
+   <property name="text">
+    <string>Guardar como</string>
+   </property>
+   <property name="toolTip">
+    <string>Guardar como</string>
+   </property>
+  </action>
+  <action name="actionSalir">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/exit.png</normaloff>:/icons/exit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Salir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q, Esc</string>
+   </property>
+  </action>
+  <action name="actionAcercaDe">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/about.png</normaloff>:/icons/about.png</iconset>
+   </property>
+   <property name="text">
+    <string>Acerca de</string>
+   </property>
+  </action>
+  <action name="actionAnadir">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/add.png</normaloff>:/icons/add.png</iconset>
+   </property>
+   <property name="text">
+    <string>Añadir asignatura</string>
+   </property>
+  </action>
+  <action name="actionQuitar">
+   <property name="icon">
+    <iconset resource="icons.qrc">
+     <normaloff>:/icons/remove.png</normaloff>:/icons/remove.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quitar asignatura</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <customwidgets>
+  <customwidget>
+   <class>VistaQtAsignaturas</class>
+   <extends>QWidget</extends>
+   <header>VistaQtAsignaturas.h</header>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="icons.qrc"/>
+ </resources>
  <connections/>
 </ui>

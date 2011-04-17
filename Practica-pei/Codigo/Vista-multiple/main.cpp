@@ -1,4 +1,5 @@
 #include <QtGui/QApplication>
+#include "Asignaturas.h"
 #include "MainWindow.h"
 #include "Formulario.h"
 #include <pthread.h>
@@ -55,9 +56,11 @@ void* vistaXforms(void *parameters)
 }
 
 int main(int argc, char **argv)
-{    
+{
+    Asignaturas asignaturas;
+    asignaturas.cargar("ejemplo1.xml");
     QApplication a(argc, argv);
-    MainWindow w;
+    MainWindow w(&asignaturas);
     w.show();
     
     Parameters parameters;

@@ -1,14 +1,110 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
+#include <QInputDialog>
+#include <QFileDialog>
 
-MainWindow::MainWindow(QWidget *parent) :
-    QMainWindow(parent),
-    ui(new Ui::MainWindow)
+MainWindow::MainWindow(Asignaturas *asignaturas, QWidget *parent) :
+	QMainWindow(parent),
+	asignaturas(asignaturas),
+	ui(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+	ui->setupUi(this);
+	ui->vistaQtAsignaturas->ponerModelo(asignaturas);
+	ui->vistaQtAsignaturas->refrescar();
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+	delete ui;
+}
+
+void MainWindow::on_actionAnadir_triggered()
+{
+	bool ok;
+	QString texto = QInputDialog::getText(this, "Nueva asignatura", "Nombre de la asignatura:                          ", QLineEdit::Normal, "", &ok);
+	if (ok && !texto.isEmpty())
+	{
+		asignaturas->anadirAsignatura(new Asignatura(texto.toStdString()));
+		asignaturas->refrescarVistas();
+	}
+}
+
+void MainWindow::on_actionQuitar_triggered()
+{
+	ui->vistaQtAsignaturas->quitarAsignaturaSeleccionada();
+}
+
+void MainWindow::on_actionNuevo_triggered()
+{
+	// Diálogo para preguntar al usuario dónde guardar el nuevo paquete de asignaturas.
+	QFileDialog fileDialog;
+	fileDialog.setDirectory("./");
+	fileDialog.setConfirmOverwrite(true);
+	fileDialog.setAcceptMode(QFileDialog::AcceptSave);
+	QStringList filtros;
+	filtros.push_back("*.xml *.txt");
+	filtros.push_back("*");
+	fileDialog.setFilters(filtros);
+	if (fileDialog.exec())
+	{
+		QString fileName = fileDialog.selectedFiles().front();
+		asignaturas->limpiar();
+		asignaturas->guardar(fileName.toStdString());
+		asignaturas->refrescarVistas();
+	}
+}
+
+void MainWindow::on_actionAbrir_triggered()
+{
+	// Diálogo para preguntar al usuario qué paquete de asignaturas abrir.
+	QFileDialog fileDialog;
+	fileDialog.setDirectory("./");
+	fileDialog.setFileMode(QFileDialog::ExistingFile);
+	QStringList filtros;
+	filtros.push_back("*.xml *.txt");
+	filtros.push_back("*");
+	fileDialog.setFilters(filtros);
+	if (fileDialog.exec())
+	{
+		QString fileName = fileDialog.selectedFiles().front();
+		asignaturas->cargar(fileName.toStdString());
+		asignaturas->refrescarVistas();
+	}
+}
+
+void MainWindow::on_actionGuardar_triggered()
+{
+	// Si el fichero ya estaba guardado, simplemente lo guarda. Si no lo estaba, invoca el diálogo de "Guardar como".
+	if (asignaturas->getRutaFichero() != "")
+		asignaturas->guardar(asignaturas->getRutaFichero());
+	else
+		on_actionGuardarComo_triggered();
+}
+
+void MainWindow::on_actionGuardarComo_triggered()
+{
+	// Diálogo para preguntar al usuario dónde guardar el paquete de asignaturas actual.
+	QFileDialog fileDialog;
+	fileDialog.setDirectory("./");
+	fileDialog.setConfirmOverwrite(true);
+	fileDialog.setAcceptMode(QFileDialog::AcceptSave);
+	QStringList filtros;
+	filtros.push_back("*.xml *.txt");
+	filtros.push_back("*");
+	fileDialog.setFilters(filtros);
+	if (fileDialog.exec())
+	{
+		QString fileName = fileDialog.selectedFiles().front();
+		asignaturas->cargar(fileName.toStdString());
+	}
+}
+
+void MainWindow::on_actionSalir_triggered()
+{
+	close();
+}
+
+void MainWindow::on_actionAcercaDe_triggered()
+{
+
 }

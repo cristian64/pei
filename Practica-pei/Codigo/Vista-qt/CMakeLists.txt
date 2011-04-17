@@ -6,9 +6,9 @@ add_definitions(${QT_DEFINITIONS})
 include_directories(${QT_INCLUDE_DIR})
 
 # Fuentes y cabeceras.
-SET(VISTAQT_SOURCES MainWindow.cpp)
-SET(VISTAQT_HEADERS MainWindow.h)
-SET(VISTAQT_UIS MainWindow.ui)
+SET(VISTAQT_SOURCES MainWindow.cpp VistaQtAsignaturas.cpp)
+SET(VISTAQT_HEADERS MainWindow.h VistaQtAsignaturas.h)
+SET(VISTAQT_UIS MainWindow.ui VistaQtAsignaturas.ui)
 SET(VISTAQT_RESOURCES icons.qrc)
 
 # Genera los ficheros moc y las cabeceras de los ficheros ui.

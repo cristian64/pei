@@ -3,9 +3,12 @@
 
 int main(int argc, char *argv[])
 {
-    QApplication a(argc, argv);
-    MainWindow w;
-    w.show();
+	Asignaturas asignaturas;
+	asignaturas.cargar("../ejemplo1.xml");
 
-    return a.exec();
+	QApplication a(argc, argv);
+	MainWindow w(&asignaturas);
+	w.show();
+
+	return a.exec();
 }

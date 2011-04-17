@@ -2,21 +2,34 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "Asignaturas.h"
 
 namespace Ui {
-    class MainWindow;
+	class MainWindow;
 }
 
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+	Q_OBJECT
 
 public:
-    explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+	explicit MainWindow(Asignaturas *asignaturas, QWidget *parent = 0);
+	~MainWindow();
 
 private:
-    Ui::MainWindow *ui;
+	Asignaturas *asignaturas;
+	Ui::MainWindow *ui;
+	std::string nombreFichero;
+
+private slots:
+	void on_actionAnadir_triggered();
+	void on_actionQuitar_triggered();
+	void on_actionNuevo_triggered();
+	void on_actionAbrir_triggered();
+	void on_actionGuardar_triggered();
+	void on_actionGuardarComo_triggered();
+	void on_actionSalir_triggered();
+	void on_actionAcercaDe_triggered();
 };
 
 #endif // MAINWINDOW_H
