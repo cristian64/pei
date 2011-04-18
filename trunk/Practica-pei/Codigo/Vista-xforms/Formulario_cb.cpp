@@ -45,6 +45,16 @@ void button_quitar_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
+void browser_asignaturas_cb( FL_OBJECT * ob,
+         long        data )
+{
+    /* Fill-in code for callback here */
+}
+
+
+/***************************************
+ ***************************************/
+
 void button_profesores_cb( FL_OBJECT * ob,
          long        data )
 {
@@ -106,6 +116,16 @@ void button_plus_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_minus_cb( FL_OBJECT * ob,
+         long        data )
+{
+    /* Fill-in code for callback here */
+}
+
+
+/***************************************
+ ***************************************/
+
+void browser_asignatura_cb( FL_OBJECT * ob,
          long        data )
 {
     /* Fill-in code for callback here */
