@@ -8,14 +8,14 @@ Unit of measure: FL_COORD_PIXEL
 
 =============== FORM ===============
 Name: Formulario
-Width: 1010
-Height: 531
+Width: 825
+Height: 533
 Number of Objects: 16
 
 --------------------
 class: FL_BOX
 type: UP_BOX
-box: 0 0 1010 531
+box: 0 0 825 533
 boxtype: FL_UP_BOX
 colors: FL_COL1 FL_COL1
 alignment: FL_ALIGN_CENTER
@@ -134,9 +134,9 @@ label:
 shortcut: 
 resize: FL_RESIZE_ALL
 gravity: FL_NoGravity FL_NoGravity
-name: 
-callback: 
-argument: 
+name: browser_asignaturas
+callback: browser_asignaturas_cb
+argument: 0
 
 --------------------
 class: FL_BUTTON
@@ -231,7 +231,7 @@ argument: 0
 --------------------
 class: FL_FRAME
 type: UP_FRAME
-box: 250 100 750 420
+box: 250 100 560 420
 boxtype: FL_UP_BOX
 colors: FL_BLACK FL_COL1
 alignment: FL_ALIGN_CENTER
@@ -249,7 +249,7 @@ argument:
 --------------------
 class: FL_BUTTON
 type: NORMAL_BUTTON
-box: 940 110 20 20
+box: 750 110 20 20
 boxtype: FL_UP_BOX
 colors: FL_COL1 FL_COL1
 alignment: FL_ALIGN_CENTER
@@ -267,7 +267,7 @@ argument: 0
 --------------------
 class: FL_BUTTON
 type: NORMAL_BUTTON
-box: 970 110 20 20
+box: 780 110 20 20
 boxtype: FL_UP_BOX
 colors: FL_COL1 FL_COL1
 alignment: FL_ALIGN_CENTER
@@ -285,7 +285,7 @@ argument: 0
 --------------------
 class: FL_BROWSER
 type: NORMAL_BROWSER
-box: 260 140 730 370
+box: 260 140 540 370
 boxtype: FL_DOWN_BOX
 colors: FL_WHITE FL_YELLOW
 alignment: FL_ALIGN_BOTTOM
@@ -296,9 +296,9 @@ label:
 shortcut: 
 resize: FL_RESIZE_ALL
 gravity: FL_NoGravity FL_NoGravity
-name: 
-callback: 
-argument: 
+name: browser_asignatura
+callback: browser_asignatura_cb
+argument: 0
 
 ==============================
 create_the_forms

@@ -16,9 +16,9 @@ create_form_Formulario( void )
     fdui->vdata = fdui->cdata = NULL;
     fdui->ldata = 0;
 
-    fdui->Formulario = fl_bgn_form( FL_NO_BOX, 1010, 531 );
+    fdui->Formulario = fl_bgn_form( FL_NO_BOX, 825, 533 );
 
-    obj = fl_add_box( FL_UP_BOX, 0, 0, 1010, 531, "" );
+    obj = fl_add_box( FL_UP_BOX, 0, 0, 825, 533, "" );
 
     fdui->button_abrir = obj = fl_add_button( FL_NORMAL_BUTTON, 10, 10, 110, 30, "Abrir" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
@@ -42,7 +42,8 @@ create_form_Formulario( void )
 
     fdui->text_lista = obj = fl_add_text( FL_NORMAL_TEXT, 10, 70, 170, 30, "Lista de asignaturas" );
 
-    obj = fl_add_browser( FL_NORMAL_BROWSER, 10, 100, 230, 420, "" );
+    fdui->browser_asignaturas = obj = fl_add_browser( FL_NORMAL_BROWSER, 10, 100, 230, 420, "" );
+    fl_set_object_callback( obj, browser_asignaturas_cb, 0 );
 
     fdui->button_profesores = obj = fl_add_button( FL_PUSH_BUTTON, 250, 70, 110, 30, "Profesores" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
@@ -64,17 +65,18 @@ create_form_Formulario( void )
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_notas_cb, 0 );
 
-    obj = fl_add_frame( FL_UP_FRAME, 250, 100, 750, 420, "" );
+    obj = fl_add_frame( FL_UP_FRAME, 250, 100, 560, 420, "" );
 
-    fdui->button_plus = obj = fl_add_button( FL_NORMAL_BUTTON, 940, 110, 20, 20, "+" );
+    fdui->button_plus = obj = fl_add_button( FL_NORMAL_BUTTON, 750, 110, 20, 20, "+" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_plus_cb, 0 );
 
-    fdui->button_minus = obj = fl_add_button( FL_NORMAL_BUTTON, 970, 110, 20, 20, "-" );
+    fdui->button_minus = obj = fl_add_button( FL_NORMAL_BUTTON, 780, 110, 20, 20, "-" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_minus_cb, 0 );
 
-    obj = fl_add_browser( FL_NORMAL_BROWSER, 260, 140, 730, 370, "" );
+    fdui->browser_asignatura = obj = fl_add_browser( FL_NORMAL_BROWSER, 260, 140, 540, 370, "" );
+    fl_set_object_callback( obj, browser_asignatura_cb, 0 );
 
     fl_end_form( );
 
