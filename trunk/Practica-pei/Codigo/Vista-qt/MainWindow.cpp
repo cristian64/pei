@@ -50,6 +50,7 @@ void MainWindow::on_actionNuevo_triggered()
 	fileDialog.setFilters(filtros);
 	if (fileDialog.exec())
 	{
+		ui->vistaQtAsignaturas->deseleccionar();
 		QString fileName = fileDialog.selectedFiles().front();
 		asignaturas->limpiar();
 		asignaturas->guardar(fileName.toStdString());
@@ -69,6 +70,7 @@ void MainWindow::on_actionAbrir_triggered()
 	fileDialog.setFilters(filtros);
 	if (fileDialog.exec())
 	{
+		ui->vistaQtAsignaturas->deseleccionar();
 		QString fileName = fileDialog.selectedFiles().front();
 		asignaturas->cargar(fileName.toStdString());
 		asignaturas->refrescarVistas();

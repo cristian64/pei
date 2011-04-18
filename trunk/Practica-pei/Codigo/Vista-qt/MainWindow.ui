@@ -13,7 +13,11 @@
   <property name="windowTitle">
    <string>Vista Qt</string>
   </property>
-  <widget class="VistaQtAsignatura" name="vistaQtAsignatura" />
+  <property name="windowIcon">
+   <iconset resource="icons.qrc">
+    <normaloff>:/icons/logo.png</normaloff>:/icons/logo.png</iconset>
+  </property>
+  <widget class="VistaQtAsignatura" name="vistaQtAsignatura"/>
   <widget class="QDockWidget" name="dockWidgetAsignaturas">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -27,7 +31,7 @@
    <attribute name="dockWidgetArea">
     <number>1</number>
    </attribute>
-   <widget class="VistaQtAsignaturas" name="vistaQtAsignaturas" />
+   <widget class="VistaQtAsignaturas" name="vistaQtAsignaturas"/>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

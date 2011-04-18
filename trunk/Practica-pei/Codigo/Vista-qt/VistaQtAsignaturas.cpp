@@ -30,6 +30,7 @@ void VistaQtAsignaturas::refrescar()
 	{
 		if (std::find(lista.begin(), lista.end(), j->first) == lista.end())
 		{
+			j->second->setSelected(false);
 			delete j->second;
 			std::map<Asignatura*, QListWidgetItem*>::iterator aux = j++;
 			vinculos.erase(aux);
@@ -123,4 +124,10 @@ void VistaQtAsignaturas::itemChanged(QListWidgetItem *item)
 			break;
 		}
 	}
+}
+
+void VistaQtAsignaturas::deseleccionar()
+{
+	if (selectedItems().size() > 0)
+		selectedItems().front()->setSelected(false);
 }
