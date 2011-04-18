@@ -1,5 +1,6 @@
 #include "MainWindow.h"
 #include "ui_MainWindow.h"
+#include <QTextCodec>
 #include <QInputDialog>
 #include <QFileDialog>
 
@@ -8,6 +9,11 @@ MainWindow::MainWindow(Asignaturas *asignaturas, QWidget *parent) :
 	asignaturas(asignaturas),
 	ui(new Ui::MainWindow)
 {
+	QTextCodec *linuxCodec = QTextCodec::codecForName("UTF-8");
+	QTextCodec::setCodecForTr(linuxCodec);
+	QTextCodec::setCodecForCStrings(linuxCodec);
+	QTextCodec::setCodecForLocale(linuxCodec);
+
 	ui->setupUi(this);
 	ui->vistaQtAsignaturas->ponerModelo(asignaturas);
 	ui->vistaQtAsignaturas->refrescar();

@@ -30,6 +30,7 @@ SOURCES += main.cpp\
 		../Modelo/tinyxml/tinyxmlparser.cpp \
 		DialogoProfesor.cpp \
 		DialogoCompanero.cpp \
+DialogoSesion.cpp \
 DialogoCita.cpp \
 DialogoNota.cpp
 
@@ -50,6 +51,7 @@ HEADERS  += MainWindow.h \
 		../Modelo/tinyxml/tinystr.h \
 		DialogoProfesor.h \
 		DialogoCompanero.h \
+DialogoSesion.h \
 DialogoCita.h \
 DialogoNota.h
 
@@ -58,6 +60,7 @@ FORMS    += MainWindow.ui \
 		VistaQtAsignaturas.ui \
 		DialogoProfesor.ui \
 		DialogoCompanero.ui \
+DialogoSesion.ui \
 DialogoCita.ui \
 DialogoNota.ui
 
