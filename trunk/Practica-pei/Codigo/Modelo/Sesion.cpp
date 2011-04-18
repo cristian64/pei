@@ -62,6 +62,7 @@ std::string Sesion::getDiaString() const
 	case SABADO: return "Sábado";
 	case DOMINGO: return "Domingo";
 	}
+	return "SIN ASIGNAR";
 }
 
 void Sesion::setDia(Dia dia)

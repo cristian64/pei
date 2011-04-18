@@ -14,42 +14,22 @@ typedef struct
 
 void* vistaXforms(void *parameters)
 {
-    FD_Calculadora *fd_Calculadora;
+    FD_Formulario *fd_Formulario;
 
     fl_initialize(&(((Parameters*) parameters)->argc), ((Parameters*) parameters)->argv, 0, 0, 0 );
-    fd_Calculadora = create_form_Calculadora( );
+    fd_Formulario = create_form_Formulario( );
 
     /* Fill-in form initialization code */
 
     /* Show the first form */
 
-    fl_show_form( fd_Calculadora->Calculadora, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Calculadora" );
-    fd_Calculadora->button1->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button2->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button3->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button4->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button5->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button6->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button7->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button8->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button9->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button0->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_plus->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_minus->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_div->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_mult->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_equal->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_c->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_clr->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_min->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_mr->u_vdata = fd_Calculadora->lcd;
-    fd_Calculadora->button_sign->u_vdata = fd_Calculadora->lcd;
+    fl_show_form( fd_Formulario->Formulario, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Vista Xforms" );
 
     fl_do_forms( );
 
-    if ( fl_form_is_visible( fd_Calculadora->Calculadora ) )
-        fl_hide_form( fd_Calculadora->Calculadora );
-    fl_free( fd_Calculadora );
+    if ( fl_form_is_visible( fd_Formulario->Formulario ) )
+        fl_hide_form( fd_Formulario->Formulario );
+    fl_free( fd_Formulario );
     fl_finish( );
     
     pthread_exit(0);
