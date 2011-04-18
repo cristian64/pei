@@ -7,107 +7,78 @@
 /***************************************
  ***************************************/
 
-FD_Calculadora *
-create_form_Calculadora( void )
+FD_Formulario *
+create_form_Formulario( void )
 {
     FL_OBJECT *obj;
-    FD_Calculadora *fdui = (FD_Calculadora *) fl_malloc( sizeof *fdui );
+    FD_Formulario *fdui = (FD_Formulario *) fl_malloc( sizeof *fdui );
 
     fdui->vdata = fdui->cdata = NULL;
     fdui->ldata = 0;
 
-    fdui->Calculadora = fl_bgn_form( FL_NO_BOX, 296, 319 );
+    fdui->Formulario = fl_bgn_form( FL_NO_BOX, 1010, 531 );
 
-    obj = fl_add_box( FL_UP_BOX, 0, 0, 296, 319, "" );
+    obj = fl_add_box( FL_UP_BOX, 0, 0, 1010, 531, "" );
 
-    obj = fl_add_frame( FL_ENGRAVED_FRAME, 10, 10, 270, 40, "" );
-
-    fdui->lcd = obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 270, 40, "0" );
-    fl_set_object_lalign( obj, FL_ALIGN_RIGHT | FL_ALIGN_INSIDE );
-
-    fdui->button1 = obj = fl_add_button( FL_NORMAL_BUTTON, 10, 190, 50, 50, "1" );
+    fdui->button_abrir = obj = fl_add_button( FL_NORMAL_BUTTON, 10, 10, 110, 30, "Abrir" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 1 );
+    fl_set_object_lstyle( obj, FL_BOLD_STYLE );
+    fl_set_object_callback( obj, button_abrir_cb, 0 );
 
-    fdui->button2 = obj = fl_add_button( FL_NORMAL_BUTTON, 70, 190, 50, 50, "2" );
+    fdui->button_guardar = obj = fl_add_button( FL_NORMAL_BUTTON, 130, 10, 110, 30, "Guardar" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 2 );
+    fl_set_object_lstyle( obj, FL_BOLD_STYLE );
+    fl_set_object_callback( obj, button_guardar_cb, 0 );
 
-    fdui->button3 = obj = fl_add_button( FL_NORMAL_BUTTON, 130, 190, 50, 50, "3" );
+    fdui->button_anadir = obj = fl_add_button( FL_NORMAL_BUTTON, 250, 10, 150, 30, "Añadir asignatura" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 3 );
+    fl_set_object_lstyle( obj, FL_BOLD_STYLE );
+    fl_set_object_callback( obj, button_anadir_cb, 0 );
 
-    fdui->button_plus = obj = fl_add_button( FL_NORMAL_BUTTON, 190, 70, 40, 40, "+" );
+    fdui->button_quitar = obj = fl_add_button( FL_NORMAL_BUTTON, 410, 10, 150, 30, "Quitar asignatura" );
+    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
+    fl_set_object_lstyle( obj, FL_BOLD_STYLE );
+    fl_set_object_callback( obj, button_quitar_cb, 0 );
+
+    fdui->text_lista = obj = fl_add_text( FL_NORMAL_TEXT, 10, 70, 170, 30, "Lista de asignaturas" );
+
+    obj = fl_add_browser( FL_NORMAL_BROWSER, 10, 100, 230, 420, "" );
+
+    fdui->button_profesores = obj = fl_add_button( FL_PUSH_BUTTON, 250, 70, 110, 30, "Profesores" );
+    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
+    fl_set_object_callback( obj, button_profesores_cb, 0 );
+
+    fdui->button_companeros = obj = fl_add_button( FL_PUSH_BUTTON, 360, 70, 110, 30, "Compañeros" );
+    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
+    fl_set_object_callback( obj, button_companeros_cb, 0 );
+
+    fdui->button_sesiones = obj = fl_add_button( FL_PUSH_BUTTON, 470, 70, 110, 30, "Sesiones" );
+    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
+    fl_set_object_callback( obj, button_sesiones_cb, 0 );
+
+    fdui->button_citas = obj = fl_add_button( FL_PUSH_BUTTON, 580, 70, 110, 30, "Citas" );
+    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
+    fl_set_object_callback( obj, button_citas_cb, 0 );
+
+    fdui->button_notas = obj = fl_add_button( FL_PUSH_BUTTON, 690, 70, 110, 30, "Notas" );
+    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
+    fl_set_object_callback( obj, button_notas_cb, 0 );
+
+    obj = fl_add_frame( FL_UP_FRAME, 250, 100, 750, 420, "" );
+
+    fdui->button_plus = obj = fl_add_button( FL_NORMAL_BUTTON, 940, 110, 20, 20, "+" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_plus_cb, 0 );
 
-    fdui->button4 = obj = fl_add_button( FL_NORMAL_BUTTON, 10, 130, 50, 50, "4" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 4 );
-
-    fdui->button5 = obj = fl_add_button( FL_NORMAL_BUTTON, 70, 130, 50, 50, "5" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 5 );
-
-    fdui->button6 = obj = fl_add_button( FL_NORMAL_BUTTON, 130, 130, 50, 50, "6" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 6 );
-
-    fdui->button_minus = obj = fl_add_button( FL_NORMAL_BUTTON, 190, 120, 40, 40, "-" );
+    fdui->button_minus = obj = fl_add_button( FL_NORMAL_BUTTON, 970, 110, 20, 20, "-" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_minus_cb, 0 );
 
-    fdui->button7 = obj = fl_add_button( FL_NORMAL_BUTTON, 10, 70, 50, 50, "7" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 7 );
-
-    fdui->button8 = obj = fl_add_button( FL_NORMAL_BUTTON, 70, 70, 50, 50, "8" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 8 );
-
-    fdui->button9 = obj = fl_add_button( FL_NORMAL_BUTTON, 130, 70, 50, 50, "9" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 9 );
-
-    fdui->button0 = obj = fl_add_button( FL_NORMAL_BUTTON, 10, 250, 170, 60, "0" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_cb, 0 );
-
-    fdui->button_div = obj = fl_add_button( FL_NORMAL_BUTTON, 190, 220, 40, 40, "/" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_div_cb, 0 );
-
-    fdui->button_equal = obj = fl_add_button( FL_NORMAL_BUTTON, 190, 270, 40, 40, "=" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_equal_cb, 0 );
-
-    fdui->button_mult = obj = fl_add_button( FL_NORMAL_BUTTON, 190, 170, 40, 40, "x" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_mult_cb, 0 );
-
-    fdui->button_c = obj = fl_add_button( FL_NORMAL_BUTTON, 240, 70, 40, 40, "C" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_c_cb, 0 );
-
-    fdui->button_clr = obj = fl_add_button( FL_NORMAL_BUTTON, 240, 120, 40, 40, "Clr" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_clr_cb, 0 );
-
-    fdui->button_min = obj = fl_add_button( FL_NORMAL_BUTTON, 240, 170, 40, 40, "Min" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_min_cb, 0 );
-
-    fdui->button_mr = obj = fl_add_button( FL_NORMAL_BUTTON, 240, 220, 40, 40, "MR" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_mr_cb, 0 );
-
-    fdui->button_sign = obj = fl_add_button( FL_NORMAL_BUTTON, 240, 270, 40, 39, "-/+" );
-    fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_sign_cb, 0 );
+    obj = fl_add_browser( FL_NORMAL_BROWSER, 260, 140, 730, 370, "" );
 
     fl_end_form( );
 
-    fdui->Calculadora->fdui = fdui;
+    fdui->Formulario->fdui = fdui;
 
     return fdui;
 }
