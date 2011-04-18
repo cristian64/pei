@@ -20,6 +20,7 @@ public:
 	void refrescar();
 	void quitarAsignaturaSeleccionada();
 	Asignatura* obtenerSeleccionada() const;
+	void deseleccionar();
 
 private:
 	Ui::VistaQtAsignaturas *ui;

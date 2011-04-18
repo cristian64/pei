@@ -2,7 +2,6 @@
 #include "ui_VistaQtAsignatura.h"
 
 #include <algorithm>
-#include <iostream>
 #include "DialogoProfesor.h"
 #include "DialogoCompanero.h"
 #include "DialogoCita.h"
@@ -141,22 +140,6 @@ void VistaQtAsignatura::refrescar()
 			}
 		}
 
-		// Los citas que no estuvieran en la lista, se eliminan del widget.
-		rows = ui->tableWidgetCitas->rowCount();
-		for (int i = 0; i < rows; i++)
-		{
-			QTableWidgetItem *item = ui->tableWidgetCitas->item(i, 0);
-			Cita *cita = vinculoCita(item);
-			const std::list<Cita*> citas = asignatura->obtenerCitas();
-			if (std::find(citas.begin(), citas.end(), cita) == citas.end())
-			{
-				desvincularCita(cita);
-				ui->tableWidgetCitas->removeRow(i);
-				i--;
-				rows--;
-			}
-		}
-
 		// Se añaden los cita nuevos (o se actualizan).
 		const std::list<Cita*> citas = asignatura->obtenerCitas();
 		std::list<Cita*>::const_iterator cita = citas.begin();
@@ -187,6 +170,22 @@ void VistaQtAsignatura::refrescar()
 			vinculosCitas[item3] = *cita;
 		}
 
+		// Los citas que no estuvieran en la lista, se eliminan del widget.
+		rows = ui->tableWidgetCitas->rowCount();
+		for (int i = 0; i < rows; i++)
+		{
+			QTableWidgetItem *item = ui->tableWidgetCitas->item(i, 0);
+			Cita *cita = vinculoCita(item);
+			const std::list<Cita*> citas = asignatura->obtenerCitas();
+			if (std::find(citas.begin(), citas.end(), cita) == citas.end())
+			{
+				desvincularCita(cita);
+				ui->tableWidgetCitas->removeRow(i);
+				i--;
+				rows--;
+			}
+		}
+
 		// Se añaden los nota nuevos (o se actualizan).
 		const std::list<Nota*> notas = asignatura->obtenerNotas();
 		std::list<Nota*>::const_iterator nota = notas.begin();
@@ -203,14 +202,14 @@ void VistaQtAsignatura::refrescar()
 			{
 				desvincularNota(*nota);
 			}
-			QTableWidgetItem *nombre = new QTableWidgetItem(QString::fromStdString((*nota)->getDescripcion()));
-			nombre->setFlags(nombre->flags() & ~Qt::ItemIsEditable);
-			QTableWidgetItem *email = new QTableWidgetItem(QString::number((*nota)->getNota()));
-			email->setFlags(email->flags() & ~Qt::ItemIsEditable);
-			ui->tableWidgetNotas->setItem(row, 0, nombre);
-			ui->tableWidgetNotas->setItem(row, 1, email);
-			vinculosNotas[nombre] = *nota;
-			vinculosNotas[email] = *nota;
+			QTableWidgetItem *item1 = new QTableWidgetItem(QString::fromStdString((*nota)->getDescripcion()));
+			item1->setFlags(item1->flags() & ~Qt::ItemIsEditable);
+			QTableWidgetItem *item2 = new QTableWidgetItem(QString::number((*nota)->getNota()));
+			item2->setFlags(item2->flags() & ~Qt::ItemIsEditable);
+			ui->tableWidgetNotas->setItem(row, 0, item1);
+			ui->tableWidgetNotas->setItem(row, 1, item2);
+			vinculosNotas[item1] = *nota;
+			vinculosNotas[item2] = *nota;
 		}
 	}
 	else

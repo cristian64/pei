@@ -2,7 +2,6 @@
 #include <sstream>
 #include <fstream>
 #include "tinyxml.h"
-#include <iostream>
 
 Asignaturas::Asignaturas()
 {
