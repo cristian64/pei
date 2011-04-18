@@ -4,6 +4,7 @@
 #include <algorithm>
 #include "DialogoProfesor.h"
 #include "DialogoCompanero.h"
+#include "DialogoSesion.h"
 #include "DialogoCita.h"
 #include "DialogoNota.h"
 
@@ -20,6 +21,7 @@ VistaQtAsignatura::VistaQtAsignatura(QWidget *parent) :
 	tabBar()->setEnabled(false);
 	ui->tableWidgetProfesores->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
 	ui->tableWidgetCompaneros->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
+	ui->tableWidgetSesiones->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
 	ui->tableWidgetCitas->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
 	ui->tableWidgetNotas->horizontalHeader()->setResizeMode(QHeaderView::Stretch);
 }
@@ -124,17 +126,71 @@ void VistaQtAsignatura::refrescar()
 			vinculosCompaneros[email] = *companero;
 		}
 
-		// Los notas que no estuvieran en la lista, se eliminan del widget.
-		rows = ui->tableWidgetNotas->rowCount();
+		// Los sesiones que no estuvieran en la lista, se eliminan del widget.
+		rows = ui->tableWidgetSesiones->rowCount();
 		for (int i = 0; i < rows; i++)
 		{
-			QTableWidgetItem *item = ui->tableWidgetNotas->item(i, 0);
-			Nota *nota = vinculoNota(item);
-			const std::list<Nota*> notas = asignatura->obtenerNotas();
-			if (std::find(notas.begin(), notas.end(), nota) == notas.end())
+			QTableWidgetItem *item = ui->tableWidgetSesiones->item(i, 0);
+			Sesion *sesion = vinculoSesion(item);
+			const std::list<Sesion*> sesiones = asignatura->obtenerSesiones();
+			if (std::find(sesiones.begin(), sesiones.end(), sesion) == sesiones.end())
 			{
-				desvincularNota(nota);
-				ui->tableWidgetNotas->removeRow(i);
+				desvincularSesion(sesion);
+				ui->tableWidgetSesiones->removeRow(i);
+				i--;
+				rows--;
+			}
+		}
+
+		// Se añaden los sesion nuevos (o se actualizan).
+		const std::list<Sesion*> sesiones = asignatura->obtenerSesiones();
+		std::list<Sesion*>::const_iterator sesion = sesiones.begin();
+		for (; sesion != sesiones.end(); sesion++)
+		{
+			// Si el sesion ya estaba, se modifica la fila. Si no estaba, se crea una fila nueva.
+			int row = filaSesion(*sesion);
+			if (row == -1)
+			{
+				row = ui->tableWidgetSesiones->rowCount();
+				ui->tableWidgetSesiones->insertRow(row);
+			}
+			else
+			{
+				desvincularSesion(*sesion);
+			}
+			QTableWidgetItem *item1 = new QTableWidgetItem(QString::fromStdString((*sesion)->getTipoString()));
+			item1->setFlags(item1->flags() & ~Qt::ItemIsEditable);
+			QTableWidgetItem *item2 = new QTableWidgetItem(QString::fromStdString((*sesion)->getLugar()));
+			item2->setFlags(item2->flags() & ~Qt::ItemIsEditable);
+			QTableWidgetItem *item3 = new QTableWidgetItem(QString::fromStdString((*sesion)->getDiaString()));
+			item3->setFlags(item3->flags() & ~Qt::ItemIsEditable);
+			QTableWidgetItem *item4 = new QTableWidgetItem(QString::fromStdString((*sesion)->getFechaInicio().toStringHora()));
+			item4->setFlags(item4->flags() & ~Qt::ItemIsEditable);
+			QTableWidgetItem *item5 = new QTableWidgetItem(QString::fromStdString((*sesion)->getFechaFin().toStringHora()));
+			item5->setFlags(item5->flags() & ~Qt::ItemIsEditable);
+			ui->tableWidgetSesiones->setItem(row, 0, item1);
+			ui->tableWidgetSesiones->setItem(row, 1, item2);
+			ui->tableWidgetSesiones->setItem(row, 2, item3);
+			ui->tableWidgetSesiones->setItem(row, 3, item4);
+			ui->tableWidgetSesiones->setItem(row, 4, item5);
+			vinculosSesiones[item1] = *sesion;
+			vinculosSesiones[item2] = *sesion;
+			vinculosSesiones[item3] = *sesion;
+			vinculosSesiones[item4] = *sesion;
+			vinculosSesiones[item5] = *sesion;
+		}
+
+		// Los citas que no estuvieran en la lista, se eliminan del widget.
+		rows = ui->tableWidgetCitas->rowCount();
+		for (int i = 0; i < rows; i++)
+		{
+			QTableWidgetItem *item = ui->tableWidgetCitas->item(i, 0);
+			Cita *cita = vinculoCita(item);
+			const std::list<Cita*> citas = asignatura->obtenerCitas();
+			if (std::find(citas.begin(), citas.end(), cita) == citas.end())
+			{
+				desvincularCita(cita);
+				ui->tableWidgetCitas->removeRow(i);
 				i--;
 				rows--;
 			}
@@ -170,17 +226,17 @@ void VistaQtAsignatura::refrescar()
 			vinculosCitas[item3] = *cita;
 		}
 
-		// Los citas que no estuvieran en la lista, se eliminan del widget.
-		rows = ui->tableWidgetCitas->rowCount();
+		// Los notas que no estuvieran en la lista, se eliminan del widget.
+		rows = ui->tableWidgetNotas->rowCount();
 		for (int i = 0; i < rows; i++)
 		{
-			QTableWidgetItem *item = ui->tableWidgetCitas->item(i, 0);
-			Cita *cita = vinculoCita(item);
-			const std::list<Cita*> citas = asignatura->obtenerCitas();
-			if (std::find(citas.begin(), citas.end(), cita) == citas.end())
+			QTableWidgetItem *item = ui->tableWidgetNotas->item(i, 0);
+			Nota *nota = vinculoNota(item);
+			const std::list<Nota*> notas = asignatura->obtenerNotas();
+			if (std::find(notas.begin(), notas.end(), nota) == notas.end())
 			{
-				desvincularCita(cita);
-				ui->tableWidgetCitas->removeRow(i);
+				desvincularNota(nota);
+				ui->tableWidgetNotas->removeRow(i);
 				i--;
 				rows--;
 			}
@@ -522,4 +578,76 @@ void VistaQtAsignatura::on_pushButtonAnadirCita_clicked()
 {
 	DialogoCita dialogoCita(NULL, (Asignatura*) modelo, this);
 	dialogoCita.exec();
+}
+
+void VistaQtAsignatura::on_tableWidgetSesiones_itemDoubleClicked(QTableWidgetItem *item)
+{
+	DialogoSesion dialogoSesion(vinculoSesion(item), (Asignatura*) modelo, this);
+	dialogoSesion.exec();
+}
+
+Sesion* VistaQtAsignatura::vinculoSesion(QTableWidgetItem *item) const
+{
+	std::map<QTableWidgetItem*, Sesion*>::const_iterator i = vinculosSesiones.begin();
+	for (; i != vinculosSesiones.end(); i++)
+	{
+		if (i->first == item)
+			return i->second;
+	}
+	return NULL;
+}
+
+int VistaQtAsignatura::filaSesion(Sesion *sesion) const
+{
+	std::map<QTableWidgetItem*, Sesion*>::const_iterator i = vinculosSesiones.begin();
+	for (; i != vinculosSesiones.end(); i++)
+	{
+		if (i->second == sesion)
+			return ui->tableWidgetSesiones->row(i->first);
+	}
+	return -1;
+}
+
+void VistaQtAsignatura::desvincularSesion(Sesion *sesion)
+{
+	std::map<QTableWidgetItem*, Sesion*>::iterator i = vinculosSesiones.begin();
+	while (i != vinculosSesiones.end())
+	{
+		if (i->second == sesion)
+		{
+			std::map<QTableWidgetItem*, Sesion*>::iterator aux = i++;
+			vinculosSesiones.erase(aux);
+		}
+		else
+		{
+			i++;
+		}
+	}
+}
+
+void VistaQtAsignatura::quitarSesionSeleccionado()
+{
+	if (ui->tableWidgetSesiones->selectedItems().size() > 0)
+	{
+		Sesion *sesion = vinculoSesion(ui->tableWidgetSesiones->selectedItems().first());
+		Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+		if (asignatura != NULL && sesion != NULL)
+		{
+			ui->tableWidgetSesiones->removeRow(ui->tableWidgetSesiones->row(ui->tableWidgetSesiones->selectedItems().first()));
+			desvincularSesion(sesion);
+			asignatura->quitarSesion(sesion);
+			asignatura->refrescarVistas(this);
+		}
+	}
+}
+
+void VistaQtAsignatura::on_pushButtonQuitarSesion_clicked()
+{
+	quitarSesionSeleccionado();
+}
+
+void VistaQtAsignatura::on_pushButtonAnadirSesion_clicked()
+{
+	DialogoSesion dialogoSesion(NULL, (Asignatura*) modelo, this);
+	dialogoSesion.exec();
 }

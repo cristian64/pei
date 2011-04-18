@@ -36,6 +36,12 @@ private:
 	void desvincularCompanero(Companero *companero);
 	void quitarCompaneroSeleccionado();
 
+	std::map<QTableWidgetItem*, Sesion*> vinculosSesiones;
+	Sesion* vinculoSesion(QTableWidgetItem *item) const;
+	int filaSesion(Sesion *sesion) const;
+	void desvincularSesion(Sesion *sesion);
+	void quitarSesionSeleccionado();
+
 	std::map<QTableWidgetItem*, Cita*> vinculosCitas;
 	Cita* vinculoCita(QTableWidgetItem *item) const;
 	int filaCita(Cita *cita) const;
@@ -56,6 +62,10 @@ private slots:
 	void on_pushButtonAnadirCompanero_clicked();
 	void on_pushButtonQuitarCompanero_clicked();
 	void on_tableWidgetCompaneros_itemDoubleClicked(QTableWidgetItem *item);
+
+	void on_pushButtonAnadirSesion_clicked();
+	void on_pushButtonQuitarSesion_clicked();
+	void on_tableWidgetSesiones_itemDoubleClicked(QTableWidgetItem *item);
 
 	void on_pushButtonAnadirCita_clicked();
 	void on_pushButtonQuitarCita_clicked();
