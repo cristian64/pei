@@ -8,7 +8,11 @@
 void button_abrir_cb( FL_OBJECT * ob,
          long        data )
 {
-    /* Fill-in code for callback here */
+    FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
+    if (formulario != NULL)
+    {
+        fl_add_browser_line(formulario->browser_asignaturas, "pollaca");
+    }
 }
 
 
@@ -18,7 +22,11 @@ void button_abrir_cb( FL_OBJECT * ob,
 void button_guardar_cb( FL_OBJECT * ob,
          long        data )
 {
-    /* Fill-in code for callback here */
+    FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
+    if (formulario != NULL)
+    {
+        fl_clear_browser(formulario->browser_asignaturas);
+    }
 }
 
 

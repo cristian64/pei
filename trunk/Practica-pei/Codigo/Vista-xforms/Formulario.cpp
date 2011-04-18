@@ -42,7 +42,7 @@ create_form_Formulario( void )
 
     fdui->text_lista = obj = fl_add_text( FL_NORMAL_TEXT, 10, 70, 170, 30, "Lista de asignaturas" );
 
-    fdui->browser_asignaturas = obj = fl_add_browser( FL_NORMAL_BROWSER, 10, 100, 230, 420, "" );
+    fdui->browser_asignaturas = obj = fl_add_browser( FL_HOLD_BROWSER, 10, 100, 230, 420, "" );
     fl_set_object_callback( obj, browser_asignaturas_cb, 0 );
 
     fdui->button_profesores = obj = fl_add_button( FL_PUSH_BUTTON, 250, 70, 110, 30, "Profesores" );
@@ -75,7 +75,7 @@ create_form_Formulario( void )
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_minus_cb, 0 );
 
-    fdui->browser_asignatura = obj = fl_add_browser( FL_NORMAL_BROWSER, 260, 140, 540, 370, "" );
+    fdui->browser_asignatura = obj = fl_add_browser( FL_HOLD_BROWSER, 260, 140, 540, 370, "" );
     fl_set_object_callback( obj, browser_asignatura_cb, 0 );
 
     fl_end_form( );
