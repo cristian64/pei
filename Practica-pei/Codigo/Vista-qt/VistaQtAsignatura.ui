@@ -26,11 +26,11 @@
    <attribute name="title">
     <string>Profesores</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout1">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout1">
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="horizontalSpacer1">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -99,11 +99,11 @@
    <attribute name="title">
     <string>Compañeros</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout2">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout2">
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="horizontalSpacer2">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -172,11 +172,11 @@
    <attribute name="title">
     <string>Sesiones</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout3">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout3">
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="horizontalSpacer3">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -260,11 +260,11 @@
    <attribute name="title">
     <string>Citas</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout4">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout4">
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="horizontalSpacer4">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
@@ -338,11 +338,11 @@
    <attribute name="title">
     <string>Notas</string>
    </attribute>
-   <layout class="QVBoxLayout" name="verticalLayout">
+   <layout class="QVBoxLayout" name="verticalLayout5">
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout">
+     <layout class="QHBoxLayout" name="horizontalLayout5">
       <item>
-       <spacer name="horizontalSpacer">
+       <spacer name="horizontalSpacer5">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
