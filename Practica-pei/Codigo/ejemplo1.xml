@@ -26,17 +26,14 @@
 		<email>julian@yopmail.com</email>
 	</companero>
 	<nota>
-		<descripcion>Examen de teoría primera convocatoria</descripcion>
-		<nota>9.56</nota>
+		<descripcion>asasd asd</descripcion>
+		<nota>9.12312</nota>
 	</nota>
-	<nota>
-		<descripcion>Examen de prácticas 1</descripcion>
-		<nota>8</nota>
-	</nota>
-	<nota>
-		<descripcion>Examen de prácticas 1</descripcion>
-		<nota>7.75</nota>
-	</nota>
+	<cita>
+		<descripcion>Examen de teoría</descripcion>
+		<fecha>2011/04/30 17:29:13</fecha>
+		<duracion>180</duracion>
+	</cita>
 	<sesion>
 		<tipo>0</tipo>
 		<lugar>Aulario 2 B13</lugar>
@@ -51,11 +48,6 @@
 		<fechaInicio>0000/00/00 14:30:00</fechaInicio>
 		<fechaFin>0000/00/00 16:30:00</fechaFin>
 	</sesion>
-	<cita>
-		<descripcion>Examen de teoría</descripcion>
-		<fecha>2011/04/30 17:29:13</fecha>
-		<duracion>180</duracion>
-	</cita>
 </asignatura>
 <asignatura>
 	<nombre>Matemáticas</nombre>
