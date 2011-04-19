@@ -8,7 +8,7 @@ link_directories(${GTKMM_LIBRARY_DIRS} ${GLADEMM_LIBRARY_DIRS})
 include_directories(${GTKMM_INCLUDE_DIRS} ${GLADEMM_INCLUDE_DIRS})
 
 # Fuentes y cabeceras del código.
-SET(OBJ MainWindow.cpp)
+SET(OBJ )
 
 # Genera la librería y la enlaza con Gtkmm, Glademm y con Modelo y Vista.
 ADD_LIBRARY(Vista-gtkmm ${OBJ})
