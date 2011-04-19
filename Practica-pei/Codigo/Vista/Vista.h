@@ -19,6 +19,7 @@ public:
     virtual ~Vista() = 0;
     virtual void refrescar() = 0;
     void ponerModelo(Modelo *modelo);
+    Modelo* obtenerModelo() const;
     
 protected:
     Modelo *modelo;

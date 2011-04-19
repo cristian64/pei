@@ -31,3 +31,8 @@ void Vista::ponerModelo(Modelo *modelo)
             modelo->anadirVista(this);
     }
 }
+
+Modelo* Vista::obtenerModelo() const
+{
+    return modelo;
+}
