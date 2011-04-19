@@ -1,4 +1,7 @@
 #include "Formulario.h"
+#include "Asignaturas.h"
+#include "VistaXformsAsignaturas.h"
+#include "VistaXformsAsignatura.h"
 
 int
 main( int    argc,
@@ -9,7 +12,19 @@ main( int    argc,
     fl_initialize( &argc, argv, 0, 0, 0 );
     fd_Formulario = create_form_Formulario( );
 
-    /* Fill-in form initialization code */
+    // Se crea el modelo y la vista.
+    Asignaturas asignaturas;
+    VistaXformsAsignaturas vistaXformsAsignaturas;
+    vistaXformsAsignaturas.formulario = fd_Formulario;
+    vistaXformsAsignaturas.ponerModelo(&asignaturas);
+    asignaturas.cargar("ejemplo1.xml");
+    asignaturas.refrescarVistas();
+    VistaXformsAsignatura vistaXformsAsignatura;
+    vistaXformsAsignatura.formulario = fd_Formulario;
+
+    // Se asocia a cada objeto del formulario las vistas para que puedan manipular el modelo de cada vista.
+    fd_Formulario->vdata = &vistaXformsAsignaturas;
+    fd_Formulario->cdata = (char*) (&vistaXformsAsignatura);
 
     /* Show the first form */
 

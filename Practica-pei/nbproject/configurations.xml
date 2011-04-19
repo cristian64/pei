@@ -29,7 +29,6 @@
                      displayName="Vista-gtkmm"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
-        <itemPath>Codigo/Vista-gtkmm/MainWindow.h</itemPath>
         <itemPath>Codigo/Vista-gtkmm/interfaces.glade.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f7"
@@ -55,6 +54,8 @@
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista-xforms/Formulario.h</itemPath>
+        <itemPath>Codigo/Vista-xforms/VistaXformsAsignatura.h</itemPath>
+        <itemPath>Codigo/Vista-xforms/VistaXformsAsignaturas.h</itemPath>
       </logicalFolder>
     </logicalFolder>
     <logicalFolder name="ResourceFiles"
@@ -90,7 +91,6 @@
                      displayName="Vista-gtkmm"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
-        <itemPath>Codigo/Vista-gtkmm/MainWindow.cpp</itemPath>
         <itemPath>Codigo/Vista-gtkmm/main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f7"
@@ -122,6 +122,8 @@
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista-xforms/Formulario.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/Formulario_cb.cpp</itemPath>
+        <itemPath>Codigo/Vista-xforms/VistaXformsAsignatura.cpp</itemPath>
+        <itemPath>Codigo/Vista-xforms/VistaXformsAsignaturas.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/main.cpp</itemPath>
       </logicalFolder>
     </logicalFolder>

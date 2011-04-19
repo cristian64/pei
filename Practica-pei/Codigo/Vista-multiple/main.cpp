@@ -2,6 +2,9 @@
 #include "Asignaturas.h"
 #include "MainWindow.h"
 #include "Formulario.h"
+#include "VistaXformsAsignaturas.h"
+#include "VistaXformsAsignatura.h"
+#include "../Vista-xforms/VistaXformsAsignaturas.h"
 #include <pthread.h>
 #include <iostream>
 using namespace std;
@@ -10,6 +13,7 @@ typedef struct
 {
     int argc;
     char **argv;
+    Asignaturas *asignaturas;
 } Parameters;
 
 void* vistaXforms(void *parameters)
@@ -19,7 +23,17 @@ void* vistaXforms(void *parameters)
     fl_initialize(&(((Parameters*) parameters)->argc), ((Parameters*) parameters)->argv, 0, 0, 0 );
     fd_Formulario = create_form_Formulario( );
 
-    /* Fill-in form initialization code */
+    // Se crea el modelo y la vista.
+    VistaXformsAsignaturas vistaXformsAsignaturas;
+    vistaXformsAsignaturas.formulario = fd_Formulario;
+    vistaXformsAsignaturas.ponerModelo(((Parameters*) parameters)->asignaturas);
+    vistaXformsAsignaturas.refrescar();
+    VistaXformsAsignatura vistaXformsAsignatura;
+    vistaXformsAsignatura.formulario = fd_Formulario;
+
+    // Se asocia a cada objeto del formulario las vistas para que puedan manipular el modelo de cada vista.
+    fd_Formulario->vdata = &vistaXformsAsignaturas;
+    fd_Formulario->cdata = (char*) (&vistaXformsAsignatura);
 
     /* Show the first form */
 
@@ -39,6 +53,7 @@ int main(int argc, char **argv)
 {
     Asignaturas asignaturas;
     asignaturas.cargar("ejemplo1.xml");
+    asignaturas.refrescarVistas();
     QApplication a(argc, argv);
     MainWindow w(&asignaturas);
     w.show();
@@ -46,10 +61,12 @@ int main(int argc, char **argv)
     Parameters parameters;
     parameters.argc = argc;
     parameters.argv = argv;
+    parameters.asignaturas = &asignaturas;
     
-	pthread_t vistaQt_thread;
-	pthread_create(&vistaQt_thread, NULL, vistaXforms, &parameters);
+    pthread_t vistaQt_thread;
+    pthread_create(&vistaQt_thread, NULL, vistaXforms, &parameters);
+    
     return a.exec();
-	pthread_join(vistaQt_thread, NULL);
+    pthread_join(vistaQt_thread, NULL);
 }
 

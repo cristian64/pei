@@ -12,6 +12,7 @@ extern void button_guardar_cb( FL_OBJECT *, long );
 extern void button_anadir_cb( FL_OBJECT *, long );
 extern void button_quitar_cb( FL_OBJECT *, long );
 extern void browser_asignaturas_cb( FL_OBJECT *, long );
+extern void browser_asignaturas_dblclick_cb( FL_OBJECT *, long );
 extern void button_profesores_cb( FL_OBJECT *, long );
 extern void button_companeros_cb( FL_OBJECT *, long );
 extern void button_sesiones_cb( FL_OBJECT *, long );
@@ -20,6 +21,7 @@ extern void button_notas_cb( FL_OBJECT *, long );
 extern void button_plus_cb( FL_OBJECT *, long );
 extern void button_minus_cb( FL_OBJECT *, long );
 extern void browser_asignatura_cb( FL_OBJECT *, long );
+extern void browser_asignatura_dblclick_cb( FL_OBJECT *, long );
 
 
 /* Forms and Objects */
