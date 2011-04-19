@@ -1,5 +1,5 @@
 # Establecer los módulos a compilar.
-SET(OBJ Formulario.cpp Formulario_cb.cpp)
+SET(OBJ Formulario.cpp Formulario_cb.cpp VistaXformsAsignaturas.cpp VistaXformsAsignatura.cpp)
 
 # Compilar la librería, enlazándola con Modelo y Vista y sus dependencias externas.
 ADD_LIBRARY(Vista-xforms ${OBJ})
