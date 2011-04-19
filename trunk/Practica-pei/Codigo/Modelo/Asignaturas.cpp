@@ -23,6 +23,7 @@ void Asignaturas::anadirAsignatura(Asignatura *asignatura)
 void Asignaturas::quitarAsignatura(Asignatura *asignatura)
 {
 	asignaturas.remove(asignatura);
+    delete asignatura;
 }
 
 const std::list<Asignatura*>& Asignaturas::obtenerAsignaturas() const

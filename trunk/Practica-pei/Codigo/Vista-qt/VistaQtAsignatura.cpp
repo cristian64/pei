@@ -33,7 +33,7 @@ VistaQtAsignatura::~VistaQtAsignatura()
 
 void VistaQtAsignatura::refrescar()
 {
-	Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+	Asignatura *asignatura = dynamic_cast<Asignatura*>(modelo);
 	if (asignatura != NULL)
 	{
 		if (ultimaAsignaturaRefrescada != asignatura)
@@ -290,6 +290,15 @@ void VistaQtAsignatura::limpiar()
 	while (ui->tableWidgetCompaneros->rowCount())
 		ui->tableWidgetCompaneros->removeRow(0);
 	vinculosCompaneros.clear();
+	while (ui->tableWidgetSesiones->rowCount())
+		ui->tableWidgetSesiones->removeRow(0);
+	vinculosSesiones.clear();
+	while (ui->tableWidgetCitas->rowCount())
+		ui->tableWidgetCitas->removeRow(0);
+	vinculosCitas.clear();
+	while (ui->tableWidgetNotas->rowCount())
+		ui->tableWidgetNotas->removeRow(0);
+	vinculosNotas.clear();
 }
 
 void VistaQtAsignatura::on_tableWidgetProfesores_itemDoubleClicked(QTableWidgetItem *item)

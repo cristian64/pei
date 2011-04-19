@@ -152,50 +152,40 @@ void browser_asignaturas_dblclick_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void button_profesores_cb( FL_OBJECT * ob,
+void button_pestana_cb( FL_OBJECT * ob,
          long        data )
 {
-    /* Fill-in code for callback here */
-}
+    FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
+    fl_set_button(formulario->button_profesores, 1);
+    fl_set_button(formulario->button_companeros, 1);
+    fl_set_button(formulario->button_sesiones, 1);
+    fl_set_button(formulario->button_citas, 1);
+    fl_set_button(formulario->button_notas, 1);
+    fl_set_object_lstyle(formulario->button_profesores, 0);
+    fl_set_object_lstyle(formulario->button_companeros, 0);
+    fl_set_object_lstyle(formulario->button_sesiones, 0);
+    fl_set_object_lstyle(formulario->button_citas, 0);
+    fl_set_object_lstyle(formulario->button_notas, 0);
+    fl_set_object_lcolor(formulario->button_profesores, 17);
+    fl_set_object_lcolor(formulario->button_companeros, 17);
+    fl_set_object_lcolor(formulario->button_sesiones, 17);
+    fl_set_object_lcolor(formulario->button_citas, 17);
+    fl_set_object_lcolor(formulario->button_notas, 17);
+    fl_set_object_lsize(formulario->button_profesores, 8);
+    fl_set_object_lsize(formulario->button_companeros, 8);
+    fl_set_object_lsize(formulario->button_sesiones, 8);
+    fl_set_object_lsize(formulario->button_citas, 8);
+    fl_set_object_lsize(formulario->button_notas, 8);
 
-/***************************************
- ***************************************/
-
-void button_companeros_cb( FL_OBJECT * ob,
-         long        data )
-{
-    /* Fill-in code for callback here */
-}
-
-
-/***************************************
- ***************************************/
-
-void button_sesiones_cb( FL_OBJECT * ob,
-         long        data )
-{
-    /* Fill-in code for callback here */
-}
-
-
-/***************************************
- ***************************************/
-
-void button_citas_cb( FL_OBJECT * ob,
-         long        data )
-{
-    /* Fill-in code for callback here */
-}
-
-
-/***************************************
- ***************************************/
-
-void button_notas_cb( FL_OBJECT * ob,
-         long        data )
-{
-    /* Fill-in code for callback here */
+    fl_set_button(ob, 0);
+    fl_set_object_lstyle(ob, 1);
+    fl_set_object_lcolor(ob, 0);
+    fl_set_object_lsize(ob, 9);
+    
+    VistaXformsAsignatura *vistaXformsAsignatura = (VistaXformsAsignatura *) formulario->cdata;
+    if (vistaXformsAsignatura != NULL)
+        vistaXformsAsignatura->refrescar();
 }
 
 
@@ -205,7 +195,8 @@ void button_notas_cb( FL_OBJECT * ob,
 void button_plus_cb( FL_OBJECT * ob,
          long        data )
 {
-    /* Fill-in code for callback here */
+
+    //TODO: crear formulario correspondiente con el objeto indicado a NULL
 }
 
 
@@ -215,7 +206,61 @@ void button_plus_cb( FL_OBJECT * ob,
 void button_minus_cb( FL_OBJECT * ob,
          long        data )
 {
-    /* Fill-in code for callback here */
+    FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
+
+    int seleccionada = fl_get_browser(formulario->browser_asignatura);
+    if (seleccionada > 0)
+    {
+        Asignatura *asignatura = dynamic_cast<Asignatura *>(((Vista*) formulario->cdata)->obtenerModelo());
+        if (asignatura != NULL)
+        {
+            if (fl_get_button(formulario->button_profesores) == 0)
+            {
+                // Elimina el profesor del modelo y actualiza todas las vistas menos esta.
+                std::list<Profesor*>::const_iterator i = asignatura->obtenerProfesores().begin();
+                std::advance(i, seleccionada - 1);
+                asignatura->quitarProfesor(*i);
+                asignatura->refrescarVistas((Vista*) formulario->cdata);
+            }
+            else if (fl_get_button(formulario->button_companeros) == 0)
+            {
+                // Elimina el compañero del modelo y actualiza todas las vistas menos esta.
+                std::list<Companero*>::const_iterator i = asignatura->obtenerCompaneros().begin();
+                std::advance(i, seleccionada - 1);
+                asignatura->quitarCompanero(*i);
+                asignatura->refrescarVistas((Vista*) formulario->cdata);
+            }
+            else if (fl_get_button(formulario->button_sesiones) == 0)
+            {
+                // Elimina la sesión del modelo y actualiza todas las vistas menos esta.
+                std::list<Sesion*>::const_iterator i = asignatura->obtenerSesiones().begin();
+                std::advance(i, seleccionada - 1);
+                asignatura->quitarSesion(*i);
+                asignatura->refrescarVistas((Vista*) formulario->cdata);
+            }
+            else if (fl_get_button(formulario->button_citas) == 0)
+            {
+                // Elimina la cita del modelo y actualiza todas las vistas menos esta.
+                std::list<Cita*>::const_iterator i = asignatura->obtenerCitas().begin();
+                std::advance(i, seleccionada - 1);
+                asignatura->quitarCita(*i);
+                asignatura->refrescarVistas((Vista*) formulario->cdata);
+            }
+            else if (fl_get_button(formulario->button_notas) == 0)
+            {
+                // Elimina la nota del modelo y actualiza todas las vistas menos esta.
+                std::list<Nota*>::const_iterator i = asignatura->obtenerNotas().begin();
+                std::advance(i, seleccionada - 1);
+                asignatura->quitarNota(*i);
+                asignatura->refrescarVistas((Vista*) formulario->cdata);
+            }
+
+            // Elimina el elemento de la lista y, si hay más elementos, selecciona el siguiente.
+            fl_delete_browser_line(formulario->browser_asignatura, seleccionada);
+            int lineas = fl_get_browser_maxline(formulario->browser_asignatura);
+            fl_select_browser_line(formulario->browser_asignatura, (lineas < seleccionada) ? lineas : seleccionada);
+        }
+    }
 }
 
 
@@ -225,7 +270,7 @@ void button_minus_cb( FL_OBJECT * ob,
 void browser_asignatura_cb( FL_OBJECT * ob,
          long        data )
 {
-    /* Fill-in code for callback here */
+    
 }
 
 /***************************************
@@ -234,5 +279,5 @@ void browser_asignatura_cb( FL_OBJECT * ob,
 void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
          long        data )
 {
-    /* Fill-in code for callback here */
+    //TODO: crear formulario correspondiente indicandole el objeto a editar
 }
