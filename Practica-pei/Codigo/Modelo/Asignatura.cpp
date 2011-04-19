@@ -65,26 +65,31 @@ void Asignatura::anadirSesion(Sesion *sesion)
 void Asignatura::quitarProfesor(Profesor *profesor)
 {
     profesores.remove(profesor);
+    delete profesor;
 }
 
 void Asignatura::quitarCompanero(Companero *companero)
 {
     companeros.remove(companero);
+    delete companero;
 }
 
 void Asignatura::quitarNota(Nota *nota)
 {
     notas.remove(nota);
+    delete nota;
 }
 
 void Asignatura::quitarCita(Cita *cita)
 {
     citas.remove(cita);
+    delete cita;
 }
 
 void Asignatura::quitarSesion(Sesion *sesion)
 {
     sesiones.remove(sesion);
+    delete sesion;
 }
 
 const std::list<Profesor*>& Asignatura::obtenerProfesores() const

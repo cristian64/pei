@@ -48,23 +48,23 @@ create_form_Formulario( void )
 
     fdui->button_profesores = obj = fl_add_button( FL_PUSH_BUTTON, 250, 70, 110, 30, "Profesores" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_profesores_cb, 0 );
+    fl_set_object_callback( obj, button_pestana_cb, 0 );
 
     fdui->button_companeros = obj = fl_add_button( FL_PUSH_BUTTON, 360, 70, 110, 30, "Compañeros" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_companeros_cb, 0 );
+    fl_set_object_callback( obj, button_pestana_cb, 0 );
 
     fdui->button_sesiones = obj = fl_add_button( FL_PUSH_BUTTON, 470, 70, 110, 30, "Sesiones" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_sesiones_cb, 0 );
+    fl_set_object_callback( obj, button_pestana_cb, 0 );
 
     fdui->button_citas = obj = fl_add_button( FL_PUSH_BUTTON, 580, 70, 110, 30, "Citas" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_citas_cb, 0 );
+    fl_set_object_callback( obj, button_pestana_cb, 0 );
 
     fdui->button_notas = obj = fl_add_button( FL_PUSH_BUTTON, 690, 70, 110, 30, "Notas" );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
-    fl_set_object_callback( obj, button_notas_cb, 0 );
+    fl_set_object_callback( obj, button_pestana_cb, 0 );
 
     obj = fl_add_frame( FL_UP_FRAME, 250, 100, 560, 420, "" );
 
@@ -83,6 +83,8 @@ create_form_Formulario( void )
     fl_end_form( );
 
     fdui->Formulario->fdui = fdui;
+
+    button_pestana_cb(fdui->button_profesores, 0);
 
     return fdui;
 }
