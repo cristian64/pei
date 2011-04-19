@@ -40,7 +40,14 @@
                      displayName="Vista-qt"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-qt/DialogoCita.h</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoCompanero.h</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoNota.h</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoProfesor.h</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoSesion.h</itemPath>
         <itemPath>Codigo/Vista-qt/MainWindow.h</itemPath>
+        <itemPath>Codigo/Vista-qt/VistaQtAsignatura.h</itemPath>
+        <itemPath>Codigo/Vista-qt/VistaQtAsignaturas.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5"
                      displayName="Vista-txt"
@@ -103,7 +110,14 @@
                      displayName="Vista-qt"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-qt/DialogoCita.cpp</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoCompanero.cpp</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoNota.cpp</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoProfesor.cpp</itemPath>
+        <itemPath>Codigo/Vista-qt/DialogoSesion.cpp</itemPath>
         <itemPath>Codigo/Vista-qt/MainWindow.cpp</itemPath>
+        <itemPath>Codigo/Vista-qt/VistaQtAsignatura.cpp</itemPath>
+        <itemPath>Codigo/Vista-qt/VistaQtAsignaturas.cpp</itemPath>
         <itemPath>Codigo/Vista-qt/main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3"
