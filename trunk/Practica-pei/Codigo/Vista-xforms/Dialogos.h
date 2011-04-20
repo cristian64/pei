@@ -12,14 +12,7 @@ extern void input_email_cb( FL_OBJECT *, long );
 extern void button_aceptar_cb( FL_OBJECT *, long );
 extern void button_cancelar_cb( FL_OBJECT *, long );
 
-extern void input_nombre_cb( FL_OBJECT *, long );
-extern void input_email_cb( FL_OBJECT *, long );
-extern void button_aceptar_cb( FL_OBJECT *, long );
-extern void button_cancelar_cb( FL_OBJECT *, long );
-
 extern void input_lugar_cb( FL_OBJECT *, long );
-extern void button_aceptar_cb( FL_OBJECT *, long );
-extern void button_cancelar_cb( FL_OBJECT *, long );
 extern void spinner_hora_cb( FL_OBJECT *, long );
 extern void spinner_minuto_cb( FL_OBJECT *, long );
 extern void spinner_segundo_cb( FL_OBJECT *, long );
@@ -31,21 +24,13 @@ extern void spinner_minuto2_cb( FL_OBJECT *, long );
 extern void spinner_segundo2_cb( FL_OBJECT *, long );
 
 extern void input_descripcion_cb( FL_OBJECT *, long );
-extern void button_aceptar_cb( FL_OBJECT *, long );
-extern void button_cancelar_cb( FL_OBJECT *, long );
 extern void spinner_duracion_cb( FL_OBJECT *, long );
 extern void spinner_dia_cb( FL_OBJECT *, long );
 extern void spinner_mes_cb( FL_OBJECT *, long );
 extern void spinner_ano_cb( FL_OBJECT *, long );
-extern void spinner_hora_cb( FL_OBJECT *, long );
-extern void spinner_minuto_cb( FL_OBJECT *, long );
-extern void spinner_segundo_cb( FL_OBJECT *, long );
 
-extern void input_descripcion_cb( FL_OBJECT *, long );
-extern void button_aceptar_cb( FL_OBJECT *, long );
-extern void button_cancelar_cb( FL_OBJECT *, long );
 extern void spinner_nota_cb( FL_OBJECT *, long );
-
+extern int form_atclose(FL_FORM *, void *);
 
 /* Forms and Objects */
 

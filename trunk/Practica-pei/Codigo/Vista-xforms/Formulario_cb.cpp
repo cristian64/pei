@@ -197,30 +197,68 @@ void button_plus_cb( FL_OBJECT * ob,
          long        data )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
-    
-	if (fl_get_button(formulario->button_profesores) == 0)
-	{
-		FD_DialogoSesion *fd_DialogoSesion = create_form_DialogoSesion();
-		fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir un nuevo profesor");
-		//fd_DialogoNota->asignar Asignaturas y NULL.
-		//fl_free(fd_DialogoSesion);
-	}
-	else if (fl_get_button(formulario->button_companeros) == 0)
-	{
-		
-	}
-	else if (fl_get_button(formulario->button_sesiones) == 0)
-	{
-		
-	}
-	else if (fl_get_button(formulario->button_citas) == 0)
-	{
-		
-	}
-	else if (fl_get_button(formulario->button_notas) == 0)
-	{
-		
-	}
+
+    // Comprobamos si hay alguna asignatura seleccionada.
+    int seleccionada = fl_get_browser(formulario->browser_asignaturas);
+    if (seleccionada > 0)
+    {
+        // Elimina la asignatura del modelo y refresca todas las vistas menos esta.
+        Asignaturas *asignaturas = dynamic_cast<Asignaturas *>(((Vista*) formulario->vdata)->obtenerModelo());
+        std::list<Asignatura*>::const_iterator i = asignaturas->obtenerAsignaturas().begin();
+        std::advance(i, seleccionada - 1);
+        Asignatura *asignatura = *i;
+
+        if (fl_get_button(formulario->button_profesores) == 0)
+        {
+            FD_DialogoProfesor *fd_DialogoProfesor = create_form_DialogoProfesor();
+            fl_show_form(fd_DialogoProfesor->DialogoProfesor, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir un nuevo profesor");
+
+            // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+            fd_DialogoProfesor->DialogoProfesor->u_vdata = asignatura;
+            fd_DialogoProfesor->DialogoProfesor->u_cdata = NULL;
+            fd_DialogoProfesor->DialogoProfesor->u_ldata = 1;
+        }
+        else if (fl_get_button(formulario->button_companeros) == 0)
+        {
+            FD_DialogoCompanero *fd_DialogoCompanero = create_form_DialogoCompanero();
+            fl_show_form(fd_DialogoCompanero->DialogoCompanero, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir un nuevo compañero");
+
+            // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+            fd_DialogoCompanero->DialogoCompanero->u_vdata = asignatura;
+            fd_DialogoCompanero->DialogoCompanero->u_cdata = NULL;
+            fd_DialogoCompanero->DialogoCompanero->u_ldata = 2;
+        }
+        else if (fl_get_button(formulario->button_sesiones) == 0)
+        {
+            FD_DialogoSesion *fd_DialogoSesion = create_form_DialogoSesion();
+            fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir una nueva sesión");
+
+            // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+            fd_DialogoSesion->DialogoSesion->u_vdata = asignatura;
+            fd_DialogoSesion->DialogoSesion->u_cdata = NULL;
+            fd_DialogoSesion->DialogoSesion->u_ldata = 3;
+        }
+        else if (fl_get_button(formulario->button_citas) == 0)
+        {
+            FD_DialogoCita *fd_DialogoCita = create_form_DialogoCita();
+            fl_show_form(fd_DialogoCita->DialogoCita, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir una nueva cita");
+
+            // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+            fd_DialogoCita->DialogoCita->u_vdata = asignatura;
+            fd_DialogoCita->DialogoCita->u_cdata = NULL;
+            fd_DialogoCita->DialogoCita->u_ldata = 3;
+        }
+        else if (fl_get_button(formulario->button_notas) == 0)
+        {
+            FD_DialogoNota *fd_DialogoNota = create_form_DialogoNota();
+            fl_show_form(fd_DialogoNota->DialogoNota, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir una nueva nota");
+
+            // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+            fd_DialogoNota->DialogoNota->u_vdata = asignatura;
+            fd_DialogoNota->DialogoNota->u_cdata = NULL;
+            fd_DialogoNota->DialogoNota->u_ldata = 3;
+        }
+    }
 }
 
 

@@ -60,8 +60,8 @@
                      displayName="Vista-xforms"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
-        <itemPath>Codigo/Vista-xforms/Formulario.h</itemPath>
         <itemPath>Codigo/Vista-xforms/Dialogos.h</itemPath>
+        <itemPath>Codigo/Vista-xforms/Formulario.h</itemPath>
         <itemPath>Codigo/Vista-xforms/VistaXformsAsignatura.h</itemPath>
         <itemPath>Codigo/Vista-xforms/VistaXformsAsignaturas.h</itemPath>
       </logicalFolder>
@@ -135,10 +135,10 @@
                      displayName="Vista-xforms"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
-        <itemPath>Codigo/Vista-xforms/Formulario.cpp</itemPath>
-        <itemPath>Codigo/Vista-xforms/Formulario_cb.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/Dialogos.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/Dialogos_cb.cpp</itemPath>
+        <itemPath>Codigo/Vista-xforms/Formulario.cpp</itemPath>
+        <itemPath>Codigo/Vista-xforms/Formulario_cb.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/VistaXformsAsignatura.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/VistaXformsAsignaturas.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/main.cpp</itemPath>
