@@ -3,6 +3,7 @@
 
 #include "Vista.h"
 #include "Formulario.h"
+#include "VistaXformsAsignatura.h"
 
 class VistaXformsAsignaturas : public Vista
 {
@@ -11,6 +12,7 @@ public:
     void refrescar();
     
     FD_Formulario *formulario;
+    VistaXformsAsignatura *vistaXformsAsignatura;
 };
 
 #endif	/* VISTAXFORMSASIGNATURAS_H */
