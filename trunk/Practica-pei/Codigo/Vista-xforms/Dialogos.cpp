@@ -22,7 +22,7 @@ create_form_DialogoProfesor( void )
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del profesor:" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrÃ³nico:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrónico:" );
 
     fdui->input_nombre = obj = fl_add_input( FL_NORMAL_INPUT, 10, 40, 480, 40, "" );
     fl_set_object_lalign( obj, FL_ALIGN_TOP );
@@ -65,9 +65,9 @@ create_form_DialogoCompanero( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 245, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del compaÃ±ero:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del compañero:" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrÃ³nico:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrónico:" );
 
     fdui->input_nombre = obj = fl_add_input( FL_NORMAL_INPUT, 10, 40, 480, 40, "" );
     fl_set_object_lalign( obj, FL_ALIGN_TOP );
@@ -129,15 +129,15 @@ create_form_DialogoSesion( void )
 
     fdui->spinner_hora = obj = fl_add_spinner( FL_INT_SPINNER, 10, 300, 60, 40, "" );
     fl_set_object_callback( obj, spinner_hora_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 24 );
+    fl_set_spinner_bounds( obj, 0, 23 );
 
     fdui->spinner_minuto = obj = fl_add_spinner( FL_INT_SPINNER, 80, 300, 60, 40, "" );
     fl_set_object_callback( obj, spinner_minuto_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 10000 );
+    fl_set_spinner_bounds( obj, 0, 59 );
 
     fdui->spinner_segundo = obj = fl_add_spinner( FL_INT_SPINNER, 150, 300, 60, 40, "" );
     fl_set_object_callback( obj, spinner_segundo_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 60 );
+    fl_set_spinner_bounds( obj, 0, 59 );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Lugar:" );
 
@@ -168,15 +168,15 @@ create_form_DialogoSesion( void )
 
     fdui->spinner_hora2 = obj = fl_add_spinner( FL_INT_SPINNER, 290, 300, 60, 40, "" );
     fl_set_object_callback( obj, spinner_hora2_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 24 );
+    fl_set_spinner_bounds( obj, 0, 23 );
 
     fdui->spinner_minuto2 = obj = fl_add_spinner( FL_INT_SPINNER, 360, 300, 60, 40, "" );
     fl_set_object_callback( obj, spinner_minuto2_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 10000 );
+    fl_set_spinner_bounds( obj, 0, 59 );
 
     fdui->spinner_segundo2 = obj = fl_add_spinner( FL_INT_SPINNER, 430, 300, 60, 40, "" );
     fl_set_object_callback( obj, spinner_segundo2_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 60 );
+    fl_set_spinner_bounds( obj, 0, 59 );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 290, 270, 200, 30, "Hora de fin:" );
 
@@ -204,7 +204,7 @@ create_form_DialogoCita( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 335, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripcion:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripción:" );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Fecha (dd/mm/aaaa hh:mm:ss):" );
 
@@ -226,7 +226,7 @@ create_form_DialogoCita( void )
     fl_set_spinner_bounds( obj, 0, 50000 );
     fl_set_spinner_step( obj, 0 );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 190, 480, 30, "Duracion:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 190, 480, 30, "Duración:" );
 
     fdui->spinner_dia = obj = fl_add_spinner( FL_INT_SPINNER, 10, 130, 60, 40, "" );
     fl_set_object_callback( obj, spinner_dia_cb, 0 );
@@ -235,7 +235,7 @@ create_form_DialogoCita( void )
 
     fdui->spinner_mes = obj = fl_add_spinner( FL_INT_SPINNER, 80, 130, 60, 40, "" );
     fl_set_object_callback( obj, spinner_mes_cb, 0 );
-    fl_set_spinner_bounds( obj, 1, 10000 );
+    fl_set_spinner_bounds( obj, 1, 12 );
     fl_set_spinner_value( obj, 1 );
 
     fdui->spinner_ano = obj = fl_add_spinner( FL_INT_SPINNER, 150, 130, 90, 40, "" );
@@ -245,15 +245,15 @@ create_form_DialogoCita( void )
 
     fdui->spinner_hora = obj = fl_add_spinner( FL_INT_SPINNER, 290, 130, 60, 40, "" );
     fl_set_object_callback( obj, spinner_hora_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 24 );
+    fl_set_spinner_bounds( obj, 0, 23 );
 
     fdui->spinner_minuto = obj = fl_add_spinner( FL_INT_SPINNER, 360, 130, 60, 40, "" );
     fl_set_object_callback( obj, spinner_minuto_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 10000 );
+    fl_set_spinner_bounds( obj, 0, 59 );
 
     fdui->spinner_segundo = obj = fl_add_spinner( FL_INT_SPINNER, 430, 130, 60, 40, "" );
     fl_set_object_callback( obj, spinner_segundo_cb, 0 );
-    fl_set_spinner_bounds( obj, 0, 60 );
+    fl_set_spinner_bounds( obj, 0, 59 );
 
     fl_end_form( );
 
@@ -279,7 +279,7 @@ create_form_DialogoNota( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 245, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripcion:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripción:" );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Nota:" );
 
