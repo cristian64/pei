@@ -22,7 +22,7 @@ create_form_DialogoProfesor( void )
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del profesor:" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrónico:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrï¿½nico:" );
 
     fdui->input_nombre = obj = fl_add_input( FL_NORMAL_INPUT, 10, 40, 480, 40, "" );
     fl_set_object_lalign( obj, FL_ALIGN_TOP );
@@ -44,6 +44,7 @@ create_form_DialogoProfesor( void )
     fl_end_form( );
 
     fdui->DialogoProfesor->fdui = fdui;
+    fl_set_form_atclose(fdui->DialogoProfesor, form_atclose, NULL);
 
     return fdui;
 }
@@ -65,9 +66,9 @@ create_form_DialogoCompanero( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 245, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del compañero:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del compaï¿½ero:" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrónico:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electrï¿½nico:" );
 
     fdui->input_nombre = obj = fl_add_input( FL_NORMAL_INPUT, 10, 40, 480, 40, "" );
     fl_set_object_lalign( obj, FL_ALIGN_TOP );
@@ -89,6 +90,7 @@ create_form_DialogoCompanero( void )
     fl_end_form( );
 
     fdui->DialogoCompanero->fdui = fdui;
+    fl_set_form_atclose(fdui->DialogoCompanero, form_atclose, NULL);
 
     return fdui;
 }
@@ -110,7 +112,7 @@ create_form_DialogoSesion( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 415, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 180, 480, 30, "Día de la semana:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 180, 480, 30, "DÃ­a de la semana:" );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 270, 200, 30, "Hora de inicio:" );
 
@@ -149,21 +151,21 @@ create_form_DialogoSesion( void )
     fl_set_choice_item_mode( obj, 1, FL_PUP_NONE );
     fl_addto_choice( obj, "Martes" );
     fl_set_choice_item_mode( obj, 2, FL_PUP_NONE );
-    fl_addto_choice( obj, "Miercoles" );
+    fl_addto_choice( obj, "MiÃ©rcoles" );
     fl_addto_choice( obj, "Jueves" );
     fl_set_choice_item_mode( obj, 4, FL_PUP_NONE );
     fl_addto_choice( obj, "Viernes" );
     fl_set_choice_item_mode( obj, 5, FL_PUP_NONE );
-    fl_addto_choice( obj, "Sábado" );
+    fl_addto_choice( obj, "SÃ¡bado" );
     fl_set_choice_item_mode( obj, 6, FL_PUP_NONE );
     fl_addto_choice( obj, "Domingo" );
     fl_set_choice_item_mode( obj, 7, FL_PUP_NONE );
     fl_set_choice( obj, 1 );
 
-    fdui->checkbutton_practicas = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 220, 50, 130, 40, "Prácticas" );
+    fdui->checkbutton_practicas = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 220, 50, 130, 40, "PrÃ¡cticas" );
     fl_set_object_callback( obj, checkbutton_practicas_cb, 0 );
 
-    fdui->checkbutton_teoria = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 70, 50, 120, 40, "Teoría" );
+    fdui->checkbutton_teoria = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 70, 50, 120, 40, "TeorÃ­a" );
     fl_set_object_callback( obj, checkbutton_teoria_cb, 0 );
 
     fdui->spinner_hora2 = obj = fl_add_spinner( FL_INT_SPINNER, 290, 300, 60, 40, "" );
@@ -183,6 +185,7 @@ create_form_DialogoSesion( void )
     fl_end_form( );
 
     fdui->DialogoSesion->fdui = fdui;
+    fl_set_form_atclose(fdui->DialogoSesion, form_atclose, NULL);
 
     return fdui;
 }
@@ -204,7 +207,7 @@ create_form_DialogoCita( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 335, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripción:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripciï¿½n:" );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Fecha (dd/mm/aaaa hh:mm:ss):" );
 
@@ -226,7 +229,7 @@ create_form_DialogoCita( void )
     fl_set_spinner_bounds( obj, 0, 50000 );
     fl_set_spinner_step( obj, 0 );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 190, 480, 30, "Duración:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 190, 480, 30, "Duraciï¿½n:" );
 
     fdui->spinner_dia = obj = fl_add_spinner( FL_INT_SPINNER, 10, 130, 60, 40, "" );
     fl_set_object_callback( obj, spinner_dia_cb, 0 );
@@ -258,6 +261,7 @@ create_form_DialogoCita( void )
     fl_end_form( );
 
     fdui->DialogoCita->fdui = fdui;
+    fl_set_form_atclose(fdui->DialogoCita, form_atclose, NULL);
 
     return fdui;
 }
@@ -279,7 +283,7 @@ create_form_DialogoNota( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 245, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripción:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripciï¿½n:" );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Nota:" );
 
@@ -305,6 +309,7 @@ create_form_DialogoNota( void )
     fl_end_form( );
 
     fdui->DialogoNota->fdui = fdui;
+    fl_set_form_atclose(fdui->DialogoNota, form_atclose, NULL);
 
     return fdui;
 }
