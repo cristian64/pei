@@ -79,6 +79,7 @@ create_form_Formulario( void )
     fdui->browser_asignatura = obj = fl_add_browser( FL_HOLD_BROWSER, 260, 140, 540, 370, "" );
     fl_set_object_callback( obj, browser_asignatura_cb, 0 );
     fl_set_browser_dblclick_callback( obj, browser_asignatura_dblclick_cb, 0 );
+    fl_set_browser_fontstyle( obj, FL_FIXED_STYLE );
 
     fl_end_form( );
 

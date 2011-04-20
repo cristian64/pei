@@ -22,6 +22,8 @@ public:
     std::string toXml() const;
     void fromXml(const std::string &xml);
 
+    std::string toString() const;
+
 private:
     std::string descripcion;
     Fecha fecha;

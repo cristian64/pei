@@ -61,3 +61,11 @@ void Companero::fromXml(const std::string &xml)
             email = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
     }
 }
+
+std::string Companero::toString() const
+{
+    std::stringstream flujo;
+    flujo << nombre << " ";
+    flujo << email;
+    return flujo.str();
+}

@@ -18,6 +18,8 @@ public:
     std::string toXml() const;
     void fromXml(const std::string &xml);
 
+    std::string toString() const;
+
 private:
     std::string nombre;
     std::string email;

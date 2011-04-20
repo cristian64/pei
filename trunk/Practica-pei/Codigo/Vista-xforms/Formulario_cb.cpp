@@ -253,7 +253,7 @@ void button_plus_cb( FL_OBJECT * ob,
             // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
             fd_DialogoCita->DialogoCita->u_vdata = asignatura;
             fd_DialogoCita->DialogoCita->u_cdata = NULL;
-            fd_DialogoCita->DialogoCita->u_ldata = 3;
+            fd_DialogoCita->DialogoCita->u_ldata = 4;
         }
         else if (fl_get_button(formulario->button_notas) == 0)
         {
@@ -263,7 +263,7 @@ void button_plus_cb( FL_OBJECT * ob,
             // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
             fd_DialogoNota->DialogoNota->u_vdata = asignatura;
             fd_DialogoNota->DialogoNota->u_cdata = NULL;
-            fd_DialogoNota->DialogoNota->u_ldata = 3;
+            fd_DialogoNota->DialogoNota->u_ldata = 5;
         }
     }
 }

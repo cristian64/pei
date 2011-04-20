@@ -1,6 +1,7 @@
 #include "Cita.h"
 #include "tinyxml.h"
 #include <sstream>
+#include <iomanip>
 
 Cita::Cita() :
     duracion(duracion)
@@ -76,4 +77,13 @@ void Cita::fromXml(const std::string &xml)
         if (auxiliar != NULL)
             duracion = auxiliar->FirstChild() != NULL ? atoi(auxiliar->FirstChild()->Value()) : 60;
     }
+}
+
+std::string Cita::toString() const
+{
+    std::stringstream flujo;
+    flujo << fecha.toString() << " ";
+    flujo << std::setfill(' ') << std::setw(4) << duracion << "mins ";
+    flujo << descripcion;
+    return flujo.str();
 }
