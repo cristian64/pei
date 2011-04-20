@@ -2,6 +2,7 @@
 #include "Asignaturas.h"
 #include "VistaXformsAsignatura.h"
 #include "VistaXformsAsignaturas.h"
+#include "Dialogos.h"
 
 /* Callbacks and freeobj handles for form Formulario */
 
@@ -195,8 +196,31 @@ void button_pestana_cb( FL_OBJECT * ob,
 void button_plus_cb( FL_OBJECT * ob,
          long        data )
 {
-
-    //TODO: crear formulario correspondiente con el objeto indicado a NULL
+    FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
+    
+	if (fl_get_button(formulario->button_profesores) == 0)
+	{
+		FD_DialogoSesion *fd_DialogoSesion = create_form_DialogoSesion();
+		fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir un nuevo profesor");
+		//fd_DialogoNota->asignar Asignaturas y NULL.
+		//fl_free(fd_DialogoSesion);
+	}
+	else if (fl_get_button(formulario->button_companeros) == 0)
+	{
+		
+	}
+	else if (fl_get_button(formulario->button_sesiones) == 0)
+	{
+		
+	}
+	else if (fl_get_button(formulario->button_citas) == 0)
+	{
+		
+	}
+	else if (fl_get_button(formulario->button_notas) == 0)
+	{
+		
+	}
 }
 
 
