@@ -136,8 +136,8 @@ void Sesion::fromXml(const std::string &xml)
 std::string Sesion::toString() const
 {
     std::stringstream flujo;
-    flujo << std::setfill(' ') << std::setw(10) << getTipoString() << " ";
-    flujo << std::setfill(' ') << std::setw(8) << getDiaString() << " ";
+    flujo << std::setfill(' ') << std::setw(11) << getTipoString() << " ";
+    flujo << std::setfill(' ') << std::setw(11) << getDiaString() << " ";
     flujo << fechaInicio.toStringHora() << " ";
     flujo << fechaFin.toStringHora() << " ";
     flujo << lugar;

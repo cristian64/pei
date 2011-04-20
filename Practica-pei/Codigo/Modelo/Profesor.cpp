@@ -66,6 +66,6 @@ std::string Profesor::toString() const
 {
     std::stringstream flujo;
     flujo << nombre << " ";
-    flujo << email;
+    flujo << "(" << email << ")";
     return flujo.str();
 }
