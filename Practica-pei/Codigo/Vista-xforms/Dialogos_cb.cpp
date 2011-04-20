@@ -7,8 +7,8 @@
 /***************************************
  ***************************************/
 
-void input_nombre_cb( FL_OBJECT * ob,
-         long        data )
+void input_nombre_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -17,8 +17,8 @@ void input_nombre_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void input_email_cb( FL_OBJECT * ob,
-         long        data )
+void input_email_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -28,7 +28,7 @@ void input_email_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_aceptar_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     switch (ob->form->u_ldata)
     {
@@ -172,7 +172,7 @@ void button_aceptar_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_cancelar_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     fl_hide_form(ob->form);
     fl_free(ob->form);
@@ -184,8 +184,8 @@ void button_cancelar_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void input_lugar_cb( FL_OBJECT * ob,
-         long        data )
+void input_lugar_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -194,8 +194,8 @@ void input_lugar_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_hora_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_hora_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -204,8 +204,8 @@ void spinner_hora_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_minuto_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_minuto_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -214,8 +214,8 @@ void spinner_minuto_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_segundo_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_segundo_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -224,8 +224,8 @@ void spinner_segundo_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void choice_dia_cb( FL_OBJECT * ob,
-         long        data )
+void choice_dia_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -235,7 +235,7 @@ void choice_dia_cb( FL_OBJECT * ob,
  ***************************************/
 
 void checkbutton_practicas_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_DialogoSesion *dialogo = (FD_DialogoSesion *) ob->form->fdui;
     fl_set_button(dialogo->checkbutton_teoria, 0);
@@ -246,7 +246,7 @@ void checkbutton_practicas_cb( FL_OBJECT * ob,
  ***************************************/
 
 void checkbutton_teoria_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_DialogoSesion *dialogo = (FD_DialogoSesion *) ob->form->fdui;
     fl_set_button(dialogo->checkbutton_practicas, 0);
@@ -256,8 +256,8 @@ void checkbutton_teoria_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_hora2_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_hora2_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -266,8 +266,8 @@ void spinner_hora2_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_minuto2_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_minuto2_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -276,8 +276,8 @@ void spinner_minuto2_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_segundo2_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_segundo2_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -290,8 +290,8 @@ void spinner_segundo2_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void input_descripcion_cb( FL_OBJECT * ob,
-         long        data )
+void input_descripcion_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -300,8 +300,8 @@ void input_descripcion_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_duracion_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_duracion_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -310,8 +310,8 @@ void spinner_duracion_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_dia_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_dia_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -320,8 +320,8 @@ void spinner_dia_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_mes_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_mes_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -330,8 +330,8 @@ void spinner_mes_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_ano_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_ano_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -340,8 +340,8 @@ void spinner_ano_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void spinner_nota_cb( FL_OBJECT * ob,
-         long        data )
+void spinner_nota_cb( FL_OBJECT * ,
+         long         )
 {
 
 }
@@ -350,7 +350,7 @@ void spinner_nota_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-int form_atclose(FL_FORM *form, void *data)
+int form_atclose(FL_FORM *form, void *)
 {
     fl_hide_form(form);
     fl_free(form);

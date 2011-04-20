@@ -10,7 +10,7 @@
  ***************************************/
 
 void button_abrir_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
     
@@ -29,7 +29,7 @@ void button_abrir_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_guardar_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -47,7 +47,7 @@ void button_guardar_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_anadir_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -70,7 +70,7 @@ void button_anadir_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_quitar_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -99,7 +99,7 @@ void button_quitar_cb( FL_OBJECT * ob,
  ***************************************/
 
 void browser_asignaturas_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -124,7 +124,7 @@ void browser_asignaturas_cb( FL_OBJECT * ob,
  ***************************************/
 
 void browser_asignaturas_dblclick_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -185,7 +185,7 @@ void seleccionar_pestana(FL_OBJECT *ob)
 }
 
 void button_pestana_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -201,7 +201,7 @@ void button_pestana_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_plus_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -273,7 +273,7 @@ void button_plus_cb( FL_OBJECT * ob,
  ***************************************/
 
 void button_minus_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -336,17 +336,17 @@ void button_minus_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void browser_asignatura_cb( FL_OBJECT * ob,
-         long        data )
+void browser_asignatura_cb( FL_OBJECT * ,
+         long         )
 {
-    
+    // Para que finalice la aplicación al invocar un callback inexistente.
 }
 
 /***************************************
  ***************************************/
 
 void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
-         long        data )
+         long         )
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
