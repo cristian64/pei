@@ -13,6 +13,7 @@ extern void button_anadir_cb( FL_OBJECT *, long );
 extern void button_quitar_cb( FL_OBJECT *, long );
 extern void browser_asignaturas_cb( FL_OBJECT *, long );
 extern void browser_asignaturas_dblclick_cb( FL_OBJECT *, long );
+extern void seleccionar_pestana(FL_OBJECT *ob);
 extern void button_pestana_cb( FL_OBJECT *, long );
 extern void button_plus_cb( FL_OBJECT *, long );
 extern void button_minus_cb( FL_OBJECT *, long );

@@ -153,8 +153,7 @@ void browser_asignaturas_dblclick_cb( FL_OBJECT * ob,
 /***************************************
  ***************************************/
 
-void button_pestana_cb( FL_OBJECT * ob,
-         long        data )
+void seleccionar_pestana(FL_OBJECT *ob)
 {
     FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
 
@@ -182,7 +181,15 @@ void button_pestana_cb( FL_OBJECT * ob,
     fl_set_button(ob, 0);
     fl_set_object_lstyle(ob, 1);
     fl_set_object_lcolor(ob, 0);
-    fl_set_object_lsize(ob, 9);
+    fl_set_object_lsize(ob, 10);
+}
+
+void button_pestana_cb( FL_OBJECT * ob,
+         long        data )
+{
+    FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
+
+    seleccionar_pestana(ob);
     
     VistaXformsAsignatura *vistaXformsAsignatura = (VistaXformsAsignatura *) formulario->cdata;
     if (vistaXformsAsignatura != NULL)
