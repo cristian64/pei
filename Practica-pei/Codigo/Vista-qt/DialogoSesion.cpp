@@ -15,13 +15,6 @@ DialogoSesion::DialogoSesion(Sesion *sesion, Asignatura *asignatura, QWidget *pa
 		ui->radioButtonTeoria->setChecked(sesion->getTipo() == Sesion::TEORIA);
 		ui->radioButtonPracticas->setChecked(sesion->getTipo() != Sesion::TEORIA);
 		ui->lineEditLugar->setText(QString::fromStdString(sesion->getLugar()));
-		ui->comboBoxDia->addItem("Lunes");
-		ui->comboBoxDia->addItem("Martes");
-		ui->comboBoxDia->addItem("Miércoles");
-		ui->comboBoxDia->addItem("Jueves");
-		ui->comboBoxDia->addItem("Viernes");
-		ui->comboBoxDia->addItem("Sábado");
-		ui->comboBoxDia->addItem("Domingo");
 		ui->comboBoxDia->setCurrentIndex(sesion->getDia());
 		QTime timeInicio(sesion->getFechaInicio().hora, sesion->getFechaInicio().minuto, sesion->getFechaInicio().segundo);
 		ui->timeEditInicio->setTime(timeInicio);

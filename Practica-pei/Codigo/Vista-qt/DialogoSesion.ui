@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>410</width>
-    <height>322</height>
+    <height>326</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -31,6 +31,9 @@
       <widget class="QRadioButton" name="radioButtonTeoria">
        <property name="text">
         <string>Teoría</string>
+       </property>
+       <property name="checked">
+        <bool>true</bool>
        </property>
       </widget>
      </item>
@@ -61,7 +64,43 @@
     </widget>
    </item>
    <item>
-    <widget class="QComboBox" name="comboBoxDia"/>
+    <widget class="QComboBox" name="comboBoxDia">
+     <item>
+      <property name="text">
+       <string>Lunes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Martes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Miércoles</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Jueves</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Viernes</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Sábado</string>
+      </property>
+     </item>
+     <item>
+      <property name="text">
+       <string>Domingo</string>
+      </property>
+     </item>
+    </widget>
    </item>
    <item>
     <widget class="QLabel" name="label_4">
