@@ -24,12 +24,13 @@ void* vistaXforms(void *parameters)
     fd_Formulario = create_form_Formulario( );
 
     // Se crea el modelo y la vista.
-    VistaXformsAsignaturas vistaXformsAsignaturas;
-    vistaXformsAsignaturas.formulario = fd_Formulario;
-    vistaXformsAsignaturas.ponerModelo(((Parameters*) parameters)->asignaturas);
-    vistaXformsAsignaturas.refrescar();
     VistaXformsAsignatura vistaXformsAsignatura;
     vistaXformsAsignatura.formulario = fd_Formulario;
+    VistaXformsAsignaturas vistaXformsAsignaturas;
+    vistaXformsAsignaturas.formulario = fd_Formulario;
+    vistaXformsAsignaturas.vistaXformsAsignatura = &vistaXformsAsignatura;
+    vistaXformsAsignaturas.ponerModelo(((Parameters*) parameters)->asignaturas);
+    vistaXformsAsignaturas.refrescar();
 
     // Se asocia a cada objeto del formulario las vistas para que puedan manipular el modelo de cada vista.
     fd_Formulario->vdata = &vistaXformsAsignaturas;
@@ -57,6 +58,8 @@ int main(int argc, char **argv)
     QApplication a(argc, argv);
     MainWindow w(&asignaturas);
     w.show();
+    MainWindow w2(&asignaturas);
+    w2.show();
     
     Parameters parameters;
     parameters.argc = argc;
