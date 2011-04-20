@@ -92,7 +92,7 @@ void button_aceptar_cb( FL_OBJECT * ob,
 
             // Se establecen los valores.
             sesion->setLugar(fl_get_input(dialogo->input_lugar));
-            sesion->setDia((Sesion::Dia) fl_get_choice(dialogo->choice_dia));
+            sesion->setDia((Sesion::Dia) (fl_get_choice(dialogo->choice_dia) - 1));
             sesion->setTipo((Sesion::Tipo) (fl_get_button(dialogo->checkbutton_practicas) == 1));
             Fecha fechaInicio;
             fechaInicio.hora = (int) fl_get_spinner_value(dialogo->spinner_hora);

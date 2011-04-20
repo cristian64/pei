@@ -209,7 +209,7 @@ void button_plus_cb( FL_OBJECT * ob,
     int seleccionada = fl_get_browser(formulario->browser_asignaturas);
     if (seleccionada > 0)
     {
-        // Elimina la asignatura del modelo y refresca todas las vistas menos esta.
+        // Extrae la asignatura a la que se va a añadir algo.
         Asignaturas *asignaturas = dynamic_cast<Asignaturas *>(((Vista*) formulario->vdata)->obtenerModelo());
         std::list<Asignatura*>::const_iterator i = asignaturas->obtenerAsignaturas().begin();
         std::advance(i, seleccionada - 1);
@@ -348,5 +348,110 @@ void browser_asignatura_cb( FL_OBJECT * ob,
 void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
          long        data )
 {
-    //TODO: crear formulario correspondiente indicandole el objeto a editar
+    FD_Formulario *formulario = static_cast<FD_Formulario *>(ob->form->fdui);
+
+    // Comprobamos si hay alguna asignatura seleccionada.
+    Asignatura *asignatura = dynamic_cast<Asignatura *>(((Vista*) formulario->cdata)->obtenerModelo());
+    if (asignatura != NULL)
+    {
+        // Comprobamos si hay algún elemento seleccionado.
+        int seleccionada = fl_get_browser(formulario->browser_asignatura);
+        if (seleccionada > 0)
+        {
+            if (fl_get_button(formulario->button_profesores) == 0)
+            {
+                FD_DialogoProfesor *fd_DialogoProfesor = create_form_DialogoProfesor();
+                fl_show_form(fd_DialogoProfesor->DialogoProfesor, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Editando el profesor");
+
+                // Extra el elemento e inicializa el diálogo.
+                std::list<Profesor*>::const_iterator i = asignatura->obtenerProfesores().begin();
+                std::advance(i, seleccionada - 1);
+                fl_set_input(fd_DialogoProfesor->input_nombre, (*i)->getNombre().c_str());
+                fl_set_input(fd_DialogoProfesor->input_email, (*i)->getEmail().c_str());
+
+                // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+                fd_DialogoProfesor->DialogoProfesor->u_vdata = asignatura;
+                fd_DialogoProfesor->DialogoProfesor->u_cdata = (char*) *i;
+                fd_DialogoProfesor->DialogoProfesor->u_ldata = 1;
+            }
+            else if (fl_get_button(formulario->button_companeros) == 0)
+            {
+                FD_DialogoCompanero *fd_DialogoCompanero = create_form_DialogoCompanero();
+                fl_show_form(fd_DialogoCompanero->DialogoCompanero, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Editar el compañero");
+
+                // Extra el elemento e inicializa el diálogo.
+                std::list<Companero*>::const_iterator i = asignatura->obtenerCompaneros().begin();
+                std::advance(i, seleccionada - 1);
+                fl_set_input(fd_DialogoCompanero->input_nombre, (*i)->getNombre().c_str());
+                fl_set_input(fd_DialogoCompanero->input_email, (*i)->getEmail().c_str());
+
+                // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+                fd_DialogoCompanero->DialogoCompanero->u_vdata = asignatura;
+                fd_DialogoCompanero->DialogoCompanero->u_cdata = (char*) *i;
+                fd_DialogoCompanero->DialogoCompanero->u_ldata = 2;
+            }
+            else if (fl_get_button(formulario->button_sesiones) == 0)
+            {
+                FD_DialogoSesion *fd_DialogoSesion = create_form_DialogoSesion();
+                fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Editar la sesión");
+
+                // Extra el elemento e inicializa el diálogo.
+                std::list<Sesion*>::const_iterator i = asignatura->obtenerSesiones().begin();
+                std::advance(i, seleccionada - 1);
+                fl_set_input(fd_DialogoSesion->input_lugar, (*i)->getLugar().c_str());
+                fl_set_choice(fd_DialogoSesion->choice_dia, (*i)->getDia() + 1);
+                fl_set_button(fd_DialogoSesion->checkbutton_teoria, (*i)->getTipo() == 0);
+                fl_set_button(fd_DialogoSesion->checkbutton_practicas, (*i)->getTipo() == 1);
+                fl_set_spinner_value(fd_DialogoSesion->spinner_hora, (*i)->getFechaInicio().hora);
+                fl_set_spinner_value(fd_DialogoSesion->spinner_minuto, (*i)->getFechaInicio().minuto);
+                fl_set_spinner_value(fd_DialogoSesion->spinner_segundo, (*i)->getFechaInicio().segundo);
+                fl_set_spinner_value(fd_DialogoSesion->spinner_hora2, (*i)->getFechaFin().hora);
+                fl_set_spinner_value(fd_DialogoSesion->spinner_minuto2, (*i)->getFechaFin().minuto);
+                fl_set_spinner_value(fd_DialogoSesion->spinner_segundo2, (*i)->getFechaFin().segundo);
+
+                // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+                fd_DialogoSesion->DialogoSesion->u_vdata = asignatura;
+                fd_DialogoSesion->DialogoSesion->u_cdata = (char*) *i;
+                fd_DialogoSesion->DialogoSesion->u_ldata = 3;
+            }
+            else if (fl_get_button(formulario->button_citas) == 0)
+            {
+                FD_DialogoCita *fd_DialogoCita = create_form_DialogoCita();
+                fl_show_form(fd_DialogoCita->DialogoCita, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Editar la cita");
+
+                // Extra el elemento e inicializa el diálogo.
+                std::list<Cita*>::const_iterator i = asignatura->obtenerCitas().begin();
+                std::advance(i, seleccionada - 1);
+                fl_set_input(fd_DialogoCita->input_descripcion, (*i)->getDescripcion().c_str());
+                fl_set_spinner_value(fd_DialogoCita->spinner_dia, (*i)->getFecha().dia);
+                fl_set_spinner_value(fd_DialogoCita->spinner_mes, (*i)->getFecha().mes);
+                fl_set_spinner_value(fd_DialogoCita->spinner_ano, (*i)->getFecha().ano);
+                fl_set_spinner_value(fd_DialogoCita->spinner_hora, (*i)->getFecha().hora);
+                fl_set_spinner_value(fd_DialogoCita->spinner_minuto, (*i)->getFecha().minuto);
+                fl_set_spinner_value(fd_DialogoCita->spinner_segundo, (*i)->getFecha().segundo);
+                fl_set_spinner_value(fd_DialogoCita->spinner_duracion, (*i)->getDuracion());
+
+                // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+                fd_DialogoCita->DialogoCita->u_vdata = asignatura;
+                fd_DialogoCita->DialogoCita->u_cdata = (char*) *i;
+                fd_DialogoCita->DialogoCita->u_ldata = 4;
+            }
+            else if (fl_get_button(formulario->button_notas) == 0)
+            {
+                FD_DialogoNota *fd_DialogoNota = create_form_DialogoNota();
+                fl_show_form(fd_DialogoNota->DialogoNota, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Editar la nota");
+
+                // Extra el elemento e inicializa el diálogo.
+                std::list<Nota*>::const_iterator i = asignatura->obtenerNotas().begin();
+                std::advance(i, seleccionada - 1);
+                fl_set_input(fd_DialogoNota->input_descripcion, (*i)->getDescripcion().c_str());
+                fl_set_spinner_value(fd_DialogoNota->spinner_nota, (*i)->getNota());
+
+                // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
+                fd_DialogoNota->DialogoNota->u_vdata = asignatura;
+                fd_DialogoNota->DialogoNota->u_cdata = (char*) *i;
+                fd_DialogoNota->DialogoNota->u_ldata = 5;
+            }
+        }
+    }
 }
