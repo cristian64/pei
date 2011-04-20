@@ -16,15 +16,30 @@ void VistaXformsAsignaturas::refrescar()
         fl_deselect_browser(formulario->browser_asignaturas);
         fl_clear_browser(formulario->browser_asignaturas);
 
+        // Comprueba si hay alguna seleccionada ahora mismo.
+        Asignatura *asignatura = (Asignatura *) vistaXformsAsignatura->obtenerModelo();
+        if (asignatura == NULL)
+        {
+            //bloquear pestañas y tal
+        }
+        else
+        {
+            //desbloquear pestañas y tal
+        }
+
         // Añade todas las asignaturas.
         const std::list<Asignatura*> lista = asignaturas->obtenerAsignaturas();
         std::list<Asignatura*>::const_iterator i = lista.begin();
         for (; i != lista.end(); i++)
         {
             fl_add_browser_line(formulario->browser_asignaturas, (*i)->getNombre().c_str());
+            
+            // Si había alguna seleccionada, la marcamos en la lista como seleccionada.
+            if (*i == asignatura)
+            {
+                int ultima = fl_get_browser_maxline(formulario->browser_asignaturas);
+                fl_select_browser_line(formulario->browser_asignaturas, ultima);
+            }
         }
-
-        //TODO: consultar en VistaXformsAsignatura cuál es el modelo seleccionado y, segun su indice, seleccionar el indice
-        fl_select_browser_line(formulario->browser_asignaturas, 0);
     }
 }

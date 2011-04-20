@@ -14,13 +14,14 @@ main( int    argc,
 
     // Se crea el modelo y la vista.
     Asignaturas asignaturas;
+    VistaXformsAsignatura vistaXformsAsignatura;
+    vistaXformsAsignatura.formulario = fd_Formulario;
     VistaXformsAsignaturas vistaXformsAsignaturas;
     vistaXformsAsignaturas.formulario = fd_Formulario;
+    vistaXformsAsignaturas.vistaXformsAsignatura = &vistaXformsAsignatura;
     vistaXformsAsignaturas.ponerModelo(&asignaturas);
     asignaturas.cargar("ejemplo1.xml");
     asignaturas.refrescarVistas();
-    VistaXformsAsignatura vistaXformsAsignatura;
-    vistaXformsAsignatura.formulario = fd_Formulario;
 
     // Se asocia a cada objeto del formulario las vistas para que puedan manipular el modelo de cada vista.
     fd_Formulario->vdata = &vistaXformsAsignaturas;
