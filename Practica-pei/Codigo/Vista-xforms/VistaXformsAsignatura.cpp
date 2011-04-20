@@ -22,7 +22,7 @@ void VistaXformsAsignatura::refrescar()
             std::list<Profesor*>::const_iterator i = profesores.begin();
             for (; i != profesores.end(); i++)
             {
-                fl_add_browser_line(formulario->browser_asignatura, (*i)->getNombre().c_str());
+                fl_add_browser_line(formulario->browser_asignatura, (*i)->toString().c_str());
             }
         }
         else if (fl_get_button(formulario->button_companeros) == 0)
@@ -31,7 +31,7 @@ void VistaXformsAsignatura::refrescar()
             std::list<Companero*>::const_iterator i = companeros.begin();
             for (; i != companeros.end(); i++)
             {
-                fl_add_browser_line(formulario->browser_asignatura, (*i)->getNombre().c_str());
+                fl_add_browser_line(formulario->browser_asignatura, (*i)->toString().c_str());
             }
         }
         else if (fl_get_button(formulario->button_sesiones) == 0)
@@ -40,7 +40,7 @@ void VistaXformsAsignatura::refrescar()
             std::list<Sesion*>::const_iterator i = sesiones.begin();
             for (; i != sesiones.end(); i++)
             {
-                fl_add_browser_line(formulario->browser_asignatura, (*i)->getLugar().c_str());
+                fl_add_browser_line(formulario->browser_asignatura, (*i)->toString().c_str());
             }
         }
         else if (fl_get_button(formulario->button_citas) == 0)
@@ -49,7 +49,7 @@ void VistaXformsAsignatura::refrescar()
             std::list<Cita*>::const_iterator i = citas.begin();
             for (; i != citas.end(); i++)
             {
-                fl_add_browser_line(formulario->browser_asignatura, (*i)->getDescripcion().c_str());
+                fl_add_browser_line(formulario->browser_asignatura, (*i)->toString().c_str());
             }
         }
         else if (fl_get_button(formulario->button_notas) == 0)
@@ -58,7 +58,7 @@ void VistaXformsAsignatura::refrescar()
             std::list<Nota*>::const_iterator i = notas.begin();
             for (; i != notas.end(); i++)
             {
-                fl_add_browser_line(formulario->browser_asignatura, (*i)->getDescripcion().c_str());
+                fl_add_browser_line(formulario->browser_asignatura, (*i)->toString().c_str());
             }
         }
 
@@ -71,6 +71,9 @@ void VistaXformsAsignatura::refrescar()
         fl_activate_object(formulario->button_citas);
         fl_activate_object(formulario->button_notas);
 
+        fl_set_object_lcolor(formulario->browser_asignatura, 0);
+        fl_set_object_lcolor(formulario->button_plus, 0);
+        fl_set_object_lcolor(formulario->button_minus, 0);
         if (fl_get_button(formulario->button_profesores) == 0)
             seleccionar_pestana(formulario->button_profesores);
         else if (fl_get_button(formulario->button_companeros) == 0)

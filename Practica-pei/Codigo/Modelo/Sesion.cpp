@@ -2,6 +2,7 @@
 #include "tinyxml.h"
 #include <cstdlib>
 #include <sstream>
+#include <iomanip>
 
 Sesion::Sesion() :
 	tipo(TEORIA),
@@ -130,4 +131,15 @@ void Sesion::fromXml(const std::string &xml)
 		if (auxiliar != NULL)
 			fechaFin = auxiliar->FirstChild() != NULL ? Fecha(auxiliar->FirstChild()->Value()) : Fecha();
 	}
+}
+
+std::string Sesion::toString() const
+{
+    std::stringstream flujo;
+    flujo << std::setfill(' ') << std::setw(10) << getTipoString() << " ";
+    flujo << std::setfill(' ') << std::setw(8) << getDiaString() << " ";
+    flujo << fechaInicio.toStringHora() << " ";
+    flujo << fechaFin.toStringHora() << " ";
+    flujo << lugar;
+    return flujo.str();
 }

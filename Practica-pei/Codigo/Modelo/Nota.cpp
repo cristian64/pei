@@ -2,6 +2,7 @@
 #include "tinyxml.h"
 #include <sstream>
 #include <cstdlib>
+#include <iomanip>
 
 Nota::Nota() :
 	nota(0.0f)
@@ -74,4 +75,12 @@ void Nota::fromXml(const std::string &xml)
 		if (auxiliar != NULL)
 			nota = auxiliar->FirstChild() != NULL ? atof(std::string(auxiliar->FirstChild()->Value())) : 0.0f;
 	}
+}
+
+std::string Nota::toString() const
+{
+    std::stringstream flujo;
+    flujo << std::setfill(' ') << std::setw(5) << nota << " ";
+    flujo << descripcion;
+    return flujo.str();
 }

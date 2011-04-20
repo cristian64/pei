@@ -49,6 +49,9 @@ void VistaXformsAsignaturas::refrescar()
             fl_activate_object(formulario->button_citas);
             fl_activate_object(formulario->button_notas);
 
+            fl_set_object_lcolor(formulario->browser_asignatura, 0);
+            fl_set_object_lcolor(formulario->button_plus, 0);
+            fl_set_object_lcolor(formulario->button_minus, 0);
             if (fl_get_button(formulario->button_profesores) == 0)
                 seleccionar_pestana(formulario->button_profesores);
             else if (fl_get_button(formulario->button_companeros) == 0)

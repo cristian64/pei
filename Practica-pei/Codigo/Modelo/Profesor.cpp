@@ -61,3 +61,11 @@ void Profesor::fromXml(const std::string &xml)
             email = auxiliar->FirstChild() != NULL ? auxiliar->FirstChild()->Value() : "";
     }
 }
+
+std::string Profesor::toString() const
+{
+    std::stringstream flujo;
+    flujo << nombre << " ";
+    flujo << email;
+    return flujo.str();
+}
