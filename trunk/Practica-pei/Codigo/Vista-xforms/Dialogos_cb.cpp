@@ -47,8 +47,8 @@ void button_aceptar_cb( FL_OBJECT * ob,
             }
 
             // Se establecen los valores.
-            profesor->setNombre(fl_get_input(dialogo->input_nombre));
-            profesor->setEmail(fl_get_input(dialogo->input_email));
+            profesor->setNombre(Latin1toUTF8(fl_get_input(dialogo->input_nombre)));
+            profesor->setEmail(Latin1toUTF8(fl_get_input(dialogo->input_email)));
 
             // Se refrescan las vistas.
             ((Asignatura*) ob->form->u_vdata)->refrescarVistas();
@@ -69,8 +69,8 @@ void button_aceptar_cb( FL_OBJECT * ob,
             }
 
             // Se establecen los valores.
-            companero->setNombre(fl_get_input(dialogo->input_nombre));
-            companero->setEmail(fl_get_input(dialogo->input_email));
+            companero->setNombre(Latin1toUTF8(fl_get_input(dialogo->input_nombre)));
+            companero->setEmail(Latin1toUTF8(fl_get_input(dialogo->input_email)));
 
             // Se refrescan las vistas.
             ((Asignatura*) ob->form->u_vdata)->refrescarVistas();
@@ -91,7 +91,7 @@ void button_aceptar_cb( FL_OBJECT * ob,
             }
 
             // Se establecen los valores.
-            sesion->setLugar(fl_get_input(dialogo->input_lugar));
+            sesion->setLugar(Latin1toUTF8(fl_get_input(dialogo->input_lugar)));
             sesion->setDia((Sesion::Dia) (fl_get_choice(dialogo->choice_dia) - 1));
             sesion->setTipo((Sesion::Tipo) (fl_get_button(dialogo->checkbutton_practicas) == 1));
             Fecha fechaInicio;
@@ -124,7 +124,7 @@ void button_aceptar_cb( FL_OBJECT * ob,
             }
 
             // Se establecen los valores.
-            cita->setDescripcion(fl_get_input(dialogo->input_descripcion));
+            cita->setDescripcion(Latin1toUTF8(fl_get_input(dialogo->input_descripcion)));
             Fecha fecha;
             fecha.dia = (int) fl_get_spinner_value(dialogo->spinner_dia);
             fecha.mes = (int) fl_get_spinner_value(dialogo->spinner_mes);
@@ -154,7 +154,7 @@ void button_aceptar_cb( FL_OBJECT * ob,
             }
 
             // Se establecen los valores.
-            nota->setDescripcion(fl_get_input(dialogo->input_descripcion));
+            nota->setDescripcion(Latin1toUTF8(fl_get_input(dialogo->input_descripcion)));
             nota->setNota((float) fl_get_spinner_value(dialogo->spinner_nota));
 
             // Se refrescan las vistas.

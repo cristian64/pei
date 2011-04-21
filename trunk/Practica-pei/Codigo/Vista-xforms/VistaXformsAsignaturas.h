@@ -4,6 +4,7 @@
 #include "Vista.h"
 #include "Formulario.h"
 #include "VistaXformsAsignatura.h"
+#include "Codificacion.h"
 
 class VistaXformsAsignaturas : public Vista
 {

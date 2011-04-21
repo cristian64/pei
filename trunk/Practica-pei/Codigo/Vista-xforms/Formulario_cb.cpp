@@ -60,7 +60,7 @@ void button_anadir_cb( FL_OBJECT * ob,
 
         // Referencia al modelo a través de los punteros auxiliares y crea la asignatura y refresca.
         Asignaturas *asignaturas = dynamic_cast<Asignaturas *>(((Vista*) formulario->vdata)->obtenerModelo());
-        asignaturas->anadirAsignatura(new Asignatura(nombre));
+        asignaturas->anadirAsignatura(new Asignatura(Latin1toUTF8(nombre)));
         asignaturas->refrescarVistas((Vista*) formulario->vdata);
     }
 }
@@ -141,7 +141,7 @@ void browser_asignaturas_dblclick_cb( FL_OBJECT * ob,
         if (nombre != NULL)
         {
             // Actualiza la asignatura y refresca las vistas (menos la nuestra).
-            (*i)->setNombre(nombre);
+            (*i)->setNombre(Latin1toUTF8(nombre));
             asignaturas->refrescarVistas((Vista*) formulario->vdata);
 
             // Actualiza el nombre en la lista.
@@ -218,7 +218,7 @@ void button_plus_cb( FL_OBJECT * ob,
         if (fl_get_button(formulario->button_profesores) == 0)
         {
             FD_DialogoProfesor *fd_DialogoProfesor = create_form_DialogoProfesor();
-            fl_show_form(fd_DialogoProfesor->DialogoProfesor, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir un nuevo profesor");
+            fl_show_form(fd_DialogoProfesor->DialogoProfesor, FL_PLACE_CENTERFREE, FL_FULLBORDER, UTF8ToLatin1("Añadir un nuevo profesor").c_str());
 
             // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
             fd_DialogoProfesor->DialogoProfesor->u_vdata = asignatura;
@@ -228,7 +228,7 @@ void button_plus_cb( FL_OBJECT * ob,
         else if (fl_get_button(formulario->button_companeros) == 0)
         {
             FD_DialogoCompanero *fd_DialogoCompanero = create_form_DialogoCompanero();
-            fl_show_form(fd_DialogoCompanero->DialogoCompanero, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir un nuevo compañero");
+            fl_show_form(fd_DialogoCompanero->DialogoCompanero, FL_PLACE_CENTERFREE, FL_FULLBORDER, UTF8ToLatin1("Añadir un nuevo compañero").c_str());
 
             // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
             fd_DialogoCompanero->DialogoCompanero->u_vdata = asignatura;
@@ -238,7 +238,7 @@ void button_plus_cb( FL_OBJECT * ob,
         else if (fl_get_button(formulario->button_sesiones) == 0)
         {
             FD_DialogoSesion *fd_DialogoSesion = create_form_DialogoSesion();
-            fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir una nueva sesión");
+            fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, UTF8ToLatin1("Añadir una nueva sesión").c_str());
 
             // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
             fd_DialogoSesion->DialogoSesion->u_vdata = asignatura;
@@ -248,7 +248,7 @@ void button_plus_cb( FL_OBJECT * ob,
         else if (fl_get_button(formulario->button_citas) == 0)
         {
             FD_DialogoCita *fd_DialogoCita = create_form_DialogoCita();
-            fl_show_form(fd_DialogoCita->DialogoCita, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir una nueva cita");
+            fl_show_form(fd_DialogoCita->DialogoCita, FL_PLACE_CENTERFREE, FL_FULLBORDER, UTF8ToLatin1("Añadir una nueva cita").c_str());
 
             // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
             fd_DialogoCita->DialogoCita->u_vdata = asignatura;
@@ -258,7 +258,7 @@ void button_plus_cb( FL_OBJECT * ob,
         else if (fl_get_button(formulario->button_notas) == 0)
         {
             FD_DialogoNota *fd_DialogoNota = create_form_DialogoNota();
-            fl_show_form(fd_DialogoNota->DialogoNota, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Añadir una nueva nota");
+            fl_show_form(fd_DialogoNota->DialogoNota, FL_PLACE_CENTERFREE, FL_FULLBORDER, UTF8ToLatin1("Añadir una nueva nota").c_str());
 
             // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
             fd_DialogoNota->DialogoNota->u_vdata = asignatura;
@@ -366,8 +366,8 @@ void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
                 // Extra el elemento e inicializa el diálogo.
                 std::list<Profesor*>::const_iterator i = asignatura->obtenerProfesores().begin();
                 std::advance(i, seleccionada - 1);
-                fl_set_input(fd_DialogoProfesor->input_nombre, (*i)->getNombre().c_str());
-                fl_set_input(fd_DialogoProfesor->input_email, (*i)->getEmail().c_str());
+                fl_set_input(fd_DialogoProfesor->input_nombre, UTF8ToLatin1((*i)->getNombre()).c_str());
+                fl_set_input(fd_DialogoProfesor->input_email, UTF8ToLatin1((*i)->getEmail()).c_str());
 
                 // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
                 fd_DialogoProfesor->DialogoProfesor->u_vdata = asignatura;
@@ -377,13 +377,13 @@ void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
             else if (fl_get_button(formulario->button_companeros) == 0)
             {
                 FD_DialogoCompanero *fd_DialogoCompanero = create_form_DialogoCompanero();
-                fl_show_form(fd_DialogoCompanero->DialogoCompanero, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Editar el compañero");
+                fl_show_form(fd_DialogoCompanero->DialogoCompanero, FL_PLACE_CENTERFREE, FL_FULLBORDER, UTF8ToLatin1("Editar el compañero").c_str());
 
                 // Extra el elemento e inicializa el diálogo.
                 std::list<Companero*>::const_iterator i = asignatura->obtenerCompaneros().begin();
                 std::advance(i, seleccionada - 1);
-                fl_set_input(fd_DialogoCompanero->input_nombre, (*i)->getNombre().c_str());
-                fl_set_input(fd_DialogoCompanero->input_email, (*i)->getEmail().c_str());
+                fl_set_input(fd_DialogoCompanero->input_nombre, UTF8ToLatin1((*i)->getNombre()).c_str());
+                fl_set_input(fd_DialogoCompanero->input_email, UTF8ToLatin1((*i)->getEmail()).c_str());
 
                 // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
                 fd_DialogoCompanero->DialogoCompanero->u_vdata = asignatura;
@@ -393,12 +393,12 @@ void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
             else if (fl_get_button(formulario->button_sesiones) == 0)
             {
                 FD_DialogoSesion *fd_DialogoSesion = create_form_DialogoSesion();
-                fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, "Editar la sesión");
+                fl_show_form(fd_DialogoSesion->DialogoSesion, FL_PLACE_CENTERFREE, FL_FULLBORDER, UTF8ToLatin1("Editar la sesión").c_str());
 
                 // Extra el elemento e inicializa el diálogo.
                 std::list<Sesion*>::const_iterator i = asignatura->obtenerSesiones().begin();
                 std::advance(i, seleccionada - 1);
-                fl_set_input(fd_DialogoSesion->input_lugar, (*i)->getLugar().c_str());
+                fl_set_input(fd_DialogoSesion->input_lugar, UTF8ToLatin1((*i)->getLugar()).c_str());
                 fl_set_choice(fd_DialogoSesion->choice_dia, (*i)->getDia() + 1);
                 fl_set_button(fd_DialogoSesion->checkbutton_teoria, (*i)->getTipo() == 0);
                 fl_set_button(fd_DialogoSesion->checkbutton_practicas, (*i)->getTipo() == 1);
@@ -422,7 +422,7 @@ void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
                 // Extra el elemento e inicializa el diálogo.
                 std::list<Cita*>::const_iterator i = asignatura->obtenerCitas().begin();
                 std::advance(i, seleccionada - 1);
-                fl_set_input(fd_DialogoCita->input_descripcion, (*i)->getDescripcion().c_str());
+                fl_set_input(fd_DialogoCita->input_descripcion, UTF8ToLatin1((*i)->getDescripcion()).c_str());
                 fl_set_spinner_value(fd_DialogoCita->spinner_dia, (*i)->getFecha().dia);
                 fl_set_spinner_value(fd_DialogoCita->spinner_mes, (*i)->getFecha().mes);
                 fl_set_spinner_value(fd_DialogoCita->spinner_ano, (*i)->getFecha().ano);
@@ -444,7 +444,7 @@ void browser_asignatura_dblclick_cb( FL_OBJECT * ob,
                 // Extra el elemento e inicializa el diálogo.
                 std::list<Nota*>::const_iterator i = asignatura->obtenerNotas().begin();
                 std::advance(i, seleccionada - 1);
-                fl_set_input(fd_DialogoNota->input_descripcion, (*i)->getDescripcion().c_str());
+                fl_set_input(fd_DialogoNota->input_descripcion, UTF8ToLatin1((*i)->getDescripcion()).c_str());
                 fl_set_spinner_value(fd_DialogoNota->spinner_nota, (*i)->getNota());
 
                 // Se proporciona el modelo con la asignatura y NULL porque queremos añadir.
