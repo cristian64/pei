@@ -109,7 +109,7 @@ void MainWindow::on_actionGuardarComo_triggered()
 	if (fileDialog.exec())
 	{
 		QString fileName = fileDialog.selectedFiles().front();
-		asignaturas->cargar(fileName.toStdString());
+		asignaturas->guardar(fileName.toStdString());
 	}
 }
 

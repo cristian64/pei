@@ -1,6 +1,10 @@
 #ifndef VISTA_H
 #define	VISTA_H
 
+#include <iostream> //TODO:quitar
+using std::cout;
+using std::endl;
+
 /**
  * Declaración forward para evitar dependencias circulares.
  * La referencia a Modelo.h se incluye en el fichero de definición (Vista.cpp).
