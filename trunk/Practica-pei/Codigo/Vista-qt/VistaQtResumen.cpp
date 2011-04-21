@@ -32,6 +32,9 @@ void VistaQtResumen::refrescar()
 
 void VistaQtResumen::recargarCitas()
 {
+	if (!isVisible())
+		return;
+
 	while (ui->tableWidgetCitas->rowCount())
 		ui->tableWidgetCitas->removeRow(0);
 
@@ -81,6 +84,9 @@ bool comparadorSesiones(Sesion *a, Sesion *b)
 
 void VistaQtResumen::recargarHorario()
 {
+	if (!isVisible())
+		return;
+
 	while (ui->tableWidgetSesiones->rowCount())
 		ui->tableWidgetSesiones->removeRow(0);
 
