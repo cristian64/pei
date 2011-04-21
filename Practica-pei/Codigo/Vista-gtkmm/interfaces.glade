@@ -184,7 +184,7 @@
               </packing>
             </child>
             <child>
-              <widget class="GtkToolButton" id="toolbuttonResumen">
+              <widget class="GtkToggleToolButton" id="toolbuttonResumen">
                 <property name="visible">True</property>
                 <property name="is_important">True</property>
                 <property name="label" translatable="yes">Resumen de citas y horario</property>
