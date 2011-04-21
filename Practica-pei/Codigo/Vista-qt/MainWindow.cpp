@@ -135,4 +135,6 @@ void MainWindow::on_actionResumen_toggled(bool checked)
 	ui->actionResumen->setChecked(checked);
 	ui->vistaQtAsignatura->setVisible(!checked);
 	ui->vistaQtResumen->setVisible(checked);
+	if (checked)
+		ui->vistaQtResumen->refrescar();
 }
