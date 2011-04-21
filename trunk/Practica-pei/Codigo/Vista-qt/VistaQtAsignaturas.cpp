@@ -1,6 +1,6 @@
 #include "VistaQtAsignaturas.h"
 #include "ui_VistaQtAsignaturas.h"
-
+#include "MainWindow.h"
 #include "Asignaturas.h"
 #include <algorithm>
 #include <iostream>
@@ -12,6 +12,7 @@ VistaQtAsignaturas::VistaQtAsignaturas(QWidget *parent) :
 	ui->setupUi(this);
 	connect(this, SIGNAL(itemSelectionChanged()), SLOT(itemSelectionChanged()));
 	connect(this, SIGNAL(itemChanged(QListWidgetItem*)), SLOT(itemChanged(QListWidgetItem*)));
+	connect(this, SIGNAL(itemClicked(QListWidgetItem*)), SLOT(itemClicked(QListWidgetItem*)));
 }
 
 VistaQtAsignaturas::~VistaQtAsignaturas()
@@ -130,4 +131,16 @@ void VistaQtAsignaturas::deseleccionar()
 {
 	if (selectedItems().size() > 0)
 		selectedItems().front()->setSelected(false);
+}
+
+void VistaQtAsignaturas::itemClicked(QListWidgetItem*)
+{
+	QObject *root = parent();
+	while (root != NULL)
+	{
+		MainWindow *mainWindow = dynamic_cast<MainWindow*>(root);
+		if (mainWindow != NULL)
+			mainWindow->on_actionResumen_toggled(false);
+		root = root->parent();
+	}
 }

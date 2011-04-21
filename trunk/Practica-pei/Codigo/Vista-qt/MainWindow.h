@@ -21,7 +21,8 @@ private:
 	Ui::MainWindow *ui;
 	std::string nombreFichero;
 
-private slots:
+public slots:
+	void on_actionResumen_toggled(bool checked);
 	void asignaturaSeleccionadaCambio(Asignatura *asignatura);
 	void on_actionAnadir_triggered();
 	void on_actionQuitar_triggered();
