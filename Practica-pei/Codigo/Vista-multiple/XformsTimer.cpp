@@ -1,12 +1,4 @@
 #include "XformsTimer.h"
-#include <QTextCodec>
-
-// Función auxiliar para quecuando se cierre el formulario de Xforms no finalice la aplicación (por si todavía quedan ventanas.
-int no_cerrar(FL_FORM *form, void *)
-{
-    fl_hide_form(form);
-    return 0;
-}
 
 XformsTimer::XformsTimer(int argc, char **argv, Asignaturas *asignaturas)
 {
@@ -14,7 +6,7 @@ XformsTimer::XformsTimer(int argc, char **argv, Asignaturas *asignaturas)
 
     fl_initialize(&argc, argv, 0, 0, 0 );
     fd_Formulario = create_form_Formulario( );
-    fl_set_form_atclose(fd_Formulario->Formulario, no_cerrar, NULL);
+    fl_set_form_atclose(fd_Formulario->Formulario, XformsTimer::form_atclose, NULL);
 
     // Se crea el modelo y la vista.
     vistaXformsAsignatura.formulario = fd_Formulario;
@@ -41,4 +33,10 @@ XformsTimer::~XformsTimer()
 void XformsTimer::ejecutar()
 {
     fl_check_forms();
+}
+
+int XformsTimer::form_atclose(FL_FORM *form, void *)
+{
+    fl_hide_form(form);
+    return 0;
 }

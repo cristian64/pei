@@ -61,6 +61,7 @@
                      displayName="Vista-xforms"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-xforms/Codificacion.h</itemPath>
         <itemPath>Codigo/Vista-xforms/Dialogos.h</itemPath>
         <itemPath>Codigo/Vista-xforms/Formulario.h</itemPath>
         <itemPath>Codigo/Vista-xforms/VistaXformsAsignatura.h</itemPath>
@@ -137,6 +138,7 @@
                      displayName="Vista-xforms"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-xforms/Codificacion.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/Dialogos.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/Dialogos_cb.cpp</itemPath>
         <itemPath>Codigo/Vista-xforms/Formulario.cpp</itemPath>

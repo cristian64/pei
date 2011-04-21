@@ -19,6 +19,8 @@ public:
     XformsTimer(int argc, char **argv, Asignaturas *asignaturas);
     ~XformsTimer();
 
+    static int form_atclose(FL_FORM *form, void *);
+
 public slots:
     void ejecutar();
 };
