@@ -49,6 +49,7 @@
         <itemPath>Codigo/Vista-qt/MainWindow.h</itemPath>
         <itemPath>Codigo/Vista-qt/VistaQtAsignatura.h</itemPath>
         <itemPath>Codigo/Vista-qt/VistaQtAsignaturas.h</itemPath>
+        <itemPath>Codigo/Vista-qt/VistaQtResumen.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f5"
                      displayName="Vista-txt"
@@ -122,6 +123,7 @@
         <itemPath>Codigo/Vista-qt/MainWindow.cpp</itemPath>
         <itemPath>Codigo/Vista-qt/VistaQtAsignatura.cpp</itemPath>
         <itemPath>Codigo/Vista-qt/VistaQtAsignaturas.cpp</itemPath>
+        <itemPath>Codigo/Vista-qt/VistaQtResumen.cpp</itemPath>
         <itemPath>Codigo/Vista-qt/main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f3"
