@@ -22,7 +22,7 @@ create_form_DialogoProfesor( void )
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del profesor:" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electr�nico:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, UTF8ToLatin1("Correo electrónico:").c_str() );
 
     fdui->input_nombre = obj = fl_add_input( FL_NORMAL_INPUT, 10, 40, 480, 40, "" );
     fl_set_object_lalign( obj, FL_ALIGN_TOP );
@@ -66,9 +66,9 @@ create_form_DialogoCompanero( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 245, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Nombre del compa�ero:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, UTF8ToLatin1("Nombre del compañero:").c_str() );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Correo electr�nico:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, UTF8ToLatin1("Correo electrónico:").c_str() );
 
     fdui->input_nombre = obj = fl_add_input( FL_NORMAL_INPUT, 10, 40, 480, 40, "" );
     fl_set_object_lalign( obj, FL_ALIGN_TOP );
@@ -112,7 +112,7 @@ create_form_DialogoSesion( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 415, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 180, 480, 30, "Día de la semana:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 180, 480, 30, UTF8ToLatin1("Día de la semana:").c_str() );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 270, 200, 30, "Hora de inicio:" );
 
@@ -151,21 +151,21 @@ create_form_DialogoSesion( void )
     fl_set_choice_item_mode( obj, 1, FL_PUP_NONE );
     fl_addto_choice( obj, "Martes" );
     fl_set_choice_item_mode( obj, 2, FL_PUP_NONE );
-    fl_addto_choice( obj, "Miércoles" );
+    fl_addto_choice( obj, UTF8ToLatin1("Miércoles").c_str() );
     fl_addto_choice( obj, "Jueves" );
     fl_set_choice_item_mode( obj, 4, FL_PUP_NONE );
     fl_addto_choice( obj, "Viernes" );
     fl_set_choice_item_mode( obj, 5, FL_PUP_NONE );
-    fl_addto_choice( obj, "Sábado" );
+    fl_addto_choice( obj, UTF8ToLatin1("Sábado").c_str() );
     fl_set_choice_item_mode( obj, 6, FL_PUP_NONE );
     fl_addto_choice( obj, "Domingo" );
     fl_set_choice_item_mode( obj, 7, FL_PUP_NONE );
     fl_set_choice( obj, 1 );
 
-    fdui->checkbutton_practicas = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 220, 50, 130, 40, "Prácticas" );
+    fdui->checkbutton_practicas = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 220, 50, 130, 40, UTF8ToLatin1("Prácticas").c_str() );
     fl_set_object_callback( obj, checkbutton_practicas_cb, 0 );
 
-    fdui->checkbutton_teoria = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 70, 50, 120, 40, "Teoría" );
+    fdui->checkbutton_teoria = obj = fl_add_checkbutton( FL_PUSH_BUTTON, 70, 50, 120, 40, UTF8ToLatin1("Teoría").c_str() );
     fl_set_object_callback( obj, checkbutton_teoria_cb, 0 );
 
     fdui->spinner_hora2 = obj = fl_add_spinner( FL_INT_SPINNER, 290, 300, 60, 40, "" );
@@ -207,7 +207,7 @@ create_form_DialogoCita( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 335, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripci�n:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, UTF8ToLatin1("Descripción:").c_str() );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Fecha (dd/mm/aaaa hh:mm:ss):" );
 
@@ -229,7 +229,7 @@ create_form_DialogoCita( void )
     fl_set_spinner_bounds( obj, 0, 50000 );
     fl_set_spinner_step( obj, 0 );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 190, 480, 30, "Duraci�n:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 190, 480, 30, UTF8ToLatin1("Duración (mins):").c_str() );
 
     fdui->spinner_dia = obj = fl_add_spinner( FL_INT_SPINNER, 10, 130, 60, 40, "" );
     fl_set_object_callback( obj, spinner_dia_cb, 0 );
@@ -283,7 +283,7 @@ create_form_DialogoNota( void )
 
     obj = fl_add_box( FL_UP_BOX, 0, 0, 500, 245, "" );
 
-    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, "Descripci�n:" );
+    obj = fl_add_text( FL_NORMAL_TEXT, 10, 10, 480, 30, UTF8ToLatin1("Descripción:").c_str() );
 
     obj = fl_add_text( FL_NORMAL_TEXT, 10, 100, 480, 30, "Nota:" );
 

@@ -3,6 +3,7 @@
 
 #include "Vista.h"
 #include "Formulario.h"
+#include "Codificacion.h"
 
 class VistaXformsAsignatura : public Vista
 {

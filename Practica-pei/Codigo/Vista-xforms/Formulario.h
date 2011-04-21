@@ -4,6 +4,7 @@
 #define FD_Formulario_h_
 
 #include <forms.h>
+#include "Codificacion.h"
 
 /* Callbacks, globals and object handlers */
 

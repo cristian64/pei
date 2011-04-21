@@ -30,7 +30,7 @@ create_form_Formulario( void )
     fl_set_object_lstyle( obj, FL_BOLD_STYLE );
     fl_set_object_callback( obj, button_guardar_cb, 0 );
 
-    fdui->button_anadir = obj = fl_add_button( FL_NORMAL_BUTTON, 250, 10, 150, 30, "Añadir asignatura" );
+    fdui->button_anadir = obj = fl_add_button( FL_NORMAL_BUTTON, 250, 10, 150, 30, UTF8ToLatin1("Añadir asignatura").c_str() );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_lstyle( obj, FL_BOLD_STYLE );
     fl_set_object_callback( obj, button_anadir_cb, 0 );
@@ -50,7 +50,7 @@ create_form_Formulario( void )
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_pestana_cb, 0 );
 
-    fdui->button_companeros = obj = fl_add_button( FL_PUSH_BUTTON, 360, 70, 110, 30, "Compañeros" );
+    fdui->button_companeros = obj = fl_add_button( FL_PUSH_BUTTON, 360, 70, 110, 30, UTF8ToLatin1("Compañeros").c_str() );
     fl_set_object_lalign( obj, FL_ALIGN_CENTER );
     fl_set_object_callback( obj, button_pestana_cb, 0 );
 

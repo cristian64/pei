@@ -69,7 +69,7 @@ void VistaXformsAsignaturas::refrescar()
         std::list<Asignatura*>::const_iterator i = lista.begin();
         for (; i != lista.end(); i++)
         {
-            fl_add_browser_line(formulario->browser_asignaturas, (*i)->getNombre().c_str());
+            fl_add_browser_line(formulario->browser_asignaturas, UTF8ToLatin1((*i)->getNombre()).c_str());
             
             // Si había alguna seleccionada, la marcamos en la lista como seleccionada.
             if (*i == asignatura)
