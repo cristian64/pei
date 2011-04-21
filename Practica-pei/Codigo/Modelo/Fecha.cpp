@@ -29,6 +29,41 @@ Fecha::Fecha(const std::string &cadena)
 	this->fromString(cadena);
 }
 
+bool Fecha::operator<(const Fecha &fecha) const
+{
+	if (ano < fecha.ano)
+		return true;
+	else if (ano > fecha.ano)
+		return false;
+
+	if (mes < fecha.mes)
+		return true;
+	else if (mes > fecha.mes)
+		return false;
+
+	if (dia < fecha.dia)
+		return true;
+	else if (dia > fecha.dia)
+		return false;
+
+	if (hora < fecha.hora)
+		return true;
+	else if (hora > fecha.hora)
+		return false;
+
+	if (minuto < fecha.minuto)
+		return true;
+	else if (minuto > fecha.minuto)
+		return false;
+
+	if (segundo < fecha.segundo)
+		return true;
+	else if (segundo > fecha.segundo)
+		return false;
+
+	return false;
+}
+
 std::string Fecha::toString() const
 {
 	std::stringstream flujo;

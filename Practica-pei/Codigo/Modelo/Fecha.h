@@ -9,6 +9,7 @@ public:
 	Fecha();
 	Fecha(int ano, int mes, int dia, int hora, int minuto, int segundo);
 	Fecha(const std::string &cadena);
+	bool operator<(const Fecha &fecha) const;
 
 	std::string toString() const;
 	std::string toStringHora() const;
