@@ -17,6 +17,9 @@ MainWindow::MainWindow(Asignaturas *asignaturas, QWidget *parent) :
 	ui->setupUi(this);
 	ui->vistaQtAsignaturas->ponerModelo(asignaturas);
 	ui->vistaQtAsignaturas->refrescar();
+	ui->vistaQtResumen->ponerModelo(asignaturas);
+	ui->vistaQtResumen->refrescar();
+	ui->vistaQtResumen->setVisible(false);
 
 	ui->actionQuitar->setEnabled(false);
 	connect(ui->vistaQtAsignaturas, SIGNAL(asignaturaSeleccionadaCambio(Asignatura*)), SLOT(asignaturaSeleccionadaCambio(Asignatura*)));
@@ -125,4 +128,11 @@ void MainWindow::asignaturaSeleccionadaCambio(Asignatura *asignatura)
 	ui->actionQuitar->setEnabled(asignatura != NULL);
 	ui->vistaQtAsignatura->ponerModelo(asignatura);
 	ui->vistaQtAsignatura->refrescar();
+}
+
+void MainWindow::on_actionResumen_toggled(bool checked)
+{
+	ui->actionResumen->setChecked(checked);
+	ui->vistaQtAsignatura->setVisible(!checked);
+	ui->vistaQtResumen->setVisible(checked);
 }

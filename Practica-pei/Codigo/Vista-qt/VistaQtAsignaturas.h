@@ -30,6 +30,7 @@ signals:
 	void asignaturaSeleccionadaCambio(Asignatura *asignatura);
 
 private slots:
+	void itemClicked(QListWidgetItem* item);
 	void itemSelectionChanged();
 	void itemChanged(QListWidgetItem *item);
 };

@@ -17,7 +17,16 @@
    <iconset resource="icons.qrc">
     <normaloff>:/icons/logo.png</normaloff>:/icons/logo.png</iconset>
   </property>
-  <widget class="VistaQtAsignatura" name="vistaQtAsignatura"/>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="VistaQtResumen" name="vistaQtResumen" native="true"/>
+    </item>
+    <item>
+     <widget class="VistaQtAsignatura" name="vistaQtAsignatura" native="true"/>
+    </item>
+   </layout>
+  </widget>
   <widget class="QDockWidget" name="dockWidgetAsignaturas">
    <property name="sizePolicy">
     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -92,6 +101,7 @@
    </attribute>
    <addaction name="actionAnadir"/>
    <addaction name="actionQuitar"/>
+   <addaction name="actionResumen"/>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNuevo">
@@ -181,6 +191,18 @@
     <string>Quitar asignatura</string>
    </property>
   </action>
+  <action name="actionResumen">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>:/icons/calendario.png</normaloff>:/icons/calendario.png</iconset>
+   </property>
+   <property name="text">
+    <string>Resumen de citas y horario</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <customwidgets>
@@ -193,6 +215,11 @@
    <class>VistaQtAsignatura</class>
    <extends>QWidget</extends>
    <header>VistaQtAsignatura.h</header>
+  </customwidget>
+  <customwidget>
+   <class>VistaQtResumen</class>
+   <extends>QWidget</extends>
+   <header>VistaQtResumen.h</header>
   </customwidget>
  </customwidgets>
  <resources>

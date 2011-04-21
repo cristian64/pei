@@ -30,9 +30,10 @@ SOURCES += main.cpp\
 		../Modelo/tinyxml/tinyxmlparser.cpp \
 		DialogoProfesor.cpp \
 		DialogoCompanero.cpp \
-DialogoSesion.cpp \
-DialogoCita.cpp \
-DialogoNota.cpp
+		DialogoSesion.cpp \
+		DialogoCita.cpp \
+		DialogoNota.cpp \
+		VistaQtResumen.cpp
 
 HEADERS  += MainWindow.h \
 		VistaQtAsignatura.h \
@@ -51,18 +52,20 @@ HEADERS  += MainWindow.h \
 		../Modelo/tinyxml/tinystr.h \
 		DialogoProfesor.h \
 		DialogoCompanero.h \
-DialogoSesion.h \
-DialogoCita.h \
-DialogoNota.h
+		DialogoSesion.h \
+		DialogoCita.h \
+		DialogoNota.h \
+		VistaQtResumen.h
 
 FORMS    += MainWindow.ui \
 		VistaQtAsignatura.ui \
 		VistaQtAsignaturas.ui \
 		DialogoProfesor.ui \
 		DialogoCompanero.ui \
-DialogoSesion.ui \
-DialogoCita.ui \
-DialogoNota.ui
+		DialogoSesion.ui \
+		DialogoCita.ui \
+		DialogoNota.ui \
+		VistaQtResumen.ui
 
 RESOURCES += icons.qrc
 
