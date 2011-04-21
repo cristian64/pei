@@ -5,6 +5,7 @@ include(${QT_USE_FILE})
 add_definitions(${QT_DEFINITIONS})
 include_directories(${QT_INCLUDE_DIR})
 
+# Fuentes y cabeceras.
 SET(VISTAMULTIPLE_SOURCES XformsTimer.cpp)
 SET(VISTAMULTIPLE_HEADERS XformsTimer.h)
 qt4_wrap_cpp(VISTAMULTIPLE_SOURCES ${VISTAMULTIPLE_HEADERS})

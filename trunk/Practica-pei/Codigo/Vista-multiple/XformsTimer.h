@@ -14,6 +14,8 @@ class XformsTimer : public QTimer
 
 public:
     FD_Formulario *fd_Formulario;
+    VistaXformsAsignatura vistaXformsAsignatura;
+    VistaXformsAsignaturas vistaXformsAsignaturas;
     XformsTimer(int argc, char **argv, Asignaturas *asignaturas);
     ~XformsTimer();
 
