@@ -3,10 +3,13 @@
 
 #include <QWidget>
 #include "Vista.h"
+#include <list>
 
 namespace Ui {
 	class VistaQtResumen;
 }
+
+class VistaMini;
 
 class VistaQtResumen : public QWidget, public Vista
 {
@@ -21,10 +24,11 @@ public:
 
 private:
 	Ui::VistaQtResumen *ui;
+	std::list<VistaMini*> vistasMini;
 
 private slots:
 	void on_checkBoxCitasPasadas_toggled(bool checked);
- void on_checkBoxSabadoDomingo_toggled(bool checked);
+	void on_checkBoxSabadoDomingo_toggled(bool checked);
 };
 
 #endif // VISTAQTRESUMEN_H
