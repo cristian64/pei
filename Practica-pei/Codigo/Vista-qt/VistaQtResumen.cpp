@@ -5,6 +5,17 @@
 #include <algorithm>
 #include <QDateTime>
 
+class VistaMini : public Vista
+{
+public:
+	VistaQtResumen *padre;
+	void refrescar()
+	{
+		padre->recargarCitas();
+		padre->recargarHorario();
+	}
+};
+
 VistaQtResumen::VistaQtResumen(QWidget *parent) :
 	QWidget(parent),
 	ui(new Ui::VistaQtResumen)
@@ -20,12 +31,35 @@ VistaQtResumen::VistaQtResumen(QWidget *parent) :
 
 VistaQtResumen::~VistaQtResumen()
 {
+	std::list<VistaMini*>::iterator i = vistasMini.begin();
+	for (; i != vistasMini.end(); i++)
+		delete *i;
+	vistasMini.clear();
 	delete ui;
 }
 
 void VistaQtResumen::refrescar()
 {
-	// crear una vista para cada asignatura y que su refrescar invoque tambien recargarLista()
+	// Se crea una vista por cada asignatura para que cuando se modifique una asignatura, también se refresque el horario y la lista de citas.
+	std::list<VistaMini*>::iterator i = vistasMini.begin();
+	for (; i != vistasMini.end(); i++)
+		delete *i;
+	vistasMini.clear();
+
+	Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
+	if (asignaturas != NULL)
+	{
+		// Se recorren todas las citas.
+		const std::list<Asignatura*> lista = asignaturas->obtenerAsignaturas();
+		for (std::list<Asignatura*>::const_iterator i = lista.begin(); i != lista.end(); i++)
+		{
+			VistaMini *vistaMini = new VistaMini();
+			vistaMini->padre = this;
+			vistaMini->ponerModelo(*i);
+			vistasMini.push_back(vistaMini);
+		}
+	}
+
 	recargarCitas();
 	recargarHorario();
 }
@@ -129,11 +163,12 @@ void VistaQtResumen::recargarHorario()
 			// Finalmente se inserta el elemento con su color correspondiente y en la posición correcta.
 			std::string etiqueta = "\n" + (*sesion)->getFechaInicio().toStringHora() + " - " + (*sesion)->getFechaFin().toStringHora();
 			etiqueta += "\n\n" + vinculos[*sesion] + "\n";
+			etiqueta += "(" + (*sesion)->getLugar() + ")\n";
 			QLabel *item = new QLabel(QString::fromStdString(etiqueta));
 			if ((*sesion)->getTipo() == Sesion::TEORIA)
-				item->setStyleSheet("background-color: #CFEF9E; font-size: 8pt;");
+				item->setStyleSheet("background-color: #CFEF9E; font-size: 8pt; border: 1px solid #000;");
 			else
-				item->setStyleSheet("background-color: #ACC9EF; font-size: 8pt;");
+				item->setStyleSheet("background-color: #ACC9EF; font-size: 8pt; border: 1px solid #000;");
 			item->setAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
 			item->setWordWrap(true);
 			ui->tableWidgetSesiones->setCellWidget(contadorColumnas[dia] - 1, dia, item);
