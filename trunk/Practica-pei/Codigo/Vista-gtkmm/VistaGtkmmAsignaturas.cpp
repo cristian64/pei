@@ -36,6 +36,7 @@ VistaGtkmmAsignaturas::VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> ref
     toggletoolbuttonResumen->signal_toggled().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::modoResumen));
     treeviewAsignaturas->signal_row_activated().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::editarAsignatura));
 
+    toolbuttonQuitar->set_sensitive(false);
     vboxResumen->set_visible(false);
     notebookDetalles->set_visible(true);
 
@@ -45,7 +46,7 @@ VistaGtkmmAsignaturas::VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> ref
     treeviewAsignaturas->append_column("Lista de asignaturas", columnaNombre);
     treeviewAsignaturas->set_reorderable(false);
     treeselection = treeviewAsignaturas->get_selection();
-    treeselection->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::selecionarAsignatura));
+    treeselection->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::seleccionarAsignatura));
 }
 
 void VistaGtkmmAsignaturas::refrescar()
@@ -132,10 +133,17 @@ void VistaGtkmmAsignaturas::acercaDe()
 void VistaGtkmmAsignaturas::anadirAsignatura()
 {
     Gtk::Entry entry;
-    Gtk::Dialog dialog ("Introduce el nombre de la asignatura");
-    dialog.set_default_size(450, 100);
+    Gtk::Label label;
+    label.set_alignment(Gtk::ALIGN_LEFT, Gtk::ALIGN_CENTER);
+    label.set_text("Nombre de la asignatura:");
+    Gtk::Dialog dialog ("Añadiendo asignatura");
+    int width, height;
+    dialog.get_default_size(width, height);
+    dialog.set_default_size(400, height);
+    dialog.set_border_width(5);
     Gtk::VBox *vbox = dialog.get_vbox();
-    vbox->pack_start(entry, false, false, 10);
+    vbox->pack_start(label, true, false, 0);
+    vbox->pack_start(entry, true, false, 10);
     dialog.add_button(Gtk::Stock::CANCEL, Gtk::RESPONSE_CANCEL);
     dialog.add_button(Gtk::Stock::OK, Gtk::RESPONSE_OK);
     dialog.show_all_children();
@@ -208,19 +216,27 @@ void VistaGtkmmAsignaturas::modoResumen()
     }
 }
 
-void VistaGtkmmAsignaturas::selecionarAsignatura()
+void VistaGtkmmAsignaturas::seleccionarAsignatura()
 {
     std::list<Gtk::TreeModel::Path> paths = treeselection->get_selected_rows();
 
-    Gtk::TreeModel::Row row = *treemodelAsignaturas->get_iter(paths.front());
-    for (std::map<Asignatura*, Gtk::TreeModel::Row>::iterator i = vinculos.begin(); i != vinculos.end(); i++)
+    if (paths.size() > 0)
     {
-        if (i->second == row)
+        Gtk::TreeModel::Row row = *treemodelAsignaturas->get_iter(paths.front());
+        for (std::map<Asignatura*, Gtk::TreeModel::Row>::iterator i = vinculos.begin(); i != vinculos.end(); i++)
         {
-            cout << "seleccionando " << i->first->getNombre() << endl;
-            //vistaGtkmmAsignatura->ponerModelo(i->first);
-            //y refrescar si es que era necesario
+            if (i->second == row)
+            {
+                vistaGtkmmAsignatura->ponerModelo(i->first);
+                vistaGtkmmAsignatura->refrescar();
+                toolbuttonQuitar->set_sensitive(true);
+                break;
+            }
         }
+    }
+    else
+    {
+        toolbuttonQuitar->set_sensitive(false);
     }
 }
 
@@ -233,10 +249,17 @@ void VistaGtkmmAsignaturas::editarAsignatura(const Gtk::TreeModel::Path &path, G
         {
             Gtk::Entry entry;
             entry.set_text(i->first->getNombre());
-            Gtk::Dialog dialog ("Introduce el nombre de la asignatura");
-            dialog.set_default_size(450, 100);
+            Gtk::Label label;
+            label.set_alignment(Gtk::ALIGN_LEFT, Gtk::ALIGN_CENTER);
+            label.set_text("Nombre de la asignatura:");
+            Gtk::Dialog dialog ("Editando asignatura");
+            int width, height;
+            dialog.get_default_size(width, height);
+            dialog.set_default_size(400, height);
+            dialog.set_border_width(5);
             Gtk::VBox *vbox = dialog.get_vbox();
-            vbox->pack_start(entry, false, false, 10);
+            vbox->pack_start(label, true, false, 0);
+            vbox->pack_start(entry, true, false, 10);
             dialog.add_button(Gtk::Stock::CANCEL, Gtk::RESPONSE_CANCEL);
             dialog.add_button(Gtk::Stock::OK, Gtk::RESPONSE_OK);
             dialog.show_all_children();

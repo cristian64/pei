@@ -29,6 +29,7 @@
                      displayName="Vista-gtkmm"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignatura.h</itemPath>
         <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignaturas.h</itemPath>
         <itemPath>Codigo/Vista-gtkmm/interfaces.glade.h</itemPath>
       </logicalFolder>
@@ -103,6 +104,7 @@
                      displayName="Vista-gtkmm"
                      projectFiles="true"
                      kind="SOURCE_LOGICAL_FOLDER">
+        <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignatura.cpp</itemPath>
         <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignaturas.cpp</itemPath>
         <itemPath>Codigo/Vista-gtkmm/main.cpp</itemPath>
       </logicalFolder>
