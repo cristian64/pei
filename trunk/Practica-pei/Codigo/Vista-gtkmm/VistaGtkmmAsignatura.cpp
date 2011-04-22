@@ -29,6 +29,8 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     treeviewProfesores->append_column("Nombre", columnaNombre);
     treeviewProfesores->append_column("Correo electrónico", columnaEmail);
     treeviewProfesores->set_reorderable(false);
+    treeviewProfesores->get_column(0)->set_expand(true);
+    treeviewProfesores->get_column(1)->set_expand(true);
     treeselectionProfesores = treeviewProfesores->get_selection();
     treeselectionProfesores->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarProfesor));
 
@@ -47,6 +49,8 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     treeviewCompaneros->append_column("Nombre", columnaNombre);
     treeviewCompaneros->append_column("Correo electrónico", columnaEmail);
     treeviewCompaneros->set_reorderable(false);
+    treeviewCompaneros->get_column(0)->set_expand(true);
+    treeviewCompaneros->get_column(1)->set_expand(true);
     treeselectionCompaneros = treeviewCompaneros->get_selection();
     treeselectionCompaneros->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarCompanero));
 
@@ -76,6 +80,11 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     treeviewSesiones->append_column("Hora de incio", columnaHoraInicio);
     treeviewSesiones->append_column("Hora de fin", columnaHoraFin);
     treeviewSesiones->set_reorderable(false);
+    treeviewSesiones->get_column(0)->set_expand(true);
+    treeviewSesiones->get_column(1)->set_expand(true);
+    treeviewSesiones->get_column(2)->set_expand(true);
+    treeviewSesiones->get_column(3)->set_expand(true);
+    treeviewSesiones->get_column(4)->set_expand(true);
     treeselectionSesiones = treeviewSesiones->get_selection();
     treeselectionSesiones->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarSesion));
 
@@ -99,6 +108,9 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     treeviewCitas->append_column("Fecha", columnaFecha);
     treeviewCitas->append_column("Duración", columnaDuracion);
     treeviewCitas->set_reorderable(false);
+    treeviewCitas->get_column(0)->set_expand(true);
+    treeviewCitas->get_column(1)->set_expand(true);
+    treeviewCitas->get_column(2)->set_expand(true);
     treeselectionCitas = treeviewCitas->get_selection();
     treeselectionCitas->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarCita));
 
@@ -117,6 +129,8 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     treeviewNotas->append_column("Descripción", columnaDescripcion);
     treeviewNotas->append_column("Nota", columnaNota);
     treeviewNotas->set_reorderable(false);
+    treeviewNotas->get_column(0)->set_expand(true);
+    treeviewNotas->get_column(1)->set_expand(true);
     treeselectionNotas = treeviewNotas->get_selection();
     treeselectionNotas->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarNota));
 }

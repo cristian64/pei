@@ -232,6 +232,8 @@ void VistaGtkmmAsignaturas::seleccionarAsignatura()
                 vistaGtkmmAsignatura->refrescar();
                 toolbuttonQuitar->set_sensitive(true);
                 notebookDetalles->set_sensitive(true);
+                toggletoolbuttonResumen->set_active(false);
+                modoResumen();
                 break;
             }
         }

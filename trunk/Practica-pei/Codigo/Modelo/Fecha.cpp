@@ -3,6 +3,7 @@
 #include <iomanip>
 #include <cstdlib>
 #include <cstdio>
+#include <time.h>
 
 Fecha::Fecha() :
 	ano(2011),
@@ -96,4 +97,18 @@ void Fecha::fromString(const std::string &cadena)
 	hora = atoi(cadena.substr(11, 2).c_str());
 	minuto = atoi(cadena.substr(14, 2).c_str());
 	segundo = atoi(cadena.substr(17, 2).c_str());
+}
+
+Fecha Fecha::actual()
+{
+    Fecha fecha;
+    time_t tiempo = time(NULL);
+    tm *gmtiempo = gmtime(&tiempo);
+    fecha.ano = gmtiempo->tm_year + 1900;
+    fecha.mes = gmtiempo->tm_mon + 1;
+    fecha.dia = gmtiempo->tm_mday;
+    fecha.hora = gmtiempo->tm_hour + 2;
+    fecha.minuto = gmtiempo->tm_min;
+    fecha.segundo = gmtiempo->tm_sec;
+    return fecha;
 }
