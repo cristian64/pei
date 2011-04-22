@@ -37,6 +37,7 @@ VistaGtkmmAsignaturas::VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> ref
     treeviewAsignaturas->signal_row_activated().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::editarAsignatura));
 
     toolbuttonQuitar->set_sensitive(false);
+    notebookDetalles->set_sensitive(false);
     vboxResumen->set_visible(false);
     notebookDetalles->set_visible(true);
 
@@ -230,6 +231,7 @@ void VistaGtkmmAsignaturas::seleccionarAsignatura()
                 vistaGtkmmAsignatura->ponerModelo(i->first);
                 vistaGtkmmAsignatura->refrescar();
                 toolbuttonQuitar->set_sensitive(true);
+                notebookDetalles->set_sensitive(true);
                 break;
             }
         }
@@ -237,6 +239,7 @@ void VistaGtkmmAsignaturas::seleccionarAsignatura()
     else
     {
         toolbuttonQuitar->set_sensitive(false);
+        notebookDetalles->set_sensitive(false);
     }
 }
 
