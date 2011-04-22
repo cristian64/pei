@@ -19,12 +19,19 @@ VistaGtkmmResumen::VistaGtkmmResumen(Glib::RefPtr<Gnome::Glade::Xml> refXml)
     columnas.add(columnaFecha);
     columnas.add(columnaDuracion);
     columnas.add(columnaLunes);
+    columnas.add(columnaLunesColor);
     columnas.add(columnaMartes);
+    columnas.add(columnaMartesColor);
     columnas.add(columnaMiercoles);
+    columnas.add(columnaMiercolesColor);
     columnas.add(columnaJueves);
+    columnas.add(columnaJuevesColor);
     columnas.add(columnaViernes);
+    columnas.add(columnaViernesColor);
     columnas.add(columnaSabado);
+    columnas.add(columnaSabadoColor);
     columnas.add(columnaDomingo);
+    columnas.add(columnaDomingoColor);
     
     refXml->get_widget("checkbuttonCitasPasadas", checkbuttonCitasPasadas);
     refXml->get_widget("checkbuttonSabadoDomingo", checkbuttonSabadoDomingo);    
@@ -47,17 +54,94 @@ VistaGtkmmResumen::VistaGtkmmResumen(Glib::RefPtr<Gnome::Glade::Xml> refXml)
 
     treemodelResumenSesiones = Gtk::ListStore::create(columnas);
     treeviewResumenSesiones->set_model(treemodelResumenSesiones);
-    treeviewResumenSesiones->append_column("Lunes", columnaLunes);
-    treeviewResumenSesiones->append_column("Martes", columnaMartes);
-    treeviewResumenSesiones->append_column("Miércoles", columnaMiercoles);
-    treeviewResumenSesiones->append_column("Jueves", columnaJueves);
-    treeviewResumenSesiones->append_column("Viernes", columnaViernes);
     treeviewResumenSesiones->set_reorderable(false);
+
+    Gtk::CellRendererText* pRenderer = Gtk::manage(new Gtk::CellRendererText());
+    treeviewResumenSesiones->append_column("Lunes", *pRenderer);
+    Gtk::TreeViewColumn* pColumn = treeviewResumenSesiones->get_column(0);
+    pColumn->add_attribute(pRenderer->property_text(), columnaLunes);
+    pColumn->add_attribute(pRenderer->property_background_gdk(), columnaLunesColor);
+    pRenderer->property_wrap_mode() = Pango::WRAP_WORD;
+    pRenderer->property_alignment() = Pango::ALIGN_CENTER;
+    pRenderer->set_alignment(0.5, 0.5);
+    pRenderer->set_padding(10, 10);
+    pRenderer->property_font() = "Normal 7";
+
+    pRenderer = Gtk::manage(new Gtk::CellRendererText());
+    treeviewResumenSesiones->append_column("Martes", *pRenderer);
+    pColumn = treeviewResumenSesiones->get_column(1);
+    pColumn->add_attribute(pRenderer->property_text(), columnaMartes);
+    pColumn->add_attribute(pRenderer->property_background_gdk(), columnaMartesColor);
+    pRenderer->property_wrap_mode() = Pango::WRAP_WORD;
+    pRenderer->property_alignment() = Pango::ALIGN_CENTER;
+    pRenderer->set_alignment(0.5, 0.5);
+    pRenderer->set_padding(10, 10);
+    pRenderer->property_font() = "Normal 7";
+
+    pRenderer = Gtk::manage(new Gtk::CellRendererText());
+    treeviewResumenSesiones->append_column("Miércoles", *pRenderer);
+    pColumn = treeviewResumenSesiones->get_column(2);
+    pColumn->add_attribute(pRenderer->property_text(), columnaMiercoles);
+    pColumn->add_attribute(pRenderer->property_background_gdk(), columnaMiercolesColor);
+    pRenderer->property_wrap_mode() = Pango::WRAP_WORD;
+    pRenderer->property_alignment() = Pango::ALIGN_CENTER;
+    pRenderer->set_alignment(0.5, 0.5);
+    pRenderer->set_padding(10, 10);
+    pRenderer->property_font() = "Normal 7";
+
+    pRenderer = Gtk::manage(new Gtk::CellRendererText());
+    treeviewResumenSesiones->append_column("Jueves", *pRenderer);
+    pColumn = treeviewResumenSesiones->get_column(3);
+    pColumn->add_attribute(pRenderer->property_text(), columnaJueves);
+    pColumn->add_attribute(pRenderer->property_background_gdk(), columnaJuevesColor);
+    pRenderer->property_wrap_mode() = Pango::WRAP_WORD;
+    pRenderer->property_alignment() = Pango::ALIGN_CENTER;
+    pRenderer->set_alignment(0.5, 0.5);
+    pRenderer->set_padding(10, 10);
+    pRenderer->property_font() = "Normal 7";
+
+    pRenderer = Gtk::manage(new Gtk::CellRendererText());
+    treeviewResumenSesiones->append_column("Viernes", *pRenderer);
+    pColumn = treeviewResumenSesiones->get_column(4);
+    pColumn->add_attribute(pRenderer->property_text(), columnaViernes);
+    pColumn->add_attribute(pRenderer->property_background_gdk(), columnaViernesColor);
+    pRenderer->property_wrap_mode() = Pango::WRAP_WORD;
+    pRenderer->property_alignment() = Pango::ALIGN_CENTER;
+    pRenderer->set_alignment(0.5, 0.5);
+    pRenderer->set_padding(10, 10);
+    pRenderer->property_font() = "Normal 7";
+
+    pRenderer = Gtk::manage(new Gtk::CellRendererText());
+    treeviewResumenSesiones->append_column("Sábado", *pRenderer);
+    pColumn = treeviewResumenSesiones->get_column(5);
+    pColumn->add_attribute(pRenderer->property_text(), columnaSabado);
+    pColumn->add_attribute(pRenderer->property_background_gdk(), columnaSabadoColor);
+    pRenderer->property_wrap_mode() = Pango::WRAP_WORD;
+    pRenderer->property_alignment() = Pango::ALIGN_CENTER;
+    pRenderer->set_alignment(0.5, 0.5);
+    pRenderer->set_padding(8, 5);
+    pRenderer->property_font() = "Normal 7";
+
+    pRenderer = Gtk::manage(new Gtk::CellRendererText());
+    treeviewResumenSesiones->append_column("Domingo", *pRenderer);
+    pColumn = treeviewResumenSesiones->get_column(6);
+    pColumn->add_attribute(pRenderer->property_text(), columnaDomingo);
+    pColumn->add_attribute(pRenderer->property_background_gdk(), columnaDomingoColor);
+    pRenderer->property_wrap_mode() = Pango::WRAP_WORD;
+    pRenderer->property_alignment() = Pango::ALIGN_CENTER;
+    pRenderer->set_alignment(0.5, 0.5);
+    pRenderer->set_padding(10, 10);
+    pRenderer->property_font() = "Normal 7";
+    
     treeviewResumenSesiones->get_column(0)->set_expand(true);
     treeviewResumenSesiones->get_column(1)->set_expand(true);
     treeviewResumenSesiones->get_column(2)->set_expand(true);
     treeviewResumenSesiones->get_column(3)->set_expand(true);
     treeviewResumenSesiones->get_column(4)->set_expand(true);
+    treeviewResumenSesiones->get_column(5)->set_expand(true);
+    treeviewResumenSesiones->get_column(6)->set_expand(true);
+    treeviewResumenSesiones->get_column(5)->set_visible(false);
+    treeviewResumenSesiones->get_column(6)->set_visible(false);
 }
 
 VistaGtkmmResumen::~VistaGtkmmResumen()
@@ -200,43 +284,72 @@ void VistaGtkmmResumen::recargarHorario()
     std::list<Sesion*>::const_iterator sesion = todasSesiones.begin();
     for (; sesion != todasSesiones.end(); sesion++)
     {
-        std::string etiqueta = "\n" + (*sesion)->getFechaInicio().toStringHora() + " - " + (*sesion)->getFechaFin().toStringHora();
-        etiqueta += "\n\n" + vinculos[*sesion] + "\n";
-        etiqueta += "(" + (*sesion)->getLugar() + ")\n";
+        std::string etiqueta = (*sesion)->getFechaInicio().toStringHora() + " - " + (*sesion)->getFechaFin().toStringHora();
+        etiqueta += "\n" + vinculos[*sesion] + "\n";
+        etiqueta += "(" + (*sesion)->getLugar() + ")";
 
         // Si no hay suficientes filas, se inserta una más.
         int dia = (*sesion)->getDia();
+        Gtk::TreeModel::Row row;
         if (++contadorColumnas[dia] > (int) rows.size())
         {
-            Gtk::TreeModel::Row row = *(treemodelResumenSesiones->append());
-            switch (dia)
-            {
-                case 0: row[columnaLunes] = etiqueta; break;
-                case 1: row[columnaMartes] = etiqueta; break;
-                case 2: row[columnaMiercoles] = etiqueta; break;
-                case 3: row[columnaJueves] = etiqueta; break;
-                case 4: row[columnaViernes] = etiqueta; break;
-                case 5: row[columnaSabado] = etiqueta; break;
-                case 6: row[columnaDomingo] = etiqueta; break;
-            }
+            row = *(treemodelResumenSesiones->append());
             rows.push_back(row);
-
         }
         else
         {
-            Gtk::TreeModel::Row row = rows[contadorColumnas[dia] - 1];
-            switch (dia)
+            row = rows[contadorColumnas[dia] - 1];
+        }
+
+        Gdk::Color color;
+        if ((*sesion)->getTipo() == Sesion::TEORIA)
+            color.set_rgb_p(0.82, 0.94, 0.62);
+        else
+            color.set_rgb_p(0.67, 0.79, 0.94);
+        switch (dia)
+        {
+            case 0:
             {
-                case 0: row[columnaLunes] = etiqueta; break;
-                case 1: row[columnaMartes] = etiqueta; break;
-                case 2: row[columnaMiercoles] = etiqueta; break;
-                case 3: row[columnaJueves] = etiqueta; break;
-                case 4: row[columnaViernes] = etiqueta; break;
-                case 5: row[columnaSabado] = etiqueta; break;
-                case 6: row[columnaDomingo] = etiqueta; break;
+                row[columnaLunesColor] = color;
+                row[columnaLunes] = etiqueta;
+                break;
             }
-            //get row number contadorColumnas[dia] - 1 e insertar en la columna dia el texto "etiqueta".
-            //ui->tableWidgetSesiones->setCellWidget(contadorColumnas[dia] - 1, dia, item);
+            case 1:
+            {
+                row[columnaMartesColor] = color;
+                row[columnaMartes] = etiqueta;
+                break;
+            }
+            case 2:
+            {
+                row[columnaMiercolesColor] = color;
+                row[columnaMiercoles] = etiqueta;
+                break;
+            }
+            case 3:
+            {
+                row[columnaJuevesColor] = color;
+                row[columnaJueves] = etiqueta;
+                break;
+            }
+            case 4:
+            {
+                row[columnaViernesColor] = color;
+                row[columnaViernes] = etiqueta;
+                break;
+            }
+            case 5:
+            {
+                row[columnaSabadoColor] = color;
+                row[columnaSabado] = etiqueta;
+                break;
+            }
+            case 6:
+            {
+                row[columnaDomingoColor] = color;
+                row[columnaDomingo] = etiqueta;
+                break;
+            }
         }
     }
 }
@@ -250,14 +363,12 @@ void VistaGtkmmResumen::sabadoDomingo()
 {
     if (checkbuttonSabadoDomingo->get_active())
     {
-        treeviewResumenSesiones->append_column("Sábado", columnaSabado);
-        treeviewResumenSesiones->append_column("Domingo", columnaDomingo);
-        treeviewResumenSesiones->get_column(5)->set_expand(true);
-        treeviewResumenSesiones->get_column(6)->set_expand(true);
+        treeviewResumenSesiones->get_column(5)->set_visible(true);
+        treeviewResumenSesiones->get_column(6)->set_visible(true);
     }
     else
     {
-        treeviewResumenSesiones->remove_column(*treeviewResumenSesiones->get_column(6));
-        treeviewResumenSesiones->remove_column(*treeviewResumenSesiones->get_column(5));
+        treeviewResumenSesiones->get_column(5)->set_visible(false);
+        treeviewResumenSesiones->get_column(6)->set_visible(false);
     }
 }
