@@ -9,6 +9,10 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     columnas.add(columnaDia);
     columnas.add(columnaHoraInicio);
     columnas.add(columnaHoraFin);
+    columnas.add(columnaDescripcion);
+    columnas.add(columnaFecha);
+    columnas.add(columnaDuracion);
+    columnas.add(columnaNota);
 
     refXml->get_widget("buttonAnadirProfesor", buttonAnadirProfesor);
     refXml->get_widget("buttonQuitarProfesor", buttonQuitarProfesor);
@@ -71,6 +75,28 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     treeviewSesiones->set_reorderable(false);
     treeselectionSesiones = treeviewSesiones->get_selection();
     treeselectionSesiones->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarSesion));
+
+    refXml->get_widget("buttonAnadirCita", buttonAnadirCita);
+    refXml->get_widget("buttonQuitarCita", buttonQuitarCita);
+    refXml->get_widget("treeviewCitas", treeviewCitas);
+    refXml->get_widget("dialogCita", dialogCita);
+    refXml->get_widget("entryDescripcion", entryDescripcion);
+    refXml->get_widget("calendarCita", calendarCita);
+    refXml->get_widget("spinbuttonHora3", spinbuttonHora3);
+    refXml->get_widget("spinbuttonMinuto3", spinbuttonMinuto3);
+    refXml->get_widget("spinbuttonSegundo3", spinbuttonSegundo3);
+    refXml->get_widget("spinbuttonDuracion", spinbuttonDuracion);
+    buttonAnadirCita->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::anadirCita));
+    buttonQuitarCita->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::quitarCita));
+    treeviewCitas->signal_row_activated().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::editarCita));
+    treemodelCitas = Gtk::ListStore::create(columnas);
+    treeviewCitas->set_model(treemodelCitas);
+    treeviewCitas->append_column("Descripción", columnaDescripcion);
+    treeviewCitas->append_column("Fecha", columnaFecha);
+    treeviewCitas->append_column("Duración", columnaDuracion);
+    treeviewCitas->set_reorderable(false);
+    treeselectionCitas = treeviewCitas->get_selection();
+    treeselectionCitas->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarCita));
 }
 
 void VistaGtkmmAsignatura::refrescar()
@@ -145,6 +171,30 @@ void VistaGtkmmAsignatura::refrescar()
             row[columnaHoraInicio] = (*i)->getFechaInicio().toStringHora();
             row[columnaHoraFin] = (*i)->getFechaFin().toStringHora();
             vinculosSesiones[*i] = row;
+        }
+    }
+
+    // Se eliminan todas las asignaturas anteriores.
+    children = treemodelCitas->children();
+    for (Gtk::TreeModel::Children::iterator iter = children.begin(); iter != children.end(); )
+    {
+        Gtk::TreeModel::Children::iterator aux = iter;
+        iter++;
+        treemodelCitas->erase(aux);
+    }
+    vinculosCitas.clear();
+
+    if (asignatura != NULL)
+    {
+        // Se insertan las asignaturas del modelo.
+        const std::list<Cita*> lista = asignatura->obtenerCitas();
+        for (std::list<Cita*>::const_iterator i = lista.begin(); i != lista.end(); i++)
+        {
+            Gtk::TreeModel::Row row = *(treemodelCitas->append());
+            row[columnaDescripcion] = (*i)->getDescripcion();
+            row[columnaFecha] = (*i)->getFecha().toString();
+            row[columnaDuracion] = (*i)->getDuracion();
+            vinculosCitas[*i] = row;
         }
     }
 }
@@ -534,6 +584,149 @@ void VistaGtkmmAsignatura::editarSesion(const Gtk::TreeModel::Path &path, Gtk::T
                     row[columnaHoraFin] = sesion->getFechaFin().toStringHora();
                 }
                 dialogSesion->hide();
+            }
+        }
+    }
+}
+
+void VistaGtkmmAsignatura::anadirCita()
+{
+    Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+    if (asignatura != NULL)
+    {
+        entryDescripcion->set_text("");
+        Glib::Date date;
+        Gtk::Calendar calendarAux;
+        calendarAux.get_date(date);
+        calendarCita->select_day(date.get_day());
+        calendarCita->select_month(date.get_month() - 1, date.get_year());
+        spinbuttonHora3->set_value(0);
+        spinbuttonMinuto3->set_value(0);
+        spinbuttonSegundo3->set_value(0);
+        spinbuttonDuracion->set_value(30);
+        dialogCita->set_title("Añadiendo nueva cita");
+        if (dialogCita->run() == Gtk::RESPONSE_OK)
+        {
+            // Se añade el cita al modelo.
+            Cita *cita = new Cita();
+            cita->setDescripcion(entryDescripcion->get_text());
+            guint ano, mes, dia;
+            calendarCita->get_date(ano, mes, dia);
+            cita->setFecha(Fecha(ano, mes + 1, dia, spinbuttonHora3->get_value(), spinbuttonMinuto3->get_value(), spinbuttonSegundo3->get_value()));
+            cita->setDuracion(spinbuttonDuracion->get_value());
+            asignatura->anadirCita(cita);
+            asignatura->refrescarVistas(this);
+
+            // Se añade ahora a la lista.
+            Gtk::TreeModel::Row row = *(treemodelCitas->append());
+            row[columnaDescripcion] = cita->getDescripcion();
+            row[columnaFecha] = cita->getFecha().toString();
+            row[columnaDuracion] = cita->getDuracion();
+            vinculosCitas[cita] = row;
+        }
+        dialogCita->hide();
+    }
+}
+
+void VistaGtkmmAsignatura::quitarCita()
+{
+    Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+    if (asignatura != NULL)
+    {
+        // Extrae los elementos seleccionados (en principio, sólo será 1).
+        std::list<Gtk::TreeModel::Path> paths = treeselectionCitas->get_selected_rows();
+
+        // Convierte las rutas a RowReferences (que no se invalidan al modificarse el treemodel).
+        std::list<Gtk::TreeModel::RowReference> rows;
+        for (std::list<Gtk::TreeModel::Path>::iterator pathiter = paths.begin(); pathiter != paths.end(); pathiter++)
+        {
+            rows.push_back(Gtk::TreeModel::RowReference(treemodelCitas, *pathiter));
+        }
+
+        // Elimina todas las filas del treemodel.
+        for (std::list<Gtk::TreeModel::RowReference>::iterator i = rows.begin(); i != rows.end(); i++)
+        {
+            Gtk::TreeModel::iterator treeiter = treemodelCitas->get_iter(i->get_path());
+
+            // Desvincula la fila eliminada con la asignatura asociada y la elimina en el modelo de asignaturas.
+            Gtk::TreeModel::Row row = *treeiter;
+            for (std::map<Cita*, Gtk::TreeModel::Row>::iterator j = vinculosCitas.begin(); j != vinculosCitas.end(); j++)
+            {
+                if (j->second == row)
+                {
+                    // Se elimina la fila del treemodel.
+                    treemodelCitas->erase(treeiter);
+
+                    // Elimina la asignatura del modelo de asignaturas.
+                    asignatura->quitarCita(j->first);
+                    asignatura->refrescarVistas(this);
+
+                    // Desvincula la pareja <Asignatura, Row>.
+                    vinculosCitas.erase(j);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void VistaGtkmmAsignatura::seleccionarCita()
+{
+    std::list<Gtk::TreeModel::Path> paths = treeselectionCitas->get_selected_rows();
+
+    if (paths.size() > 0)
+    {
+        Gtk::TreeModel::Row row = *treemodelCitas->get_iter(paths.front());
+        for (std::map<Cita*, Gtk::TreeModel::Row>::iterator i = vinculosCitas.begin(); i != vinculosCitas.end(); i++)
+        {
+            if (i->second == row)
+            {
+                buttonQuitarCita->set_sensitive(true);
+                break;
+            }
+        }
+    }
+    else
+    {
+        buttonQuitarCita->set_sensitive(false);
+    }
+}
+
+void VistaGtkmmAsignatura::editarCita(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *)
+{
+    Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+    if (asignatura != NULL)
+    {
+        Gtk::TreeModel::Row row = *treemodelCitas->get_iter(path);
+        for (std::map<Cita*, Gtk::TreeModel::Row>::iterator i = vinculosCitas.begin(); i != vinculosCitas.end(); i++)
+        {
+            if (i->second == row)
+            {
+                Cita *cita = i->first;
+                entryDescripcion->set_text(cita->getDescripcion());
+                calendarCita->select_day(cita->getFecha().dia);
+                calendarCita->select_month(cita->getFecha().mes - 1, cita->getFecha().ano);
+                spinbuttonHora3->set_value(cita->getFecha().hora);
+                spinbuttonMinuto3->set_value(cita->getFecha().minuto);
+                spinbuttonSegundo3->set_value(cita->getFecha().segundo);
+                spinbuttonDuracion->set_value(cita->getDuracion());
+                dialogCita->set_title("Editando cita");
+                if (dialogCita->run() == Gtk::RESPONSE_OK)
+                {
+                    // Se actualiza el elemento.
+                    cita->setDescripcion(entryDescripcion->get_text());
+                    guint ano, mes, dia;
+                    calendarCita->get_date(ano, mes, dia);
+                    cita->setFecha(Fecha(ano, mes + 1, dia, spinbuttonHora3->get_value(), spinbuttonMinuto3->get_value(), spinbuttonSegundo3->get_value()));
+                    cita->setDuracion(spinbuttonDuracion->get_value());
+                    asignatura->refrescarVistas(this);
+
+                    // Se actualiza ahora a la lista.
+                    row[columnaDescripcion] = cita->getDescripcion();
+                    row[columnaFecha] = cita->getFecha().toString();
+                    row[columnaDuracion] = cita->getDuracion();
+                }
+                dialogCita->hide();
             }
         }
     }
