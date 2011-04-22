@@ -21,6 +21,10 @@ private:
     Gtk::TreeModelColumn<Glib::ustring> columnaDia;
     Gtk::TreeModelColumn<Glib::ustring> columnaHoraInicio;
     Gtk::TreeModelColumn<Glib::ustring> columnaHoraFin;
+    Gtk::TreeModelColumn<Glib::ustring> columnaDescripcion;
+    Gtk::TreeModelColumn<Glib::ustring> columnaFecha;
+    Gtk::TreeModelColumn<unsigned int> columnaDuracion;
+    Gtk::TreeModelColumn<float> columnaNota;
 
     Gtk::Button *buttonAnadirProfesor;
     Gtk::Button *buttonQuitarProfesor;
@@ -71,6 +75,24 @@ private:
     void seleccionarSesion();
     void editarSesion(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
     std::map<Sesion*, Gtk::TreeModel::Row> vinculosSesiones;
+
+    Gtk::Button *buttonAnadirCita;
+    Gtk::Button *buttonQuitarCita;
+    Gtk::TreeView *treeviewCitas;
+    Glib::RefPtr<Gtk::ListStore> treemodelCitas;
+    Glib::RefPtr<Gtk::TreeSelection> treeselectionCitas;
+    Gtk::Dialog *dialogCita;
+    Gtk::Entry *entryDescripcion;
+    Gtk::Calendar *calendarCita;
+    Gtk::SpinButton *spinbuttonHora3;
+    Gtk::SpinButton *spinbuttonMinuto3;
+    Gtk::SpinButton *spinbuttonSegundo3;
+    Gtk::SpinButton *spinbuttonDuracion;
+    void anadirCita();
+    void quitarCita();
+    void seleccionarCita();
+    void editarCita(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
+    std::map<Cita*, Gtk::TreeModel::Row> vinculosCitas;
 };
 
 #endif	/* VISTAGTKMMASIGNATURA_H */
