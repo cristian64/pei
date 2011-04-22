@@ -48,6 +48,9 @@ VistaGtkmmAsignaturas::VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> ref
     treeviewAsignaturas->set_reorderable(false);
     treeselection = treeviewAsignaturas->get_selection();
     treeselection->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::seleccionarAsignatura));
+
+    Gtk::Label *label = (Gtk::Label *) refXml->get_widget("label3");
+    label->set_markup("<span size=\"small\">" + label->get_text() + "</span>");
 }
 
 void VistaGtkmmAsignaturas::refrescar()
