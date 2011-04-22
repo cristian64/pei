@@ -16,6 +16,7 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
 
     refXml->get_widget("buttonAnadirProfesor", buttonAnadirProfesor);
     refXml->get_widget("buttonQuitarProfesor", buttonQuitarProfesor);
+    buttonQuitarProfesor->set_sensitive(false);
     refXml->get_widget("treeviewProfesores", treeviewProfesores);
     refXml->get_widget("dialogProfesor", dialogProfesor);
     refXml->get_widget("entryNombreProfesor", entryNombreProfesor);
@@ -33,6 +34,7 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
 
     refXml->get_widget("buttonAnadirCompanero", buttonAnadirCompanero);
     refXml->get_widget("buttonQuitarCompanero", buttonQuitarCompanero);
+    buttonQuitarCompanero->set_sensitive(false);
     refXml->get_widget("treeviewCompaneros", treeviewCompaneros);
     refXml->get_widget("dialogCompanero", dialogCompanero);
     refXml->get_widget("entryNombreCompanero", entryNombreCompanero);
@@ -50,6 +52,7 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
 
     refXml->get_widget("buttonAnadirSesion", buttonAnadirSesion);
     refXml->get_widget("buttonQuitarSesion", buttonQuitarSesion);
+    buttonQuitarSesion->set_sensitive(false);
     refXml->get_widget("treeviewSesiones", treeviewSesiones);
     refXml->get_widget("dialogSesion", dialogSesion);
     refXml->get_widget("radiobuttonTeoria", radiobuttonTeoria);
@@ -78,6 +81,7 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
 
     refXml->get_widget("buttonAnadirCita", buttonAnadirCita);
     refXml->get_widget("buttonQuitarCita", buttonQuitarCita);
+    buttonQuitarCita->set_sensitive(false);
     refXml->get_widget("treeviewCitas", treeviewCitas);
     refXml->get_widget("dialogCita", dialogCita);
     refXml->get_widget("entryDescripcion", entryDescripcion);
@@ -97,6 +101,24 @@ VistaGtkmmAsignatura::VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXm
     treeviewCitas->set_reorderable(false);
     treeselectionCitas = treeviewCitas->get_selection();
     treeselectionCitas->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarCita));
+
+    refXml->get_widget("buttonAnadirNota", buttonAnadirNota);
+    refXml->get_widget("buttonQuitarNota", buttonQuitarNota);
+    buttonQuitarNota->set_sensitive(false);
+    refXml->get_widget("treeviewNotas", treeviewNotas);
+    refXml->get_widget("dialogNota", dialogNota);
+    refXml->get_widget("entryDescripcionNota", entryDescripcionNota);
+    refXml->get_widget("spinbuttonNota", spinbuttonNota);
+    buttonAnadirNota->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::anadirNota));
+    buttonQuitarNota->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::quitarNota));
+    treeviewNotas->signal_row_activated().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::editarNota));
+    treemodelNotas = Gtk::ListStore::create(columnas);
+    treeviewNotas->set_model(treemodelNotas);
+    treeviewNotas->append_column("Descripción", columnaDescripcion);
+    treeviewNotas->append_column("Nota", columnaNota);
+    treeviewNotas->set_reorderable(false);
+    treeselectionNotas = treeviewNotas->get_selection();
+    treeselectionNotas->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignatura::seleccionarNota));
 }
 
 void VistaGtkmmAsignatura::refrescar()
@@ -195,6 +217,29 @@ void VistaGtkmmAsignatura::refrescar()
             row[columnaFecha] = (*i)->getFecha().toString();
             row[columnaDuracion] = (*i)->getDuracion();
             vinculosCitas[*i] = row;
+        }
+    }
+
+    // Se eliminan todas las asignaturas anteriores.
+    children = treemodelNotas->children();
+    for (Gtk::TreeModel::Children::iterator iter = children.begin(); iter != children.end(); )
+    {
+        Gtk::TreeModel::Children::iterator aux = iter;
+        iter++;
+        treemodelNotas->erase(aux);
+    }
+    vinculosNotas.clear();
+
+    if (asignatura != NULL)
+    {
+        // Se insertan las asignaturas del modelo.
+        const std::list<Nota*> lista = asignatura->obtenerNotas();
+        for (std::list<Nota*>::const_iterator i = lista.begin(); i != lista.end(); i++)
+        {
+            Gtk::TreeModel::Row row = *(treemodelNotas->append());
+            row[columnaDescripcion] = (*i)->getDescripcion();
+            row[columnaNota] = (*i)->getNotaString();
+            vinculosNotas[*i] = row;
         }
     }
 }
@@ -727,6 +772,126 @@ void VistaGtkmmAsignatura::editarCita(const Gtk::TreeModel::Path &path, Gtk::Tre
                     row[columnaDuracion] = cita->getDuracion();
                 }
                 dialogCita->hide();
+            }
+        }
+    }
+}
+
+void VistaGtkmmAsignatura::anadirNota()
+{
+    Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+    if (asignatura != NULL)
+    {
+        entryDescripcionNota->set_text("");
+        spinbuttonNota->set_value(0);
+        dialogNota->set_title("Añadiendo nueva nota");
+        if (dialogNota->run() == Gtk::RESPONSE_OK)
+        {
+            // Se añade el nota al modelo.
+            Nota *nota = new Nota(entryDescripcionNota->get_text(), spinbuttonNota->get_value());
+            asignatura->anadirNota(nota);
+            asignatura->refrescarVistas(this);
+
+            // Se añade ahora a la lista.
+            Gtk::TreeModel::Row row = *(treemodelNotas->append());
+            row[columnaDescripcion] = nota->getDescripcion();
+            row[columnaNota] = nota->getNotaString();
+            vinculosNotas[nota] = row;
+        }
+        dialogNota->hide();
+    }
+}
+
+void VistaGtkmmAsignatura::quitarNota()
+{
+    Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+    if (asignatura != NULL)
+    {
+        // Extrae los elementos seleccionados (en principio, sólo será 1).
+        std::list<Gtk::TreeModel::Path> paths = treeselectionNotas->get_selected_rows();
+
+        // Convierte las rutas a RowReferences (que no se invalidan al modificarse el treemodel).
+        std::list<Gtk::TreeModel::RowReference> rows;
+        for (std::list<Gtk::TreeModel::Path>::iterator pathiter = paths.begin(); pathiter != paths.end(); pathiter++)
+        {
+            rows.push_back(Gtk::TreeModel::RowReference(treemodelNotas, *pathiter));
+        }
+
+        // Elimina todas las filas del treemodel.
+        for (std::list<Gtk::TreeModel::RowReference>::iterator i = rows.begin(); i != rows.end(); i++)
+        {
+            Gtk::TreeModel::iterator treeiter = treemodelNotas->get_iter(i->get_path());
+
+            // Desvincula la fila eliminada con la asignatura asociada y la elimina en el modelo de asignaturas.
+            Gtk::TreeModel::Row row = *treeiter;
+            for (std::map<Nota*, Gtk::TreeModel::Row>::iterator j = vinculosNotas.begin(); j != vinculosNotas.end(); j++)
+            {
+                if (j->second == row)
+                {
+                    // Se elimina la fila del treemodel.
+                    treemodelNotas->erase(treeiter);
+
+                    // Elimina la asignatura del modelo de asignaturas.
+                    asignatura->quitarNota(j->first);
+                    asignatura->refrescarVistas(this);
+
+                    // Desvincula la pareja <Asignatura, Row>.
+                    vinculosNotas.erase(j);
+                    break;
+                }
+            }
+        }
+    }
+}
+
+void VistaGtkmmAsignatura::seleccionarNota()
+{
+    std::list<Gtk::TreeModel::Path> paths = treeselectionNotas->get_selected_rows();
+
+    if (paths.size() > 0)
+    {
+        Gtk::TreeModel::Row row = *treemodelNotas->get_iter(paths.front());
+        for (std::map<Nota*, Gtk::TreeModel::Row>::iterator i = vinculosNotas.begin(); i != vinculosNotas.end(); i++)
+        {
+            if (i->second == row)
+            {
+                buttonQuitarNota->set_sensitive(true);
+                break;
+            }
+        }
+    }
+    else
+    {
+        buttonQuitarNota->set_sensitive(false);
+    }
+}
+
+void VistaGtkmmAsignatura::editarNota(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *)
+{
+    Asignatura *asignatura = static_cast<Asignatura*>(modelo);
+    if (asignatura != NULL)
+    {
+        Gtk::TreeModel::Row row = *treemodelNotas->get_iter(path);
+        for (std::map<Nota*, Gtk::TreeModel::Row>::iterator i = vinculosNotas.begin(); i != vinculosNotas.end(); i++)
+        {
+            if (i->second == row)
+            {
+                Nota *nota = i->first;
+                entryDescripcionNota->set_text(nota->getDescripcion());
+                spinbuttonNota->set_value(nota->getNota());
+                dialogNota->set_title("Editando nota");
+                if (dialogNota->run() == Gtk::RESPONSE_OK)
+                {
+                    // Se actualiza el elemento.
+                    nota->setDescripcion(entryDescripcionNota->get_text());
+                    nota->setNota(spinbuttonNota->get_value());
+                    asignatura->refrescarVistas(this);
+
+                    // Se actualiza ahora a la lista.
+                    row[columnaDescripcion] = nota->getDescripcion();
+                    row[columnaNota] = nota->getNotaString();
+                }
+                dialogNota->hide();
             }
         }
     }

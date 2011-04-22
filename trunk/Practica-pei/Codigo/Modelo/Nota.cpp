@@ -30,6 +30,13 @@ float Nota::getNota() const
 	return nota;
 }
 
+std::string Nota::getNotaString() const
+{
+   	std::stringstream flujo;
+	flujo << nota;
+	return flujo.str();
+}
+
 void Nota::setNota(float nota)
 {
 	this->nota = nota;
