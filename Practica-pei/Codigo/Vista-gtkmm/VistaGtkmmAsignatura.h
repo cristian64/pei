@@ -24,7 +24,7 @@ private:
     Gtk::TreeModelColumn<Glib::ustring> columnaDescripcion;
     Gtk::TreeModelColumn<Glib::ustring> columnaFecha;
     Gtk::TreeModelColumn<unsigned int> columnaDuracion;
-    Gtk::TreeModelColumn<float> columnaNota;
+    Gtk::TreeModelColumn<Glib::ustring> columnaNota;
 
     Gtk::Button *buttonAnadirProfesor;
     Gtk::Button *buttonQuitarProfesor;
@@ -93,6 +93,20 @@ private:
     void seleccionarCita();
     void editarCita(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
     std::map<Cita*, Gtk::TreeModel::Row> vinculosCitas;
+
+    Gtk::Button *buttonAnadirNota;
+    Gtk::Button *buttonQuitarNota;
+    Gtk::TreeView *treeviewNotas;
+    Glib::RefPtr<Gtk::ListStore> treemodelNotas;
+    Glib::RefPtr<Gtk::TreeSelection> treeselectionNotas;
+    Gtk::Dialog *dialogNota;
+    Gtk::Entry *entryDescripcionNota;
+    Gtk::SpinButton *spinbuttonNota;
+    void anadirNota();
+    void quitarNota();
+    void seleccionarNota();
+    void editarNota(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
+    std::map<Nota*, Gtk::TreeModel::Row> vinculosNotas;
 };
 
 #endif	/* VISTAGTKMMASIGNATURA_H */

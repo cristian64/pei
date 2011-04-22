@@ -13,6 +13,7 @@ public:
     void setDescripcion(const std::string &descripcion);
 
     float getNota() const;
+    std::string getNotaString() const;
     void setNota(float nota);
 
     std::string toXml() const;
