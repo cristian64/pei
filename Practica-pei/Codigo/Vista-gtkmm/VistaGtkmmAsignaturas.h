@@ -4,15 +4,16 @@
 #include "Vista.h"
 #include <libglademm/xml.h>
 #include <gtkmm.h>
-#include <gdkmm.h>
 #include <map>
 #include "Asignatura.h"
+#include "VistaGtkmmAsignatura.h"
 
 class VistaGtkmmAsignaturas : public Vista
 {
 public:
     VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> refXml);
     void refrescar();
+    VistaGtkmmAsignatura *vistaGtkmmAsignatura;
 
 private:
     Gtk::Window *window;
@@ -52,7 +53,7 @@ private:
     void quitarAsignatura();
     void modoResumen();
 
-    void selecionarAsignatura();
+    void seleccionarAsignatura();
     void editarAsignatura(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
 
     std::map<Asignatura*, Gtk::TreeModel::Row> vinculos;

@@ -8,7 +8,7 @@ link_directories(${GTKMM_LIBRARY_DIRS} ${GLADEMM_LIBRARY_DIRS})
 include_directories(${GTKMM_INCLUDE_DIRS} ${GLADEMM_INCLUDE_DIRS})
 
 # Fuentes y cabeceras del código.
-SET(OBJ VistaGtkmmAsignaturas.cpp)
+SET(OBJ VistaGtkmmAsignaturas.cpp VistaGtkmmAsignatura.cpp)
 
 # Genera la librería y la enlaza con Gtkmm, Glademm y con Modelo y Vista.
 ADD_LIBRARY(Vista-gtkmm ${OBJ})
@@ -22,8 +22,8 @@ TARGET_LINK_LIBRARIES(VistaGtkmm Vista-gtkmm)
 # se vuelva a compilar cuando se modifique la interfaz desde Glade
 add_dependencies(VistaGtkmm interfaces.glade)
 
-# Comando personalizado para generar un .h a partir del .glade (y así poder incluir el XML dentro del código).
-# El fichero que se genera (interfaces.glade.h) es una variable del tipo std::string que se le asigna el contenido del .glade.
+# Comando personalizado para generar un .h a partir del .glade (y así poder incluir el XML dentro del ejecutable).
+# El fichero que se genera (interfaces.glade.h) es una variable del tipo std::string a la que se le asigna el contenido del .glade.
 # En el código del programa se realiza un #include "interfaces.glade.h" para que el preprocesador coloque ahí la variable std::string ya definida.
 add_custom_command(TARGET VistaGtkmm
 	PRE_BUILD

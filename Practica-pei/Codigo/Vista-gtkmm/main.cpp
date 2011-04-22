@@ -3,7 +3,6 @@ using namespace std;
 
 #include <libglademm/xml.h>
 #include <gtkmm.h>
-
 #include "Asignaturas.h"
 #include "VistaGtkmmAsignaturas.h"
 
@@ -26,12 +25,12 @@ int main (int argc, char **argv)
     asignaturas.cargar("ejemplo1.xml");
 
     // Vista para una asignatura concreta.
-    //VistaGtkmmAsignatura vistaGtkmmAsignatura(refXml);
-    //vistaGtkmmAsignatura.refrescar();
+    VistaGtkmmAsignatura vistaGtkmmAsignatura(refXml);
+    vistaGtkmmAsignatura.refrescar();
 
     // Vista para la lista de asignaturas.
     VistaGtkmmAsignaturas vistaGtkmmAsignaturas(refXml);
-    //vistaGtkmmAsignaturas.vistaGtkmmAsignatura = &vistaGtkmmAsignatura;
+    vistaGtkmmAsignaturas.vistaGtkmmAsignatura = &vistaGtkmmAsignatura;
     vistaGtkmmAsignaturas.ponerModelo(&asignaturas);
     vistaGtkmmAsignaturas.refrescar();
 
