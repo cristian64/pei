@@ -24,6 +24,16 @@ Fecha::Fecha(int ano, int mes, int dia, int hora, int minuto, int segundo) :
 {
 }
 
+Fecha::Fecha(int hora, int minuto, int segundo) :
+	ano(0),
+	mes(0),
+	dia(0),
+	hora(hora),
+	minuto(minuto),
+	segundo(segundo)
+{
+}
+
 Fecha::Fecha(const std::string &cadena)
 {
 	this->fromString(cadena);

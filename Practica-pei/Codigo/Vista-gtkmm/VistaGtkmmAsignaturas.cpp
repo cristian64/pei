@@ -60,9 +60,9 @@ void VistaGtkmmAsignaturas::refrescar()
         iter++;
         treemodelAsignaturas->erase(aux);
     }
-
-    // Se insertan las asignaturas del modelo.
     vinculos.clear();
+    
+    // Se insertan las asignaturas del modelo.
     Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
     const std::list<Asignatura*> lista = asignaturas->obtenerAsignaturas();
     for (std::list<Asignatura*>::const_iterator i = lista.begin(); i != lista.end(); i++)
