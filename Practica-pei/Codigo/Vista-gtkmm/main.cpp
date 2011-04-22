@@ -5,6 +5,8 @@ using namespace std;
 #include <gtkmm.h>
 #include "Asignaturas.h"
 #include "VistaGtkmmAsignaturas.h"
+#include "VistaGtkmmAsignatura.h"
+#include "VistaGtkmmResumen.h"
 
 int main (int argc, char **argv)
 {
@@ -35,9 +37,9 @@ int main (int argc, char **argv)
     vistaGtkmmAsignaturas.refrescar();
 
     // Otra vista para la lista de asignaturas (para mostrar el resumen).
-    //VistaGtkmmResumen vistaGtkmmResumen(refXml);
-    //vistaGtkmmResumen.ponerModelo(&asignaturas);
-    //vistaGtkmmResumen.refrescar();
+    VistaGtkmmResumen vistaGtkmmResumen(refXml);
+    vistaGtkmmResumen.ponerModelo(&asignaturas);
+    vistaGtkmmResumen.refrescar();
 
     Gtk::Main::run(*ventana);
     delete ventana;

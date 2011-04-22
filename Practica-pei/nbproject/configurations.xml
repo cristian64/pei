@@ -31,6 +31,7 @@
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignatura.h</itemPath>
         <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignaturas.h</itemPath>
+        <itemPath>Codigo/Vista-gtkmm/VistaGtkmmResumen.h</itemPath>
         <itemPath>Codigo/Vista-gtkmm/interfaces.glade.h</itemPath>
       </logicalFolder>
       <logicalFolder name="f7"
@@ -106,6 +107,7 @@
                      kind="SOURCE_LOGICAL_FOLDER">
         <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignatura.cpp</itemPath>
         <itemPath>Codigo/Vista-gtkmm/VistaGtkmmAsignaturas.cpp</itemPath>
+        <itemPath>Codigo/Vista-gtkmm/VistaGtkmmResumen.cpp</itemPath>
         <itemPath>Codigo/Vista-gtkmm/main.cpp</itemPath>
       </logicalFolder>
       <logicalFolder name="f7"
@@ -200,6 +202,8 @@
             <pElem>/usr/include/gtk-unix-print-2.0</pElem>
             <pElem>/usr/include/libglade-2.0</pElem>
             <pElem>/usr/include/libglademm-2.4</pElem>
+            <pElem>/usr/include/libglademm-2.4/libglademm</pElem>
+            <pElem>/usr/include/libglademm-2.4/libglademm/private</pElem>
             <pElem>/usr/include/libpng12</pElem>
             <pElem>/usr/include/libxml2</pElem>
             <pElem>/usr/include/pango-1.0</pElem>

@@ -265,7 +265,7 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkCheckButton" id="checkbutton1">
+                          <widget class="GtkCheckButton" id="checkbuttonCitasPasadas">
                             <property name="label" translatable="yes">Mostrar tambi&#xE9;n citas pasadas</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
@@ -338,7 +338,7 @@
                           </packing>
                         </child>
                         <child>
-                          <widget class="GtkCheckButton" id="checkbutton2">
+                          <widget class="GtkCheckButton" id="checkbuttonSabadoDomingo">
                             <property name="label" translatable="yes">Mostrar tambi&#xE9;n s&#xE1;bado y domingo</property>
                             <property name="visible">True</property>
                             <property name="can_focus">True</property>
