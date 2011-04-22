@@ -31,6 +31,13 @@ private:
     Gtk::TreeModelColumn<Glib::ustring> columnaViernes;
     Gtk::TreeModelColumn<Glib::ustring> columnaSabado;
     Gtk::TreeModelColumn<Glib::ustring> columnaDomingo;
+    Gtk::TreeModelColumn<Gdk::Color> columnaLunesColor;
+    Gtk::TreeModelColumn<Gdk::Color> columnaMartesColor;
+    Gtk::TreeModelColumn<Gdk::Color> columnaMiercolesColor;
+    Gtk::TreeModelColumn<Gdk::Color> columnaJuevesColor;
+    Gtk::TreeModelColumn<Gdk::Color> columnaViernesColor;
+    Gtk::TreeModelColumn<Gdk::Color> columnaSabadoColor;
+    Gtk::TreeModelColumn<Gdk::Color> columnaDomingoColor;
 
     Gtk::CheckButton *checkbuttonCitasPasadas;
     Gtk::CheckButton *checkbuttonSabadoDomingo;
