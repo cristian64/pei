@@ -5,6 +5,8 @@
 #include <libglademm/xml.h>
 #include <gtkmm.h>
 #include <gdkmm.h>
+#include <map>
+#include "Asignatura.h"
 
 class VistaGtkmmAsignaturas : public Vista
 {
@@ -34,6 +36,11 @@ private:
     Gtk::VBox *vboxResumen;
     Gtk::Notebook *notebookDetalles;
 
+    Glib::RefPtr<Gtk::ListStore> treemodelAsignaturas;
+    Gtk::TreeModel::ColumnRecord columnas;
+    Gtk::TreeModelColumn<Glib::ustring> columnaNombre;
+    Glib::RefPtr<Gtk::TreeSelection> treeselection;
+
     void nuevo();
     void abrir();
     void guardar();
@@ -44,6 +51,11 @@ private:
     void anadirAsignatura();
     void quitarAsignatura();
     void modoResumen();
+
+    void selecionarAsignatura();
+    void editarAsignatura(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
+
+    std::map<Asignatura*, Gtk::TreeModel::Row> vinculos;
 };
 
 #endif	/* VISTAGTKMMASIGNATURAS_H */

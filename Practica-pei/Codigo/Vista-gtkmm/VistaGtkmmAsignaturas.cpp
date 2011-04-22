@@ -4,14 +4,12 @@
 VistaGtkmmAsignaturas::VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> refXml)
 {
     refXml->get_widget("window", window);
-
     refXml->get_widget("imagemenuitemNuevo", imagemenuitemNuevo);
     refXml->get_widget("imagemenuitemAbrir", imagemenuitemAbrir);
     refXml->get_widget("imagemenuitemGuardar", imagemenuitemGuardar);
     refXml->get_widget("imagemenuitemGuardarComo", imagemenuitemGuardarComo);
     refXml->get_widget("imagemenuitemSalir", imagemenuitemSalir);
     refXml->get_widget("imagemenuitemAcercaDe", imagemenuitemAcercaDe);
-
     refXml->get_widget("toolbuttonNuevo", toolbuttonNuevo);
     refXml->get_widget("toolbuttonAbrir", toolbuttonAbrir);
     refXml->get_widget("toolbuttonGuardar", toolbuttonGuardar);
@@ -19,7 +17,6 @@ VistaGtkmmAsignaturas::VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> ref
     refXml->get_widget("toolbuttonAnadir", toolbuttonAnadir);
     refXml->get_widget("toolbuttonQuitar", toolbuttonQuitar);
     refXml->get_widget("toggletoolbuttonResumen", toggletoolbuttonResumen);
-
     refXml->get_widget("treeviewAsignaturas", treeviewAsignaturas);
     refXml->get_widget("vboxResumen", vboxResumen);
     refXml->get_widget("notebookDetalles", notebookDetalles);
@@ -30,25 +27,48 @@ VistaGtkmmAsignaturas::VistaGtkmmAsignaturas(Glib::RefPtr<Gnome::Glade::Xml> ref
     imagemenuitemGuardarComo->signal_activate().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::guardarComo));
     imagemenuitemSalir->signal_activate().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::salir));
     imagemenuitemAcercaDe->signal_activate().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::acercaDe));
-
     toolbuttonNuevo->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::nuevo));
     toolbuttonAbrir->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::abrir));
     toolbuttonGuardar->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::guardar));
     toolbuttonGuardarComo->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::guardarComo));
-
     toolbuttonAnadir->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::anadirAsignatura));
     toolbuttonQuitar->signal_clicked().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::quitarAsignatura));
     toggletoolbuttonResumen->signal_toggled().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::modoResumen));
+    treeviewAsignaturas->signal_row_activated().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::editarAsignatura));
 
-    modoResumen();
+    vboxResumen->set_visible(false);
+    notebookDetalles->set_visible(true);
+
+    columnas.add(columnaNombre);
+    treemodelAsignaturas = Gtk::ListStore::create(columnas);
+    treeviewAsignaturas->set_model(treemodelAsignaturas);
+    treeviewAsignaturas->append_column("Lista de asignaturas", columnaNombre);
+    treeviewAsignaturas->set_reorderable(false);
+    treeselection = treeviewAsignaturas->get_selection();
+    treeselection->signal_changed().connect(sigc::mem_fun(*this, &VistaGtkmmAsignaturas::selecionarAsignatura));
 }
 
 void VistaGtkmmAsignaturas::refrescar()
 {
-    //TODO: pillar la tabla y meter las asignaturas (primero rapido, reventando siempre y ya esta)
-    //en un futuro se hace el periplo...
+    // Se eliminan todas las asignaturas anteriores.
+    Gtk::TreeModel::Children children = treemodelAsignaturas->children();
+    for (Gtk::TreeModel::Children::iterator iter = children.begin(); iter != children.end(); )
+    {
+        Gtk::TreeModel::Children::iterator aux = iter;
+        iter++;
+        treemodelAsignaturas->erase(aux);
+    }
+
+    // Se insertan las asignaturas del modelo.
+    vinculos.clear();
     Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
-    cout << "Hay " << asignaturas->obtenerAsignaturas().size() << " asignaturas" << endl;
+    const std::list<Asignatura*> lista = asignaturas->obtenerAsignaturas();
+    for (std::list<Asignatura*>::const_iterator i = lista.begin(); i != lista.end(); i++)
+    {
+        Gtk::TreeModel::Row row = *(treemodelAsignaturas->append());
+        row[columnaNombre] = (*i)->getNombre();
+        vinculos[*i] = row;
+    }
 }
 
 void VistaGtkmmAsignaturas::nuevo()
@@ -112,7 +132,7 @@ void VistaGtkmmAsignaturas::acercaDe()
 void VistaGtkmmAsignaturas::anadirAsignatura()
 {
     Gtk::Entry entry;
-    Gtk::Dialog dialog ("Introduce el nombre de la una asignatura");
+    Gtk::Dialog dialog ("Introduce el nombre de la asignatura");
     dialog.set_default_size(450, 100);
     Gtk::VBox *vbox = dialog.get_vbox();
     vbox->pack_start(entry, false, false, 10);
@@ -121,15 +141,57 @@ void VistaGtkmmAsignaturas::anadirAsignatura()
     dialog.show_all_children();
     if (dialog.run() == Gtk::RESPONSE_OK)
     {
+        // La añade al modelo y refresca todas las vistas menos ésta.
         Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
-        asignaturas->anadirAsignatura(new Asignatura(entry.get_text()));
-        asignaturas->refrescarVistas(); //TODO: menos esta...¿?
+        Asignatura *asignatura = new Asignatura(entry.get_text());
+        asignaturas->anadirAsignatura(asignatura);
+        asignaturas->refrescarVistas(this);
+
+        // Añade la asignatura al treemodel.
+        Gtk::TreeModel::Row row = *(treemodelAsignaturas->append());
+        row[columnaNombre] = entry.get_text();
+        vinculos[asignatura] = row;
     }
 }
 
 void VistaGtkmmAsignaturas::quitarAsignatura()
 {
-    cout << "quitar asignatura" << endl;
+    Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
+
+    // Extrae las asignaturas seleccionadas (en principio, sólo será 1).
+    std::list<Gtk::TreeModel::Path> paths = treeselection->get_selected_rows();
+
+    // Convierte las rutas a RowReferences (que no se invalidan al modificarse el treemodel).
+    std::list<Gtk::TreeModel::RowReference> rows;
+    for (std::list<Gtk::TreeModel::Path>::iterator pathiter = paths.begin(); pathiter != paths.end(); pathiter++)
+    {
+        rows.push_back(Gtk::TreeModel::RowReference(treemodelAsignaturas, *pathiter));
+    }
+
+    // Elimina todas las filas del treemodel.
+    for (std::list<Gtk::TreeModel::RowReference>::iterator i = rows.begin(); i != rows.end(); i++)
+    {
+        Gtk::TreeModel::iterator treeiter = treemodelAsignaturas->get_iter(i->get_path());
+
+        // Desvincula la fila eliminada con la asignatura asociada y la elimina en el modelo de asignaturas.
+        Gtk::TreeModel::Row row = *treeiter;
+        for (std::map<Asignatura*, Gtk::TreeModel::Row>::iterator j = vinculos.begin(); j != vinculos.end(); j++)
+        {
+            if (j->second == row)
+            {
+                // Se elimina la fila del treemodel.
+                treemodelAsignaturas->erase(treeiter);
+
+                // Elimina la asignatura del modelo de asignaturas.
+                asignaturas->quitarAsignatura(j->first);
+                asignaturas->refrescarVistas(this);
+
+                // Desvincula la pareja <Asignatura, Row>.
+                vinculos.erase(j);
+                break;
+            }
+        }
+    }
 }
 
 void VistaGtkmmAsignaturas::modoResumen()
@@ -143,5 +205,51 @@ void VistaGtkmmAsignaturas::modoResumen()
     {
         vboxResumen->set_visible(false);
         notebookDetalles->set_visible(true);
+    }
+}
+
+void VistaGtkmmAsignaturas::selecionarAsignatura()
+{
+    std::list<Gtk::TreeModel::Path> paths = treeselection->get_selected_rows();
+
+    Gtk::TreeModel::Row row = *treemodelAsignaturas->get_iter(paths.front());
+    for (std::map<Asignatura*, Gtk::TreeModel::Row>::iterator i = vinculos.begin(); i != vinculos.end(); i++)
+    {
+        if (i->second == row)
+        {
+            cout << "seleccionando " << i->first->getNombre() << endl;
+            //vistaGtkmmAsignatura->ponerModelo(i->first);
+            //y refrescar si es que era necesario
+        }
+    }
+}
+
+void VistaGtkmmAsignaturas::editarAsignatura(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *)
+{
+    Gtk::TreeModel::Row row = *treemodelAsignaturas->get_iter(path);
+    for (std::map<Asignatura*, Gtk::TreeModel::Row>::iterator i = vinculos.begin(); i != vinculos.end(); i++)
+    {
+        if (i->second == row)
+        {
+            Gtk::Entry entry;
+            entry.set_text(i->first->getNombre());
+            Gtk::Dialog dialog ("Introduce el nombre de la asignatura");
+            dialog.set_default_size(450, 100);
+            Gtk::VBox *vbox = dialog.get_vbox();
+            vbox->pack_start(entry, false, false, 10);
+            dialog.add_button(Gtk::Stock::CANCEL, Gtk::RESPONSE_CANCEL);
+            dialog.add_button(Gtk::Stock::OK, Gtk::RESPONSE_OK);
+            dialog.show_all_children();
+            if (dialog.run() == Gtk::RESPONSE_OK)
+            {
+                // Se modifica el modelo y refresca todas las vistas menos ésta.
+                i->first->setNombre(entry.get_text());
+                Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
+                asignaturas->refrescarVistas(this);
+
+                // Modifica el nombre de la fila.
+                row[columnaNombre] = entry.get_text();
+            }
+        }
     }
 }
