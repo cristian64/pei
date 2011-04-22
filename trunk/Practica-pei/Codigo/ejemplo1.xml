@@ -51,9 +51,44 @@
 </asignatura>
 <asignatura>
 	<nombre>Matemáticas</nombre>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>B2</lugar>
+		<dia>3</dia>
+		<fechaInicio>0000/00/00 16:00:00</fechaInicio>
+		<fechaFin>0000/00/00 18:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>L28</lugar>
+		<dia>0</dia>
+		<fechaInicio>0000/00/00 17:30:00</fechaInicio>
+		<fechaFin>0000/00/00 19:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>D24</lugar>
+		<dia>1</dia>
+		<fechaInicio>0000/00/00 10:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
 </asignatura>
 <asignatura>
 	<nombre>Química</nombre>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>Aulario 2 L29</lugar>
+		<dia>1</dia>
+		<fechaInicio>0000/00/00 16:00:00</fechaInicio>
+		<fechaFin>0000/00/00 17:30:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>EPS L19</lugar>
+		<dia>0</dia>
+		<fechaInicio>0000/00/00 11:30:00</fechaInicio>
+		<fechaFin>0000/00/00 12:30:00</fechaFin>
+	</sesion>
 </asignatura>
 <asignatura>
 	<nombre>Historia</nombre>
@@ -62,5 +97,19 @@
 		<fecha>2011/04/30 17:29:13</fecha>
 		<duracion>180</duracion>
 	</cita>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>Aulario 2 D27</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 17:00:00</fechaInicio>
+		<fechaFin>0000/00/00 18:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>L28</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 14:00:00</fechaInicio>
+		<fechaFin>0000/00/00 15:30:00</fechaFin>
+	</sesion>
 </asignatura>
 

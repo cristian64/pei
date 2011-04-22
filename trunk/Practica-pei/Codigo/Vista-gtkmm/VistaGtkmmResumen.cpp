@@ -126,22 +126,22 @@ void VistaGtkmmResumen::recargarCitas()
     const std::list<Asignatura*> lista = static_cast<Asignaturas*>(modelo)->obtenerAsignaturas();
     for (std::list<Asignatura*>::const_iterator i = lista.begin(); i != lista.end(); i++)
     {
-            // Se añaden las citas de la asignatura.
-            const std::list<Cita*> citas = (*i)->obtenerCitas();
-            std::list<Cita*>::const_iterator cita = citas.begin();
-            for (; cita != citas.end(); cita++)
+        // Se añaden las citas de la asignatura.
+        const std::list<Cita*> citas = (*i)->obtenerCitas();
+        std::list<Cita*>::const_iterator cita = citas.begin();
+        for (; cita != citas.end(); cita++)
+        {
+            // Sólo se muestran las citas futuras (salvo que se haya marcado la casilla).
+            if (checkbuttonCitasPasadas->get_active() || Fecha::actual() < (*cita)->getFecha())
             {
-                    // Sólo se muestran las citas futuras (salvo que se haya marcado la casilla).
-                    if (checkbuttonCitasPasadas->get_active() || Fecha::actual() < (*cita)->getFecha())
-                    {                        
-                            Fila *fila = new Fila();
-                            fila->asignatura = (*i)->getNombre();
-                            fila->descripcion = (*cita)->getDescripcion();
-                            fila->fecha = (*cita)->getFecha();
-                            fila->duracion = (*cita)->getDuracion();
-                            filas.push_back(fila);
-                    }
+                Fila *fila = new Fila();
+                fila->asignatura = (*i)->getNombre();
+                fila->descripcion = (*cita)->getDescripcion();
+                fila->fecha = (*cita)->getFecha();
+                fila->duracion = (*cita)->getDuracion();
+                filas.push_back(fila);
             }
+        }
     }
 
     // Ordena las filas y las inserta en la tabla.
@@ -157,9 +157,88 @@ void VistaGtkmmResumen::recargarCitas()
     }
 }
 
+bool comparadorSesiones(Sesion *a, Sesion *b)
+{
+	return a->getFechaInicio() < b->getFechaInicio();
+}
+
 void VistaGtkmmResumen::recargarHorario()
 {
+    // Elimina todas las anteriores.
+    Gtk::TreeModel::Children children = treemodelResumenSesiones->children();
+    for (Gtk::TreeModel::Children::iterator iter = children.begin(); iter != children.end(); )
+    {
+        Gtk::TreeModel::Children::iterator aux = iter;
+        iter++;
+        treemodelResumenSesiones->erase(aux);
+    }
 
+    std::list<Sesion*> todasSesiones;
+    std::map<Sesion*, std::string> vinculos;
+
+    // Se recorren todas las citas.
+    const std::list<Asignatura*> lista = static_cast<Asignaturas*>(modelo)->obtenerAsignaturas();
+    for (std::list<Asignatura*>::const_iterator i = lista.begin(); i != lista.end(); i++)
+    {
+        // Se añaden las sesiones de la asignatura a la lista completa y se guarda el nombre de la asignatura para luego.
+        const std::list<Sesion*> sesiones = (*i)->obtenerSesiones();
+        std::list<Sesion*>::const_iterator sesion = sesiones.begin();
+        for (; sesion != sesiones.end(); sesion++)
+        {
+            vinculos[*sesion] = (*i)->getNombre();
+            todasSesiones.push_back(*sesion);
+        }
+    }
+
+    // Cuenta cuántas sesiones hay cada día.
+    int contadorColumnas[7] = {0, 0, 0, 0, 0, 0, 0};
+    //int rows = 0;
+    std::vector<Gtk::TreeModel::Row> rows;
+
+    // Se ordenan las sesiones y se insertan.
+    todasSesiones.sort(comparadorSesiones);
+    std::list<Sesion*>::const_iterator sesion = todasSesiones.begin();
+    for (; sesion != todasSesiones.end(); sesion++)
+    {
+        std::string etiqueta = "\n" + (*sesion)->getFechaInicio().toStringHora() + " - " + (*sesion)->getFechaFin().toStringHora();
+        etiqueta += "\n\n" + vinculos[*sesion] + "\n";
+        etiqueta += "(" + (*sesion)->getLugar() + ")\n";
+
+        // Si no hay suficientes filas, se inserta una más.
+        int dia = (*sesion)->getDia();
+        if (++contadorColumnas[dia] > (int) rows.size())
+        {
+            Gtk::TreeModel::Row row = *(treemodelResumenSesiones->append());
+            switch (dia)
+            {
+                case 0: row[columnaLunes] = etiqueta; break;
+                case 1: row[columnaMartes] = etiqueta; break;
+                case 2: row[columnaMiercoles] = etiqueta; break;
+                case 3: row[columnaJueves] = etiqueta; break;
+                case 4: row[columnaViernes] = etiqueta; break;
+                case 5: row[columnaSabado] = etiqueta; break;
+                case 6: row[columnaDomingo] = etiqueta; break;
+            }
+            rows.push_back(row);
+
+        }
+        else
+        {
+            Gtk::TreeModel::Row row = rows[contadorColumnas[dia] - 1];
+            switch (dia)
+            {
+                case 0: row[columnaLunes] = etiqueta; break;
+                case 1: row[columnaMartes] = etiqueta; break;
+                case 2: row[columnaMiercoles] = etiqueta; break;
+                case 3: row[columnaJueves] = etiqueta; break;
+                case 4: row[columnaViernes] = etiqueta; break;
+                case 5: row[columnaSabado] = etiqueta; break;
+                case 6: row[columnaDomingo] = etiqueta; break;
+            }
+            //get row number contadorColumnas[dia] - 1 e insertar en la columna dia el texto "etiqueta".
+            //ui->tableWidgetSesiones->setCellWidget(contadorColumnas[dia] - 1, dia, item);
+        }
+    }
 }
 
 void VistaGtkmmResumen::citasPasadas()
