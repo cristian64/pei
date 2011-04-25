@@ -1,115 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <asignatura>
-	<nombre>Educación física</nombre>
-	<profesor>
-		<nombre>Antonio Pérez</nombre>
-		<email></email>
-	</profesor>
-	<profesor>
-		<nombre>Fernando Ortiz Soriano</nombre>
-		<email>fernando@yopmail.com</email>
-	</profesor>
-	<profesor>
-		<nombre>Paula García</nombre>
-		<email>paula@yopmail.com</email>
-	</profesor>
-	<profesor>
-		<nombre>Rodrigo Quesada</nombre>
-		<email>rodrigo@yopmail.com</email>
-	</profesor>
-	<companero>
-		<nombre>Ernesto García</nombre>
-		<email></email>
-	</companero>
-	<companero>
-		<nombre>Julián David Blanco</nombre>
-		<email>julian@yopmail.com</email>
-	</companero>
-	<nota>
-		<descripcion>asasd asd</descripcion>
-		<nota>9.12</nota>
-	</nota>
-	<cita>
-		<descripcion>Examen de teoría</descripcion>
-		<fecha>2011/04/30 17:29:13</fecha>
-		<duracion>180</duracion>
-	</cita>
-	<sesion>
-		<tipo>0</tipo>
-		<lugar>Aulario 2 B13</lugar>
-		<dia>2</dia>
-		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
-		<fechaFin>0000/00/00 11:00:00</fechaFin>
-	</sesion>
-	<sesion>
-		<tipo>1</tipo>
-		<lugar>EPS I L22</lugar>
-		<dia>2</dia>
-		<fechaInicio>1900/01/01 14:30:00</fechaInicio>
-		<fechaFin>1900/01/01 16:30:00</fechaFin>
-	</sesion>
+	<nombre>Álgebra</nombre>
 </asignatura>
 <asignatura>
-	<nombre>Matemáticas</nombre>
-	<sesion>
-		<tipo>0</tipo>
-		<lugar>B2</lugar>
-		<dia>3</dia>
-		<fechaInicio>0000/00/00 16:00:00</fechaInicio>
-		<fechaFin>0000/00/00 18:00:00</fechaFin>
-	</sesion>
-	<sesion>
-		<tipo>0</tipo>
-		<lugar>L28</lugar>
-		<dia>0</dia>
-		<fechaInicio>0000/00/00 17:30:00</fechaInicio>
-		<fechaFin>0000/00/00 19:00:00</fechaFin>
-	</sesion>
-	<sesion>
-		<tipo>1</tipo>
-		<lugar>D24</lugar>
-		<dia>1</dia>
-		<fechaInicio>0000/00/00 10:00:00</fechaInicio>
-		<fechaFin>0000/00/00 12:00:00</fechaFin>
-	</sesion>
+	<nombre>Matemática discreta</nombre>
 </asignatura>
 <asignatura>
-	<nombre>Química</nombre>
-	<sesion>
-		<tipo>1</tipo>
-		<lugar>Aulario 2 L29</lugar>
-		<dia>1</dia>
-		<fechaInicio>0000/00/00 16:00:00</fechaInicio>
-		<fechaFin>0000/00/00 17:30:00</fechaFin>
-	</sesion>
-	<sesion>
-		<tipo>0</tipo>
-		<lugar>EPS L19</lugar>
-		<dia>0</dia>
-		<fechaInicio>0000/00/00 11:30:00</fechaInicio>
-		<fechaFin>0000/00/00 12:30:00</fechaFin>
-	</sesion>
+	<nombre>Fundamentos de Física en la Informática</nombre>
 </asignatura>
 <asignatura>
-	<nombre>Historia</nombre>
-	<cita>
-		<descripcion>Examen de teoría</descripcion>
-		<fecha>2011/04/30 17:29:13</fecha>
-		<duracion>180</duracion>
-	</cita>
-	<sesion>
-		<tipo>1</tipo>
-		<lugar>Aulario 2 D27</lugar>
-		<dia>4</dia>
-		<fechaInicio>0000/00/00 17:00:00</fechaInicio>
-		<fechaFin>0000/00/00 18:00:00</fechaFin>
-	</sesion>
-	<sesion>
-		<tipo>0</tipo>
-		<lugar>L28</lugar>
-		<dia>4</dia>
-		<fechaInicio>0000/00/00 14:00:00</fechaInicio>
-		<fechaFin>0000/00/00 15:30:00</fechaFin>
-	</sesion>
+	<nombre>Fundamentos de Programación</nombre>
+</asignatura>
+<asignatura>
+	<nombre>Herramientas de Programación</nombre>
+</asignatura>
+<asignatura>
+	<nombre>Sistemas Operativos</nombre>
+</asignatura>
+<asignatura>
+	<nombre>Algoritmia Avanzada</nombre>
+</asignatura>
+<asignatura>
+	<nombre>Programación en Entornos Interactivos</nombre>
+</asignatura>
+<asignatura>
+	<nombre>Inglés</nombre>
 </asignatura>
 
