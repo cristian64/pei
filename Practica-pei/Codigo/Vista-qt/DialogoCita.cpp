@@ -20,6 +20,7 @@ DialogoCita::DialogoCita(Cita *cita, Asignatura *asignatura, QWidget *parent) :
     }
     else
     {
+        ui->dateTimeEdit->setDateTime(QDateTime::currentDateTime());
         this->setWindowTitle("Añadiendo nueva cita");
     }
 }
