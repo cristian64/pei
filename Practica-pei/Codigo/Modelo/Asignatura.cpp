@@ -117,31 +117,6 @@ const std::list<Sesion*>& Asignatura::obtenerSesiones() const
     return sesiones;
 }
 
-std::list<Profesor*>& Asignatura::obtenerProfesores()
-{
-    return profesores;
-}
-
-std::list<Companero*>& Asignatura::obtenerCompaneros()
-{
-    return companeros;
-}
-
-std::list<Nota*>& Asignatura::obtenerNotas()
-{
-    return notas;
-}
-
-std::list<Cita*>& Asignatura::obtenerCitas()
-{
-    return citas;
-}
-
-std::list<Sesion*>& Asignatura::obtenerSesiones()
-{
-    return sesiones;
-}
-
 std::string Asignatura::toXml() const
 {
     std::stringstream flujo;

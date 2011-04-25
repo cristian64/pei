@@ -131,7 +131,7 @@ void VistaGtkmmAsignaturas::salir()
 
 void VistaGtkmmAsignaturas::acercaDe()
 {
-    cout << "acerca de" << endl;
+    //TODO
 }
 
 void VistaGtkmmAsignaturas::anadirAsignatura()
