@@ -49,23 +49,9 @@ void MainWindow::on_actionQuitar_triggered()
 
 void MainWindow::on_actionNuevo_triggered()
 {
-    // Diálogo para preguntar al usuario dónde guardar el nuevo paquete de asignaturas.
-    QFileDialog fileDialog;
-    fileDialog.setDirectory("./");
-    fileDialog.setConfirmOverwrite(true);
-    fileDialog.setAcceptMode(QFileDialog::AcceptSave);
-    QStringList filtros;
-    filtros.push_back("*.xml *.txt");
-    filtros.push_back("*");
-    fileDialog.setFilters(filtros);
-    if (fileDialog.exec())
-    {
-        ui->vistaQtAsignaturas->deseleccionar();
-        QString fileName = fileDialog.selectedFiles().front();
-        asignaturas->limpiar();
-        asignaturas->guardar(fileName.toStdString());
-        asignaturas->refrescarVistas();
-    }
+    ui->vistaQtAsignaturas->deseleccionar();
+    asignaturas->limpiar();
+    asignaturas->refrescarVistas();
 }
 
 void MainWindow::on_actionAbrir_triggered()
@@ -121,8 +107,8 @@ void MainWindow::on_actionSalir_triggered()
 
 void MainWindow::on_actionAcercaDe_triggered()
 {
-	DialogoAcercaDe dialogo(this);
-	dialogo.exec();
+    DialogoAcercaDe dialogo(this);
+    dialogo.exec();
 }
 
 void MainWindow::asignaturaSeleccionadaCambio(Asignatura *asignatura)

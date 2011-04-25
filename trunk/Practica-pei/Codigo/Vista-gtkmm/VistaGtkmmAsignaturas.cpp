@@ -76,16 +76,9 @@ void VistaGtkmmAsignaturas::refrescar()
 
 void VistaGtkmmAsignaturas::nuevo()
 {
-    Gtk::FileChooserDialog fileChooserDialog("Creando un nuevo paquete de asignaturas", Gtk::FILE_CHOOSER_ACTION_SAVE);
-    fileChooserDialog.add_button(Gtk::Stock::CANCEL, Gtk::RESPONSE_CANCEL);
-    fileChooserDialog.add_button(Gtk::Stock::OK, Gtk::RESPONSE_OK);
-    if (fileChooserDialog.run() == Gtk::RESPONSE_OK)
-    {
-        Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
-        asignaturas->limpiar();
-        asignaturas->guardar(fileChooserDialog.get_filename());
-        asignaturas->refrescarVistas();
-    }
+    Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
+    asignaturas->limpiar();
+    asignaturas->refrescarVistas();
 }
 
 void VistaGtkmmAsignaturas::abrir()
