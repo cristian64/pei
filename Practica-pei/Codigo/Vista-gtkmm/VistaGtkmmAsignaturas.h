@@ -35,6 +35,7 @@ public:
 
 private:
     Gtk::Window *window;
+    Gtk::Dialog *dialogAcercaDe;
 
     Gtk::ImageMenuItem *imagemenuitemNuevo;
     Gtk::ImageMenuItem *imagemenuitemAbrir;
