@@ -4,8 +4,8 @@
 #include <QInputDialog>
 #include <QFileDialog>
 
-MainWindow::MainWindow(Asignaturas *asignaturas, QWidget *parent) :
-    QMainWindow(parent),
+MainWindow::MainWindow(Asignaturas *asignaturas) :
+    QMainWindow(NULL),
     asignaturas(asignaturas),
     ui(new Ui::MainWindow)
 {

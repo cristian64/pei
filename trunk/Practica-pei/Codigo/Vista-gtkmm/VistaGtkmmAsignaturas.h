@@ -10,7 +10,7 @@
 
 /**
  * Vista de asignaturas que muestra una lista actualizada con las asignaturas que hay en el paquete de asignaturas.
- * Esta vista apunta aun paquete de asignaturas (Asignaturas), que es un modelo que refresca esta vista cuando se añade una asignatura (o se edita o se borra).
+ * Esta vista apunta a un paquete de asignaturas (Asignaturas), que es un modelo que refresca esta vista cuando se añade una asignatura (o se edita o se borra).
  */
 class VistaGtkmmAsignaturas : public Vista
 {
