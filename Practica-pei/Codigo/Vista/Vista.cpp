@@ -1,6 +1,8 @@
 #include "Vista.h"
 #include "Modelo.h"
 
+#include <cstdlib>
+
 Vista::Vista()
 {
     modelo = NULL;
