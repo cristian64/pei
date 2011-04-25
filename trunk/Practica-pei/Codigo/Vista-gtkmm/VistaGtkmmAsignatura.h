@@ -6,10 +6,23 @@
 #include <libglademm/xml.h>
 #include <gtkmm.h>
 
+/**
+ * Clase que muestra la información de una asignatura en pestañas.
+ * Es una vista que muestra la información del modelo de Asignatura seleccionado.
+ */
 class VistaGtkmmAsignatura : public Vista
 {
 public:
+    /**
+     * Constructor que recibe la información necesaria para inicializar los widgets.
+     * @param refXml Referencia al XML de Glade, para conectar los punteros a los widgets.
+     */
     VistaGtkmmAsignatura(Glib::RefPtr<Gnome::Glade::Xml> refXml);
+
+    /**
+     * Refresca todas las pestañas de la asignatura actual.
+     * Normalmente es el modelo de la Asignatura quien solicita el refresco.
+     */
     void refrescar();
     
 private:
@@ -34,10 +47,6 @@ private:
     Gtk::Dialog *dialogProfesor;
     Gtk::Entry *entryNombreProfesor;
     Gtk::Entry *entryEmailProfesor;
-    void anadirProfesor();
-    void quitarProfesor();
-    void seleccionarProfesor();
-    void editarProfesor(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
     std::map<Profesor*, Gtk::TreeModel::Row> vinculosProfesores;
 
     Gtk::Button *buttonAnadirCompanero;
@@ -48,10 +57,6 @@ private:
     Gtk::Dialog *dialogCompanero;
     Gtk::Entry *entryNombreCompanero;
     Gtk::Entry *entryEmailCompanero;
-    void anadirCompanero();
-    void quitarCompanero();
-    void seleccionarCompanero();
-    void editarCompanero(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
     std::map<Companero*, Gtk::TreeModel::Row> vinculosCompaneros;
 
     Gtk::Button *buttonAnadirSesion;
@@ -70,10 +75,6 @@ private:
     Gtk::SpinButton *spinbuttonHora2;
     Gtk::SpinButton *spinbuttonMinuto2;
     Gtk::SpinButton *spinbuttonSegundo2;
-    void anadirSesion();
-    void quitarSesion();
-    void seleccionarSesion();
-    void editarSesion(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
     std::map<Sesion*, Gtk::TreeModel::Row> vinculosSesiones;
 
     Gtk::Button *buttonAnadirCita;
@@ -88,10 +89,6 @@ private:
     Gtk::SpinButton *spinbuttonMinuto3;
     Gtk::SpinButton *spinbuttonSegundo3;
     Gtk::SpinButton *spinbuttonDuracion;
-    void anadirCita();
-    void quitarCita();
-    void seleccionarCita();
-    void editarCita(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
     std::map<Cita*, Gtk::TreeModel::Row> vinculosCitas;
 
     Gtk::Button *buttonAnadirNota;
@@ -102,11 +99,137 @@ private:
     Gtk::Dialog *dialogNota;
     Gtk::Entry *entryDescripcionNota;
     Gtk::SpinButton *spinbuttonNota;
-    void anadirNota();
-    void quitarNota();
-    void seleccionarNota();
-    void editarNota(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
     std::map<Nota*, Gtk::TreeModel::Row> vinculosNotas;
+
+    /**
+     * Slot conectado al botón "Añadir profesor".
+     * Lanza el diálogo para añadir un profesor.
+     */
+    void anadirProfesor();
+
+    /**
+     * Slot conectado al botón "Quitar profesor".
+     * Elimina el profesor seleccionado.
+     */
+    void quitarProfesor();
+
+    /**
+     * Slot conectado al click sobre el GtkTreeView que muestra la lista de profesores.
+     * Selecciona el profesor clickado y activa el botón de "Quitar profesor".
+     */
+    void seleccionarProfesor();
+
+    /**
+     * Slot conectado al doubleclick sobre el GtkTreeView que muestra la lista de profesores.
+     * Lanza un diálogo para editar el profesor.
+     * @param path Identificador de la fila que se ha pulsado.
+     * @param col Columna que se ha pulsado.
+     */
+    void editarProfesor(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
+
+    /**
+     * Slot conectado al botón "Añadir compañero".
+     * Lanza el diálogo para añadir un compañero.
+     */
+    void anadirCompanero();
+
+    /**
+     * Slot conectado al botón "Quitar compañero".
+     * Elimina el compañero seleccionado.
+     */
+    void quitarCompanero();
+
+    /**
+     * Slot conectado al click sobre el GtkTreeView que muestra la lista de compañeros.
+     * Selecciona el compañero clickado y activa el botón de "Quitar compañero".
+     */
+    void seleccionarCompanero();
+
+    /**
+     * Slot conectado al doubleclick sobre el GtkTreeView que muestra la lista de compañeros.
+     * Lanza un diálogo para editar el compañero.
+     * @param path Identificador de la fila que se ha pulsado.
+     * @param col Columna que se ha pulsado.
+     */
+    void editarCompanero(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
+
+    /**
+     * Slot conectado al botón "Añadir sesión".
+     * Lanza el diálogo para añadir una sesión.
+     */
+    void anadirSesion();
+
+    /**
+     * Slot conectado al botón "Quitar sesión".
+     * Elimina la sesión seleccionada.
+     */
+    void quitarSesion();
+
+    /**
+     * Slot conectado al click sobre el GtkTreeView que muestra la lista de sesiones.
+     * Selecciona la sesión clickado y activa el botón de "Quitar sesión".
+     */
+    void seleccionarSesion();
+
+    /**
+     * Slot conectado al doubleclick sobre el GtkTreeView que muestra la lista de sesiones.
+     * Lanza un diálogo para editar la sesión.
+     * @param path Identificador de la fila que se ha pulsado.
+     * @param col Columna que se ha pulsado.
+     */
+    void editarSesion(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
+
+    /**
+     * Slot conectado al botón "Añadir cita".
+     * Lanza el diálogo para añadir una cita.
+     */
+    void anadirCita();
+
+    /**
+     * Slot conectado al botón "Quitar cita".
+     * Elimina la cita seleccionada.
+     */
+    void quitarCita();
+
+    /**
+     * Slot conectado al click sobre el GtkTreeView que muestra la lista de citas.
+     * Selecciona la cita clickado y activa el botón de "Quitar cita".
+     */
+    void seleccionarCita();
+
+    /**
+     * Slot conectado al doubleclick sobre el GtkTreeView que muestra la lista de citas.
+     * Lanza un diálogo para editar la cita.
+     * @param path Identificador de la fila que se ha pulsado.
+     * @param col Columna que se ha pulsado.
+     */
+    void editarCita(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
+
+    /**
+     * Slot conectado al botón "Añadir nota".
+     * Lanza el diálogo para añadir una nota.
+     */
+    void anadirNota();
+
+    /**
+     * Slot conectado al botón "Quitar nota".
+     * Elimina la nota seleccionada.
+     */
+    void quitarNota();
+
+    /**
+     * Slot conectado al click sobre el GtkTreeView que muestra la lista de notas.
+     * Selecciona la nota clickado y activa el botón de "Quitar nota".
+     */
+    void seleccionarNota();
+
+    /**
+     * Slot conectado al doubleclick sobre el GtkTreeView que muestra la lista de notas.
+     * Lanza un diálogo para editar la nota.
+     * @param path Identificador de la fila que se ha pulsado.
+     * @param col Columna que se ha pulsado.
+     */
+    void editarNota(const Gtk::TreeModel::Path &path, Gtk::TreeViewColumn *col);
 };
 
 #endif /* VISTAGTKMMASIGNATURA_H */

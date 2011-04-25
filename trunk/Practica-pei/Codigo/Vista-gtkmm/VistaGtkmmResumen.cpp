@@ -146,18 +146,18 @@ VistaGtkmmResumen::VistaGtkmmResumen(Glib::RefPtr<Gnome::Glade::Xml> refXml)
 
 VistaGtkmmResumen::~VistaGtkmmResumen()
 {
-    std::list<VistaMini*>::iterator i = vistasMini.begin();
+    std::list<void*>::iterator i = vistasMini.begin();
     for (; i != vistasMini.end(); i++)
-        delete *i;
+        delete (VistaMini*) (*i);
     vistasMini.clear();
 }
 
 void VistaGtkmmResumen::refrescar()
 {
     // Se crea una vista por cada asignatura para que cuando se modifique una asignatura, también se refresque el horario y la lista de citas.
-    std::list<VistaMini*>::iterator i = vistasMini.begin();
+    std::list<void*>::iterator i = vistasMini.begin();
     for (; i != vistasMini.end(); i++)
-        delete *i;
+        delete (VistaMini*) (*i);
     vistasMini.clear();
 
     Asignaturas *asignaturas = static_cast<Asignaturas*>(modelo);
