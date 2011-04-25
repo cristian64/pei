@@ -1,29 +1,233 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <asignatura>
 	<nombre>Álgebra</nombre>
+	<profesor>
+		<nombre>Alfredo García Perico</nombre>
+		<email>alfredo@dominio.com</email>
+	</profesor>
+	<profesor>
+		<nombre>Raúl Fernández Hueso</nombre>
+		<email>hueso@email.com</email>
+	</profesor>
+	<profesor>
+		<nombre>María José Dantes</nombre>
+		<email>mjdantes@qwerty.com</email>
+	</profesor>
+	<companero>
+		<nombre>Antonio José Terón</nombre>
+		<email>antony@casasverdes.com</email>
+	</companero>
+	<nota>
+		<descripcion>Práctica 3</descripcion>
+		<nota>9.75</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen de teoría</descripcion>
+		<fecha>2011/07/06 15:00:00</fecha>
+		<duracion>120</duracion>
+	</cita>
+	<cita>
+		<descripcion>Práctica 4</descripcion>
+		<fecha>2011/05/11 23:59:59</fecha>
+		<duracion>0</duracion>
+	</cita>
+	<cita>
+		<descripcion>Práctica 5</descripcion>
+		<fecha>2011/06/30 23:59:59</fecha>
+		<duracion>0</duracion>
+	</cita>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>L27</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 17:00:00</fechaInicio>
+		<fechaFin>0000/00/00 18:30:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>D27</lugar>
+		<dia>1</dia>
+		<fechaInicio>0000/00/00 11:00:00</fechaInicio>
+		<fechaFin>0000/00/00 13:00:00</fechaFin>
+	</sesion>
 </asignatura>
 <asignatura>
 	<nombre>Matemática discreta</nombre>
+	<profesor>
+		<nombre>Julián Méndez</nombre>
+		<email>julmen@asdf.com</email>
+	</profesor>
+	<nota>
+		<descripcion>Trabajo sobre Caminos Eulerianos</descripcion>
+		<nota>9.85</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen de teoría</descripcion>
+		<fecha>2011/06/22 12:00:00</fecha>
+		<duracion>140</duracion>
+	</cita>
+	<cita>
+		<descripcion>Trabajo sobre Búsqueda de Grafos Isomorfos</descripcion>
+		<fecha>2011/06/24 23:59:50</fecha>
+		<duracion>0</duracion>
+	</cita>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>D27</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 17:00:00</fechaInicio>
+		<fechaFin>0000/00/00 19:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>L13</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 15:00:00</fechaInicio>
+		<fechaFin>0000/00/00 17:00:00</fechaFin>
+	</sesion>
 </asignatura>
 <asignatura>
 	<nombre>Fundamentos de Física en la Informática</nombre>
-</asignatura>
-<asignatura>
-	<nombre>Fundamentos de Programación</nombre>
-</asignatura>
-<asignatura>
-	<nombre>Herramientas de Programación</nombre>
+	<profesor>
+		<nombre>Miguel Torrejón</nombre>
+		<email>torrejon@nasa.gov</email>
+	</profesor>
+	<companero>
+		<nombre>José Manuel Pérez Ortuño</nombre>
+		<email>josema@asdf.com</email>
+	</companero>
+	<nota>
+		<descripcion>Examen parcial 1</descripcion>
+		<nota>10</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen parcial 2</descripcion>
+		<nota>9</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen parcial 3</descripcion>
+		<nota>9.7</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen de prácticas</descripcion>
+		<fecha>2011/06/29 17:30:00</fecha>
+		<duracion>200</duracion>
+	</cita>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>L22</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 11:30:00</fechaInicio>
+		<fechaFin>0000/00/00 13:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>B13</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 11:00:00</fechaFin>
+	</sesion>
 </asignatura>
 <asignatura>
 	<nombre>Sistemas Operativos</nombre>
+	<profesor>
+		<nombre>Susana Ríos</nombre>
+		<email>riossusan@asdf.com</email>
+	</profesor>
+	<profesor>
+		<nombre>Raquel Mora</nombre>
+		<email>rachel@gasd.com</email>
+	</profesor>
+	<profesor>
+		<nombre>Quique Ferrán</nombre>
+		<email>ferran@gasad.com</email>
+	</profesor>
+	<cita>
+		<descripcion>Práctica 1</descripcion>
+		<fecha>2011/02/25 23:59:59</fecha>
+		<duracion>0</duracion>
+	</cita>
+	<cita>
+		<descripcion>Práctica 2</descripcion>
+		<fecha>2011/04/29 23:59:59</fecha>
+		<duracion>0</duracion>
+	</cita>
+	<cita>
+		<descripcion>Práctica 3</descripcion>
+		<fecha>2011/05/26 23:59:59</fecha>
+		<duracion>0</duracion>
+	</cita>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>L18</lugar>
+		<dia>3</dia>
+		<fechaInicio>0000/00/00 10:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>E04</lugar>
+		<dia>3</dia>
+		<fechaInicio>0000/00/00 17:00:00</fechaInicio>
+		<fechaFin>0000/00/00 19:00:00</fechaFin>
+	</sesion>
 </asignatura>
 <asignatura>
 	<nombre>Algoritmia Avanzada</nombre>
+	<profesor>
+		<nombre>Daniel Jerez</nombre>
+		<email>dani@asdad.com</email>
+	</profesor>
+	<profesor>
+		<nombre>Laura Pomares Sempere</nombre>
+		<email>lposem@microsoft.co.jp</email>
+	</profesor>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>D25</lugar>
+		<dia>0</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 10:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>D25</lugar>
+		<dia>1</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 10:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>L24</lugar>
+		<dia>0</dia>
+		<fechaInicio>0000/00/00 10:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
 </asignatura>
 <asignatura>
 	<nombre>Programación en Entornos Interactivos</nombre>
-</asignatura>
-<asignatura>
-	<nombre>Inglés</nombre>
+	<profesor>
+		<nombre>Antonio Corbí</nombre>
+		<email>antonio@asdf.com</email>
+	</profesor>
+	<cita>
+		<descripcion>Examen de teoría</descripcion>
+		<fecha>2011/06/09 12:00:00</fecha>
+		<duracion>90</duracion>
+	</cita>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>B13</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 11:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>L22</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 14:30:00</fechaInicio>
+		<fechaFin>0000/00/00 16:30:00</fechaFin>
+	</sesion>
 </asignatura>
 
