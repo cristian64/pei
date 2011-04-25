@@ -1,5 +1,5 @@
 #ifndef XFORMSTIMER_H
-#define	XFORMSTIMER_H
+#define XFORMSTIMER_H
 
 #include <QObject>
 #include "Asignaturas.h"
@@ -25,5 +25,5 @@ public slots:
     void ejecutar();
 };
 
-#endif	/* XFORMSTIMER_H */
+#endif /* XFORMSTIMER_H */
 

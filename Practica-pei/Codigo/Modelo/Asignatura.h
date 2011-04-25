@@ -1,5 +1,5 @@
 #ifndef ASIGNATURA_H
-#define	ASIGNATURA_H
+#define ASIGNATURA_H
 
 #include "Modelo.h"
 #include "Profesor.h"
@@ -55,4 +55,4 @@ private:
     std::list<Sesion*> sesiones;
 };
 
-#endif	/* ASIGNATURA_H */
+#endif /* ASIGNATURA_H */

@@ -1,5 +1,5 @@
 #ifndef VISTATXTASIGNATURAS_H
-#define	VISTATXTASIGNATURAS_H
+#define VISTATXTASIGNATURAS_H
 
 #include "Vista.h"
 #include "Asignaturas.h"
@@ -18,5 +18,5 @@ private:
     const static int columnas = 80;
 };
 
-#endif	/* VISTATXTASIGNATURAS_H */
+#endif /* VISTATXTASIGNATURAS_H */
 

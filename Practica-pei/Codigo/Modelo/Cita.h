@@ -1,5 +1,5 @@
 #ifndef CITA_H
-#define	CITA_H
+#define CITA_H
 
 #include "Fecha.h"
 #include <string>
@@ -30,4 +30,4 @@ private:
     int duracion;
 };
 
-#endif	/* CITA_H */
+#endif /* CITA_H */

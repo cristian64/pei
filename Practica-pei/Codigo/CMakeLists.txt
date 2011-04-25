@@ -10,12 +10,12 @@ SET(EXECUTABLE_OUTPUT_PATH ${PEI_SOURCE_DIR})
 
 # Espeficicamos los directorios con las cabeceras.
 include_directories(${PEI_SOURCE_DIR}/Modelo
-	${PEI_SOURCE_DIR}/Vista
-	${PEI_SOURCE_DIR}/Vista-qt
-	${PEI_SOURCE_DIR}/Vista-gtkmm
-	${PEI_SOURCE_DIR}/Vista-txt
-	${PEI_SOURCE_DIR}/Vista-xforms
-	${PEI_SOURCE_DIR}/Vista-multiple
+    ${PEI_SOURCE_DIR}/Vista
+    ${PEI_SOURCE_DIR}/Vista-qt
+    ${PEI_SOURCE_DIR}/Vista-gtkmm
+    ${PEI_SOURCE_DIR}/Vista-txt
+    ${PEI_SOURCE_DIR}/Vista-xforms
+    ${PEI_SOURCE_DIR}/Vista-multiple
 )
 
 # Especificamos los directorios con las librerias

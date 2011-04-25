@@ -1,5 +1,5 @@
 #ifndef VISTAGTKMMRESUMEN_H
-#define	VISTAGTKMMRESUMEN_H
+#define VISTAGTKMMRESUMEN_H
 
 #include "Vista.h"
 #include <libglademm/xml.h>
@@ -50,5 +50,5 @@ private:
     void sabadoDomingo();
 };
 
-#endif	/* VISTAGTKMMRESUMEN_H */
+#endif /* VISTAGTKMMRESUMEN_H */
 

@@ -1,5 +1,5 @@
 #ifndef VISTAGTKMMASIGNATURA_H
-#define	VISTAGTKMMASIGNATURA_H
+#define VISTAGTKMMASIGNATURA_H
 
 #include "Vista.h"
 #include "Asignatura.h"
@@ -109,5 +109,5 @@ private:
     std::map<Nota*, Gtk::TreeModel::Row> vinculosNotas;
 };
 
-#endif	/* VISTAGTKMMASIGNATURA_H */
+#endif /* VISTAGTKMMASIGNATURA_H */
 

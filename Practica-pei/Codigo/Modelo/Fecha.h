@@ -1,30 +1,30 @@
 #ifndef FECHA_H
-#define	FECHA_H
+#define FECHA_H
 
 #include <string>
 
 class Fecha
 {
 public:
-	Fecha();
-	Fecha(int ano, int mes, int dia, int hora, int minuto, int segundo);
+    Fecha();
+    Fecha(int ano, int mes, int dia, int hora, int minuto, int segundo);
         Fecha(int hora, int minuto, int segundo);
-	Fecha(const std::string &cadena);
-	bool operator<(const Fecha &fecha) const;
+    Fecha(const std::string &cadena);
+    bool operator<(const Fecha &fecha) const;
 
-	std::string toString() const;
-	std::string toStringHora() const;
-	void fromString(const std::string &cadena);
+    std::string toString() const;
+    std::string toStringHora() const;
+    void fromString(const std::string &cadena);
 
-	int ano;
-	int mes;
-	int dia;
-	int hora;
-	int minuto;
-	int segundo;
+    int ano;
+    int mes;
+    int dia;
+    int hora;
+    int minuto;
+    int segundo;
 
     static Fecha actual();
 };
 
-#endif	/* FECHA_H */
+#endif /* FECHA_H */
 

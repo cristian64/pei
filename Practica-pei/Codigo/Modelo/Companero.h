@@ -1,5 +1,5 @@
 #ifndef COMPANERO_H
-#define	COMPANERO_H
+#define COMPANERO_H
 
 #include <string>
 
@@ -25,4 +25,4 @@ private:
     std::string email;
 };
 
-#endif	/* COMPANERO_H */
+#endif /* COMPANERO_H */

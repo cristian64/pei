@@ -1,5 +1,5 @@
 #ifndef VISTAXFORMSASIGNATURAS_H
-#define	VISTAXFORMSASIGNATURAS_H
+#define VISTAXFORMSASIGNATURAS_H
 
 #include "Vista.h"
 #include "Formulario.h"
@@ -16,5 +16,5 @@ public:
     VistaXformsAsignatura *vistaXformsAsignatura;
 };
 
-#endif	/* VISTAXFORMSASIGNATURAS_H */
+#endif /* VISTAXFORMSASIGNATURAS_H */
 

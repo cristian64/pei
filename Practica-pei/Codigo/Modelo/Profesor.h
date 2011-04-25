@@ -1,5 +1,5 @@
 #ifndef PROFESOR_H
-#define	PROFESOR_H
+#define PROFESOR_H
 
 #include <string>
 
@@ -25,4 +25,4 @@ private:
     std::string email;
 };
 
-#endif	/* PROFESOR_H */
+#endif /* PROFESOR_H */
