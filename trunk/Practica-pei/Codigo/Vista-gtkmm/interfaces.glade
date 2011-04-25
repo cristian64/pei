@@ -1774,7 +1774,7 @@ cam33@alu.ua.es&lt;/span&gt;</property>
 
 &#x2219; Una vista m&#xFA;ltiple con Qt y XForms al mismo tiempo (se utiliza fl_check_forms() dentro de un hilo de Qt para darle tiempo de ejecuci&#xF3;n a Xforms).
 
-&#x2219; Documentaci&#xF3;n con Doxygen.
+&#x2219; Documentaci&#xF3;n con Doxygen (se incluye la carpeta html/ en el directorio Doc).
 
 &#x2219; Diagramas de clase de Modelo y Vista (y algunos widgets importantes).</property>
                   </widget>
