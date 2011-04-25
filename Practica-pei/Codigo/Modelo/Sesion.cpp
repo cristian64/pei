@@ -135,9 +135,21 @@ void Sesion::fromXml(const std::string &xml)
 
 std::string Sesion::toString() const
 {
+    std::string diaString = "";
+    switch (dia)
+    {
+    case LUNES: diaString = "    Lunes"; break;
+    case MARTES: diaString = "   Martes"; break;
+    case MIERCOLES: diaString = "Miércoles"; break;
+    case JUEVES: diaString = "   Jueves"; break;
+    case VIERNES: diaString = "  Viernes"; break;
+    case SABADO: diaString = "   Sábado"; break;
+    case DOMINGO: diaString = "  Domingo"; break;
+    }
+
     std::stringstream flujo;
     flujo << std::setfill(' ') << std::setw(11) << getTipoString() << " ";
-    flujo << std::setfill(' ') << std::setw(11) << getDiaString() << " ";
+    flujo << diaString << " ";
     flujo << fechaInicio.toStringHora() << " ";
     flujo << fechaFin.toStringHora() << " ";
     flujo << lugar;
