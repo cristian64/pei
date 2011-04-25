@@ -1,0 +1,64 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Fichero Fuente Modelo/Nota.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;de&nbsp;archivos</span></a></li>
+    </ul>
+  </div>
+<h1>Modelo/Nota.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef NOTA_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define NOTA_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00009"></a><a class="code" href="classNota.html">00009</a> <span class="keyword">class </span><a class="code" href="classNota.html">Nota</a>
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011 <span class="keyword">public</span>:
+<a name="l00015"></a>00015     <a class="code" href="classNota.html#abaa6a5c3c58daf1030dd7b0e0930bd49">Nota</a>();
+<a name="l00016"></a>00016 
+<a name="l00022"></a>00022     <a class="code" href="classNota.html#abaa6a5c3c58daf1030dd7b0e0930bd49">Nota</a>(<span class="keyword">const</span> std::string &amp;descripcion, <span class="keywordtype">float</span> nota);
+<a name="l00023"></a>00023 
+<a name="l00028"></a>00028     std::string <a class="code" href="classNota.html#aaa839ba76fa8d52d20e9300377acb2f5">getDescripcion</a>() <span class="keyword">const</span>;
+<a name="l00029"></a>00029 
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classNota.html#a452bd292be6f5b31ec6c381869b59a4b">setDescripcion</a>(<span class="keyword">const</span> std::string &amp;descripcion);
+<a name="l00035"></a>00035 
+<a name="l00040"></a>00040     <span class="keywordtype">float</span> <a class="code" href="classNota.html#a455080b87cdd8ccddc35f52d2c8b1d4f">getNota</a>() <span class="keyword">const</span>;
+<a name="l00041"></a>00041 
+<a name="l00046"></a>00046     std::string <a class="code" href="classNota.html#a5270f527a25de31cf12a39bfdc6e1873">getNotaString</a>() <span class="keyword">const</span>;
+<a name="l00047"></a>00047 
+<a name="l00052"></a>00052     <span class="keywordtype">void</span> <a class="code" href="classNota.html#a20a984b20e40b75c48c229dddaeee086">setNota</a>(<span class="keywordtype">float</span> nota);
+<a name="l00053"></a>00053 
+<a name="l00058"></a>00058     std::string <a class="code" href="classNota.html#a544aab73e6c752631a6acffa47d17acb">toXml</a>() <span class="keyword">const</span>;
+<a name="l00059"></a>00059 
+<a name="l00064"></a>00064     <span class="keywordtype">void</span> <a class="code" href="classNota.html#a0a7672082dc5eada11f0349ae0ea59aa">fromXml</a>(<span class="keyword">const</span> std::string &amp;xml);
+<a name="l00065"></a>00065 
+<a name="l00070"></a>00070     std::string <a class="code" href="classNota.html#ad4a7389bad377e96cccc3a7e1d2b053f">toString</a>() <span class="keyword">const</span>;
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 <span class="keyword">private</span>:
+<a name="l00073"></a>00073     std::string descripcion;
+<a name="l00074"></a>00074     <span class="keywordtype">float</span> nota;
+<a name="l00075"></a>00075 };
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="preprocessor">#endif </span><span class="comment">/* NOTA_H */</span>
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

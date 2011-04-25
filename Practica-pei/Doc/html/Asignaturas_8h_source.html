@@ -1,0 +1,67 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Fichero Fuente Modelo/Asignaturas.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;de&nbsp;archivos</span></a></li>
+    </ul>
+  </div>
+<h1>Modelo/Asignaturas.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef ASIGNATURAS_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define ASIGNATURAS_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;Asignatura.h&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;Modelo.h&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;list&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00012"></a><a class="code" href="classAsignaturas.html">00012</a> <span class="keyword">class </span><a class="code" href="classAsignaturas.html">Asignaturas</a> : <span class="keyword">public</span> <a class="code" href="classModelo.html">Modelo</a>
+<a name="l00013"></a>00013 {
+<a name="l00014"></a>00014 <span class="keyword">public</span>:
+<a name="l00015"></a>00015 
+<a name="l00019"></a>00019     <a class="code" href="classAsignaturas.html#ac86c42f3f4a7806066b917593d6b2ab9">~Asignaturas</a>();
+<a name="l00020"></a>00020 
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="classAsignaturas.html#afbdf24e431c0b268545d117ed569ceee">anadirAsignatura</a>(<a class="code" href="classAsignatura.html">Asignatura</a> *asignatura);
+<a name="l00027"></a>00027 
+<a name="l00032"></a>00032     <span class="keywordtype">void</span> <a class="code" href="classAsignaturas.html#a17c546321f948683d96517c23cf0d444">quitarAsignatura</a>(<a class="code" href="classAsignatura.html">Asignatura</a> *asignatura);
+<a name="l00033"></a>00033 
+<a name="l00038"></a>00038     <span class="keyword">const</span> std::list&lt;Asignatura*&gt;&amp; <a class="code" href="classAsignaturas.html#a53a70122a5824d3bbdb9ef0813d9d659">obtenerAsignaturas</a>() <span class="keyword">const</span>;
+<a name="l00039"></a>00039 
+<a name="l00044"></a>00044     <span class="keywordtype">void</span> <a class="code" href="classAsignaturas.html#a34268c31a405ab279d1ecb3c3f432aea">limpiar</a>();
+<a name="l00045"></a>00045 
+<a name="l00050"></a>00050     std::string <a class="code" href="classAsignaturas.html#ab7d19a0619f289e9a03f0c0a4aa233af">toXml</a>() <span class="keyword">const</span>;
+<a name="l00051"></a>00051 
+<a name="l00056"></a>00056     <span class="keywordtype">void</span> <a class="code" href="classAsignaturas.html#ac00bea0d6fbd33ec7630b327b06bcf88">fromXml</a>(<span class="keyword">const</span> std::string &amp;xml);
+<a name="l00057"></a>00057 
+<a name="l00062"></a>00062     <span class="keywordtype">void</span> <a class="code" href="classAsignaturas.html#a3b99bef0a5d46da3dd2782ea4d0688f3">guardar</a>(<span class="keyword">const</span> std::string &amp;rutaFichero) <span class="keyword">const</span>;
+<a name="l00063"></a>00063 
+<a name="l00068"></a>00068     <span class="keywordtype">void</span> <a class="code" href="classAsignaturas.html#a46fc1908bb188aced2a9a5b966f90a87">cargar</a>(<span class="keyword">const</span> std::string &amp;rutaFichero);
+<a name="l00069"></a>00069 
+<a name="l00075"></a>00075     std::string <a class="code" href="classAsignaturas.html#ab9afebc837da6ba9949678da4f1ab8a5">getRutaFichero</a>() <span class="keyword">const</span>;
+<a name="l00076"></a>00076 
+<a name="l00077"></a>00077 <span class="keyword">private</span>:
+<a name="l00078"></a>00078     <span class="keyword">mutable</span> std::string rutaFichero;
+<a name="l00079"></a>00079     std::list&lt;Asignatura*&gt; asignaturas;
+<a name="l00080"></a>00080 };
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="preprocessor">#endif </span><span class="comment">/* ASIGNATURAS_H */</span>
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Fichero Fuente Modelo/Fecha.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;de&nbsp;archivos</span></a></li>
+    </ul>
+  </div>
+<h1>Modelo/Fecha.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef FECHA_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define FECHA_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00010"></a><a class="code" href="classFecha.html">00010</a> <span class="keyword">class </span><a class="code" href="classFecha.html">Fecha</a>
+<a name="l00011"></a>00011 {
+<a name="l00012"></a>00012 <span class="keyword">public</span>:
+<a name="l00016"></a>00016     <a class="code" href="classFecha.html#a5fbc6564d9c48e73cf8d27568a2a7fc5">Fecha</a>();
+<a name="l00017"></a>00017 
+<a name="l00027"></a>00027     <a class="code" href="classFecha.html#a5fbc6564d9c48e73cf8d27568a2a7fc5">Fecha</a>(<span class="keywordtype">int</span> ano, <span class="keywordtype">int</span> mes, <span class="keywordtype">int</span> dia, <span class="keywordtype">int</span> hora, <span class="keywordtype">int</span> minuto, <span class="keywordtype">int</span> segundo);
+<a name="l00028"></a>00028 
+<a name="l00035"></a>00035     <a class="code" href="classFecha.html#a5fbc6564d9c48e73cf8d27568a2a7fc5">Fecha</a>(<span class="keywordtype">int</span> hora, <span class="keywordtype">int</span> minuto, <span class="keywordtype">int</span> segundo);
+<a name="l00036"></a>00036 
+<a name="l00041"></a>00041     <a class="code" href="classFecha.html#a5fbc6564d9c48e73cf8d27568a2a7fc5">Fecha</a>(<span class="keyword">const</span> std::string &amp;cadena);
+<a name="l00042"></a>00042 
+<a name="l00048"></a>00048     <span class="keywordtype">bool</span> <a class="code" href="classFecha.html#aa3243e23f7dac5c62498d42a98e901a5">operator&lt;</a>(<span class="keyword">const</span> <a class="code" href="classFecha.html">Fecha</a> &amp;fecha) <span class="keyword">const</span>;
+<a name="l00049"></a>00049 
+<a name="l00054"></a>00054     std::string <a class="code" href="classFecha.html#adb649890d4132455832ccee0d7ba490f">toString</a>() <span class="keyword">const</span>;
+<a name="l00055"></a>00055 
+<a name="l00060"></a>00060     std::string <a class="code" href="classFecha.html#aa62a1c79e14d1f292ca08dead6f7e003">toStringHora</a>() <span class="keyword">const</span>;
+<a name="l00061"></a>00061 
+<a name="l00066"></a>00066     <span class="keywordtype">void</span> <a class="code" href="classFecha.html#ab01ecd08354328a32c720ecd0fb12106">fromString</a>(<span class="keyword">const</span> std::string &amp;cadena);
+<a name="l00067"></a>00067 
+<a name="l00072"></a>00072     <span class="keyword">static</span> <a class="code" href="classFecha.html">Fecha</a> <a class="code" href="classFecha.html#a81ce16276712228e02a17ebc8a8143d8">actual</a>();
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074     <span class="keywordtype">int</span> ano;
+<a name="l00075"></a>00075     <span class="keywordtype">int</span> mes;
+<a name="l00076"></a>00076     <span class="keywordtype">int</span> dia;
+<a name="l00077"></a>00077     <span class="keywordtype">int</span> hora;
+<a name="l00078"></a>00078     <span class="keywordtype">int</span> minuto;
+<a name="l00079"></a>00079     <span class="keywordtype">int</span> segundo;
+<a name="l00080"></a>00080 };
+<a name="l00081"></a>00081 
+<a name="l00082"></a>00082 <span class="preprocessor">#endif </span><span class="comment">/* FECHA_H */</span>
+<a name="l00083"></a>00083 
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

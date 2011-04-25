@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Referencia de la Clase Modelo</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li class="current"><a href="annotated.html"><span>Clases</span></a></li>
+      <li><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="annotated.html"><span>Lista&nbsp;de&nbsp;clases</span></a></li>
+      <li><a href="hierarchy.html"><span>Jerarquía&nbsp;de&nbsp;la&nbsp;clase</span></a></li>
+      <li><a href="functions.html"><span>Miembros&nbsp;de&nbsp;las&nbsp;clases</span></a></li>
+    </ul>
+  </div>
+</div>
+<div class="contents">
+<h1>Referencia de la Clase Modelo</h1><!-- doxytag: class="Modelo" -->
+<p><code>#include &lt;<a class="el" href="Modelo_8h_source.html">Modelo.h</a>&gt;</code></p>
+<div class="dynheader">
+Diagrama de herencias de Modelo</div>
+<div class="dynsection">
+ <div class="center">
+  <img src="classModelo.png" usemap="#Modelo_map" alt=""/>
+  <map id="Modelo_map" name="Modelo_map">
+<area href="classAsignatura.html" alt="Asignatura" shape="rect" coords="0,56,79,80"/>
+<area href="classAsignaturas.html" alt="Asignaturas" shape="rect" coords="89,56,168,80"/>
+</map>
+ </div>
+</div>
+
+<p><a href="classModelo-members.html">Lista de todos los miembros.</a></p>
+<table border="0" cellpadding="0" cellspacing="0">
+<tr><td colspan="2"><h2>Métodos públicos</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">virtual&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelo.html#a74e2ffa41a3726d4f842987b5ed87b43">~Modelo</a> ()=0</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelo.html#ab5812c8bb9e5fcc0783782a4b0f5db4a">anadirVista</a> (<a class="el" href="classVista.html">Vista</a> *vista)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelo.html#a30b96596e718c359d15d1766cb26e59f">quitarVista</a> (<a class="el" href="classVista.html">Vista</a> *vista)</td></tr>
+<tr><td class="memItemLeft" align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="classModelo.html#acf6cce2e8a094241f39b3e2adc7aea59">refrescarVistas</a> (<a class="el" href="classVista.html">Vista</a> *vista=NULL)</td></tr>
+<tr><td colspan="2"><h2>Atributos privados</h2></td></tr>
+<tr><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac6605153850cadb44a417cd51fc40317"></a><!-- doxytag: member="Modelo::vistas" ref="ac6605153850cadb44a417cd51fc40317" args="" -->
+std::list&lt; <a class="el" href="classVista.html">Vista</a> * &gt;&nbsp;</td><td class="memItemRight" valign="bottom"><b>vistas</b></td></tr>
+</table>
+<hr/><a name="_details"></a><h2>Descripción detallada</h2>
+<p>Clase abstracta que representa un modelo que tiene vistas. </p>
+<hr/><h2>Documentación del constructor y destructor</h2>
+<a class="anchor" id="a74e2ffa41a3726d4f842987b5ed87b43"></a><!-- doxytag: member="Modelo::~Modelo" ref="a74e2ffa41a3726d4f842987b5ed87b43" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Modelo::~Modelo </td>
+          <td>(</td>
+          <td class="paramname"></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Destructor por defecto. Cuando el modelo se destruye, avisa a todas las vistas que tuviera para que dejen de apuntar a este modelo. </p>
+
+</div>
+</div>
+<hr/><h2>Documentación de las funciones miembro</h2>
+<a class="anchor" id="ab5812c8bb9e5fcc0783782a4b0f5db4a"></a><!-- doxytag: member="Modelo::anadirVista" ref="ab5812c8bb9e5fcc0783782a4b0f5db4a" args="(Vista *vista)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modelo::anadirVista </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVista.html">Vista</a> *&nbsp;</td>
+          <td class="paramname"> <em>vista</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Añade una vista al modelo. Si la vista ya estaba, no la añade. Además, si la vista ya estaba en otro modelo, la saca de ese otro modelo y la apunta a éste. </p>
+<dl><dt><b>Parámetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>vista</em>&nbsp;</td><td><a class="el" href="classVista.html">Vista</a> que se va a añadir. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="a30b96596e718c359d15d1766cb26e59f"></a><!-- doxytag: member="Modelo::quitarVista" ref="a30b96596e718c359d15d1766cb26e59f" args="(Vista *vista)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modelo::quitarVista </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVista.html">Vista</a> *&nbsp;</td>
+          <td class="paramname"> <em>vista</em></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Quita una vista del modelo y avisa a la vista de que ya no está en este modelo (para mantener la coherencia). </p>
+<dl><dt><b>Parámetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>vista</em>&nbsp;</td><td><a class="el" href="classVista.html">Vista</a> que se va a quitar. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="acf6cce2e8a094241f39b3e2adc7aea59"></a><!-- doxytag: member="Modelo::refrescarVistas" ref="acf6cce2e8a094241f39b3e2adc7aea59" args="(Vista *vista=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Modelo::refrescarVistas </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="classVista.html">Vista</a> *&nbsp;</td>
+          <td class="paramname"> <em>vista</em> = <code>NULL</code></td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+<p>Realiza un barrido en todas las vistas forzando el refresco. </p>
+<dl><dt><b>Parámetros:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>vista</em>&nbsp;</td><td>Si se especifica este valor, esta vista no se refrescará. Por motivos de eficiencia se asume que ésta es la vista que pidió el refresco y, por tanto, no tiene que refrescarse. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>La documentación para esta clase fue generada a partir de los siguientes ficheros:<ul>
+<li>Modelo/<a class="el" href="Modelo_8h_source.html">Modelo.h</a></li>
+<li>Modelo/Modelo.cpp</li>
+</ul>
+</div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

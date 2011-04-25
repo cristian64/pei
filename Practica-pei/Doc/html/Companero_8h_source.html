@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Fichero Fuente Modelo/Companero.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;de&nbsp;archivos</span></a></li>
+    </ul>
+  </div>
+<h1>Modelo/Companero.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef COMPANERO_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define COMPANERO_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00005"></a>00005 
+<a name="l00009"></a><a class="code" href="classCompanero.html">00009</a> <span class="keyword">class </span><a class="code" href="classCompanero.html">Companero</a>
+<a name="l00010"></a>00010 {
+<a name="l00011"></a>00011 <span class="keyword">public</span>:
+<a name="l00015"></a>00015     <a class="code" href="classCompanero.html#a8075387cc4dfeeae20b099e5cd6446fd">Companero</a>();
+<a name="l00016"></a>00016 
+<a name="l00022"></a>00022     <a class="code" href="classCompanero.html#a8075387cc4dfeeae20b099e5cd6446fd">Companero</a>(<span class="keyword">const</span> std::string &amp;nombre, <span class="keyword">const</span> std::string &amp;email);
+<a name="l00023"></a>00023 
+<a name="l00028"></a>00028     std::string <a class="code" href="classCompanero.html#aa730b78278d25489f9fe6cb890722a15">getNombre</a>() <span class="keyword">const</span>;
+<a name="l00029"></a>00029 
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classCompanero.html#a39a86f3fafc1935ad16c65169f5d1c22">setNombre</a>(<span class="keyword">const</span> std::string &amp;nombre);
+<a name="l00035"></a>00035 
+<a name="l00040"></a>00040     std::string <a class="code" href="classCompanero.html#a0465d9116360708c4cf5c0d95003780a">getEmail</a>() <span class="keyword">const</span>;
+<a name="l00041"></a>00041 
+<a name="l00046"></a>00046     <span class="keywordtype">void</span> <a class="code" href="classCompanero.html#aabf5563f32effb1ef0c6e2481ce31af6">setEmail</a>(<span class="keyword">const</span> std::string &amp;email);
+<a name="l00047"></a>00047 
+<a name="l00052"></a>00052     std::string <a class="code" href="classCompanero.html#a44cce51aab1fabed848a4cf7508598ec">toXml</a>() <span class="keyword">const</span>;
+<a name="l00053"></a>00053 
+<a name="l00058"></a>00058     <span class="keywordtype">void</span> <a class="code" href="classCompanero.html#a22e8ba62276264aba2b828de09643e64">fromXml</a>(<span class="keyword">const</span> std::string &amp;xml);
+<a name="l00059"></a>00059 
+<a name="l00064"></a>00064     std::string <a class="code" href="classCompanero.html#aa140377f78df8f9fe5da56791b96c858">toString</a>() <span class="keyword">const</span>;
+<a name="l00065"></a>00065 
+<a name="l00066"></a>00066 <span class="keyword">private</span>:
+<a name="l00067"></a>00067     std::string nombre;
+<a name="l00068"></a>00068     std::string email;
+<a name="l00069"></a>00069 };
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071 <span class="preprocessor">#endif </span><span class="comment">/* COMPANERO_H */</span>
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>
