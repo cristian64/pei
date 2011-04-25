@@ -3,11 +3,6 @@
 #include <fstream>
 #include "tinyxml.h"
 
-Asignaturas::Asignaturas()
-{
-
-}
-
 Asignaturas::~Asignaturas()
 {
     for (std::list<Asignatura*>::iterator i = asignaturas.begin(); i != asignaturas.end(); i++)
@@ -104,9 +99,4 @@ void Asignaturas::cargar(const std::string &rutaFichero)
 std::string Asignaturas::getRutaFichero() const
 {
     return rutaFichero;
-}
-
-void Asignaturas::setRutaFichero(const std::string &rutaFichero)
-{
-    this->rutaFichero = rutaFichero;
 }
