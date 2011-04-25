@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<asignatura>
+	<nombre>Inglés</nombre>
+	<profesor>
+		<nombre>Manuel Martín Pérez</nombre>
+		<email>mmp@mail.es</email>
+	</profesor>
+	<companero>
+		<nombre>Juan</nombre>
+		<email>j@mail.es</email>
+	</companero>
+	<companero>
+		<nombre>Pepe Alba</nombre>
+		<email>pa@mail.es</email>
+	</companero>
+	<nota>
+		<descripcion>Práctica 1</descripcion>
+		<nota>15</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen</descripcion>
+		<fecha>2011/09/21 18:00:00</fecha>
+		<duracion>240</duracion>
+	</cita>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 3</lugar>
+		<dia>0</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 10:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>Aula 15</lugar>
+		<dia>1</dia>
+		<fechaInicio>0000/00/00 10:00:00</fechaInicio>
+		<fechaFin>0000/00/00 11:00:00</fechaFin>
+	</sesion>
+</asignatura>
+<asignatura>
+	<nombre>Análisis</nombre>
+	<profesor>
+		<nombre>Paco Polo</nombre>
+		<email>pp@mail.es</email>
+	</profesor>
+	<companero>
+		<nombre>Alberto</nombre>
+		<email>a@mail.es</email>
+	</companero>
+	<companero>
+		<nombre>Antonio López</nombre>
+		<email>al@mail.es</email>
+	</companero>
+	<nota>
+		<descripcion>Ejercicios</descripcion>
+		<nota>6.4</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen T1</descripcion>
+		<nota>8</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen prácticas</descripcion>
+		<fecha>2011/09/14 17:31:17</fecha>
+		<duracion>120</duracion>
+	</cita>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>0</dia>
+		<fechaInicio>0000/00/00 12:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 12:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>Aula 33</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
+</asignatura>
+<asignatura>
+	<nombre>Programación 1</nombre>
+	<profesor>
+		<nombre>Paco González</nombre>
+		<email>pg@mail.es</email>
+	</profesor>
+	<companero>
+		<nombre>Alberto</nombre>
+		<email>a@mail.es</email>
+	</companero>
+	<companero>
+		<nombre>Antonio López</nombre>
+		<email>al@mail.es</email>
+	</companero>
+	<nota>
+		<descripcion>Ejercicios</descripcion>
+		<nota>6.4</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen T1</descripcion>
+		<nota>4</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen prácticas</descripcion>
+		<fecha>2011/09/14 12:00:00</fecha>
+		<duracion>120</duracion>
+	</cita>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 13:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 12:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>Aula 33</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
+</asignatura>
+<asignatura>
+	<nombre>Descripción de Lenguajes de Programación</nombre>
+	<profesor>
+		<nombre>Paco González</nombre>
+		<email>pg@mail.es</email>
+	</profesor>
+	<companero>
+		<nombre>Alberto</nombre>
+		<email>a@mail.es</email>
+	</companero>
+	<companero>
+		<nombre>Antonio López</nombre>
+		<email>al@mail.es</email>
+	</companero>
+	<nota>
+		<descripcion>Ejercicios</descripcion>
+		<nota>6.4</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen T1</descripcion>
+		<nota>4</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen prácticas</descripcion>
+		<fecha>2011/09/09 12:00:00</fecha>
+		<duracion>120</duracion>
+	</cita>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 13:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 12:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>Aula 33</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
+</asignatura>
+<asignatura>
+	<nombre>Procesadores de Lenguajes</nombre>
+	<profesor>
+		<nombre>Juan González</nombre>
+		<email>jg@mail.es</email>
+	</profesor>
+	<companero>
+		<nombre>Alberto</nombre>
+		<email>a@mail.es</email>
+	</companero>
+	<companero>
+		<nombre>Antonio López</nombre>
+		<email>al@mail.es</email>
+	</companero>
+	<nota>
+		<descripcion>Ejercicios</descripcion>
+		<nota>6.4</nota>
+	</nota>
+	<nota>
+		<descripcion>Examen T1</descripcion>
+		<nota>4</nota>
+	</nota>
+	<cita>
+		<descripcion>Examen prácticas</descripcion>
+		<fecha>2011/09/12 12:00:00</fecha>
+		<duracion>120</duracion>
+	</cita>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 13:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 8</lugar>
+		<dia>4</dia>
+		<fechaInicio>0000/00/00 12:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>1</tipo>
+		<lugar>Aula 33</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
+</asignatura>
+<asignatura>
+	<nombre>Computadores</nombre>
+	<profesor>
+		<nombre>Ana Egea</nombre>
+		<email>ae@mail.es</email>
+	</profesor>
+	<profesor>
+		<nombre>Juan Fernández</nombre>
+		<email>jf@mail.es</email>
+	</profesor>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar></lugar>
+		<dia>3</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 11:00:00</fechaFin>
+	</sesion>
+</asignatura>
+<asignatura>
+	<nombre>Lógica</nombre>
+	<profesor>
+		<nombre>Ignacio Viedma</nombre>
+		<email>iv@mail.es</email>
+	</profesor>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 24</lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 19:00:00</fechaInicio>
+		<fechaFin>0000/00/00 21:00:00</fechaFin>
+	</sesion>
+</asignatura>
+<asignatura>
+	<nombre>Visión Artificial</nombre>
+	<profesor>
+		<nombre>Carlos Cañas</nombre>
+		<email>cc@mail.es</email>
+	</profesor>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar>Aula 3</lugar>
+		<dia>1</dia>
+		<fechaInicio>0000/00/00 09:00:00</fechaInicio>
+		<fechaFin>0000/00/00 12:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar></lugar>
+		<dia>2</dia>
+		<fechaInicio>0000/00/00 13:00:00</fechaInicio>
+		<fechaFin>0000/00/00 14:00:00</fechaFin>
+	</sesion>
+	<sesion>
+		<tipo>0</tipo>
+		<lugar></lugar>
+		<dia>0</dia>
+		<fechaInicio>0000/00/00 19:00:00</fechaInicio>
+		<fechaFin>0000/00/00 20:00:00</fechaFin>
+	</sesion>
+</asignatura>
+
