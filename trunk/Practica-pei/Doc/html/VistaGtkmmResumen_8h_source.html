@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Fichero Fuente Vista-gtkmm/VistaGtkmmResumen.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;de&nbsp;archivos</span></a></li>
+    </ul>
+  </div>
+<h1>Vista-gtkmm/VistaGtkmmResumen.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef VISTAGTKMMRESUMEN_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define VISTAGTKMMRESUMEN_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;Vista.h&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;libglademm/xml.h&gt;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;gtkmm.h&gt;</span>
+<a name="l00007"></a>00007 
+<a name="l00011"></a><a class="code" href="classVistaGtkmmResumen.html">00011</a> <span class="keyword">class </span><a class="code" href="classVistaGtkmmResumen.html">VistaGtkmmResumen</a> : <span class="keyword">public</span> <a class="code" href="classVista.html">Vista</a>
+<a name="l00012"></a>00012 {
+<a name="l00013"></a>00013 <span class="keyword">public</span>:
+<a name="l00018"></a>00018     <a class="code" href="classVistaGtkmmResumen.html#a2fe2fb532e42212268394dc45038c371">VistaGtkmmResumen</a>(Glib::RefPtr&lt;Gnome::Glade::Xml&gt; refXml);
+<a name="l00019"></a>00019 
+<a name="l00023"></a>00023     <a class="code" href="classVistaGtkmmResumen.html#a2e8f7ac20b122b0907ffcfcac8e735bd">~VistaGtkmmResumen</a>();
+<a name="l00024"></a>00024 
+<a name="l00028"></a>00028     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmResumen.html#a275c40e84d50a131698b7c32f7481371">refrescar</a>();
+<a name="l00029"></a>00029 
+<a name="l00034"></a>00034     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmResumen.html#a23166ec88947d39794f4f3d0178d99f6">recargarCitas</a>();
+<a name="l00035"></a>00035 
+<a name="l00040"></a>00040     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmResumen.html#aad0947e760bb0adad458c69a24b9e925">recargarHorario</a>();
+<a name="l00041"></a>00041     
+<a name="l00042"></a>00042 <span class="keyword">private</span>:
+<a name="l00043"></a>00043     std::list&lt;void*&gt; vistasMini;
+<a name="l00044"></a>00044 
+<a name="l00045"></a>00045     Gtk::TreeModel::ColumnRecord columnas;
+<a name="l00046"></a>00046     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaAsignatura;
+<a name="l00047"></a>00047     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaDescripcion;
+<a name="l00048"></a>00048     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaFecha;
+<a name="l00049"></a>00049     Gtk::TreeModelColumn&lt;unsigned int&gt; columnaDuracion;
+<a name="l00050"></a>00050     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaLunes;
+<a name="l00051"></a>00051     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaMartes;
+<a name="l00052"></a>00052     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaMiercoles;
+<a name="l00053"></a>00053     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaJueves;
+<a name="l00054"></a>00054     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaViernes;
+<a name="l00055"></a>00055     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaSabado;
+<a name="l00056"></a>00056     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaDomingo;
+<a name="l00057"></a>00057     Gtk::TreeModelColumn&lt;Gdk::Color&gt; columnaLunesColor;
+<a name="l00058"></a>00058     Gtk::TreeModelColumn&lt;Gdk::Color&gt; columnaMartesColor;
+<a name="l00059"></a>00059     Gtk::TreeModelColumn&lt;Gdk::Color&gt; columnaMiercolesColor;
+<a name="l00060"></a>00060     Gtk::TreeModelColumn&lt;Gdk::Color&gt; columnaJuevesColor;
+<a name="l00061"></a>00061     Gtk::TreeModelColumn&lt;Gdk::Color&gt; columnaViernesColor;
+<a name="l00062"></a>00062     Gtk::TreeModelColumn&lt;Gdk::Color&gt; columnaSabadoColor;
+<a name="l00063"></a>00063     Gtk::TreeModelColumn&lt;Gdk::Color&gt; columnaDomingoColor;
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065     Gtk::CheckButton *checkbuttonCitasPasadas;
+<a name="l00066"></a>00066     Gtk::CheckButton *checkbuttonSabadoDomingo;
+<a name="l00067"></a>00067     Gtk::TreeView *treeviewResumenCitas;
+<a name="l00068"></a>00068     Gtk::TreeView *treeviewResumenSesiones;
+<a name="l00069"></a>00069     Glib::RefPtr&lt;Gtk::ListStore&gt; treemodelResumenCitas;
+<a name="l00070"></a>00070     Glib::RefPtr&lt;Gtk::ListStore&gt; treemodelResumenSesiones;
+<a name="l00071"></a>00071 
+<a name="l00075"></a>00075     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmResumen.html#af065481cbf1ab958823adb1e8f6a9bdb">citasPasadas</a>();
+<a name="l00076"></a>00076 
+<a name="l00080"></a>00080     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmResumen.html#a578b5dfc7ce7435bb96dd32b62e43579">sabadoDomingo</a>();
+<a name="l00081"></a>00081 };
+<a name="l00082"></a>00082 
+<a name="l00083"></a>00083 <span class="preprocessor">#endif </span><span class="comment">/* VISTAGTKMMRESUMEN_H */</span>
+<a name="l00084"></a>00084 
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

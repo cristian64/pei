@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Fichero Fuente Modelo/Cita.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;de&nbsp;archivos</span></a></li>
+    </ul>
+  </div>
+<h1>Modelo/Cita.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef CITA_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define CITA_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;Fecha.h&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &lt;string&gt;</span>
+<a name="l00006"></a>00006 
+<a name="l00010"></a><a class="code" href="classCita.html">00010</a> <span class="keyword">class </span><a class="code" href="classCita.html">Cita</a>
+<a name="l00011"></a>00011 {
+<a name="l00012"></a>00012 <span class="keyword">public</span>:
+<a name="l00016"></a>00016     <a class="code" href="classCita.html#a40ebe4fd414fa884f1aca3b78e77a38c">Cita</a>();
+<a name="l00017"></a>00017 
+<a name="l00024"></a>00024     <a class="code" href="classCita.html#a40ebe4fd414fa884f1aca3b78e77a38c">Cita</a>(<span class="keyword">const</span> std::string &amp;descripcion, <span class="keyword">const</span> <a class="code" href="classFecha.html">Fecha</a> &amp;fecha, <span class="keywordtype">int</span> duracion);
+<a name="l00025"></a>00025 
+<a name="l00030"></a>00030     std::string <a class="code" href="classCita.html#a80672cdfb545b8b05b8826ee55ee8cff">getDescripcion</a>() <span class="keyword">const</span>;
+<a name="l00031"></a>00031 
+<a name="l00036"></a>00036     <span class="keywordtype">void</span> <a class="code" href="classCita.html#ae8492bd7d89b272f03710e4ed13c1583">setDescripcion</a>(<span class="keyword">const</span> std::string &amp;descripcion);
+<a name="l00037"></a>00037 
+<a name="l00042"></a>00042     <a class="code" href="classFecha.html">Fecha</a> <a class="code" href="classCita.html#a9a1b78f17343d6964d09e6a041a4e342">getFecha</a>() <span class="keyword">const</span>;
+<a name="l00043"></a>00043 
+<a name="l00048"></a>00048     <span class="keywordtype">void</span> <a class="code" href="classCita.html#ae7dc1f85360fe979f91e840f8076afae">setFecha</a>(<a class="code" href="classFecha.html">Fecha</a> fecha);
+<a name="l00049"></a>00049 
+<a name="l00054"></a>00054     <span class="keywordtype">int</span> <a class="code" href="classCita.html#a4ecf4b74f0f2d38f6597840342fbc983">getDuracion</a>() <span class="keyword">const</span>;
+<a name="l00055"></a>00055 
+<a name="l00060"></a>00060     <span class="keywordtype">void</span> <a class="code" href="classCita.html#a320426f2a64c3ad09fdf9a2eb8e0d98d">setDuracion</a>(<span class="keywordtype">int</span> duracion);
+<a name="l00061"></a>00061 
+<a name="l00066"></a>00066     std::string <a class="code" href="classCita.html#a24375ba1ec5896a3edc872e91428d1ce">toXml</a>() <span class="keyword">const</span>;
+<a name="l00067"></a>00067 
+<a name="l00072"></a>00072     <span class="keywordtype">void</span> <a class="code" href="classCita.html#a17f88ff3f5e572fd9692d01d9d0565c5">fromXml</a>(<span class="keyword">const</span> std::string &amp;xml);
+<a name="l00073"></a>00073 
+<a name="l00078"></a>00078     std::string <a class="code" href="classCita.html#aaab820318e8c86fd25e5b60faa49585f">toString</a>() <span class="keyword">const</span>;
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080 <span class="keyword">private</span>:
+<a name="l00081"></a>00081     std::string descripcion;
+<a name="l00082"></a>00082     <a class="code" href="classFecha.html">Fecha</a> fecha;
+<a name="l00083"></a>00083     <span class="keywordtype">int</span> duracion;
+<a name="l00084"></a>00084 };
+<a name="l00085"></a>00085 
+<a name="l00086"></a>00086 <span class="preprocessor">#endif </span><span class="comment">/* CITA_H */</span>
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>

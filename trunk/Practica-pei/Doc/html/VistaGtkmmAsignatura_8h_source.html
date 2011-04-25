@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<title>Programación en Entornos Interactivos 2010/2011: Fichero Fuente Vista-gtkmm/VistaGtkmmAsignatura.h</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<link href="doxygen.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<!-- Generado por Doxygen 1.6.3 -->
+<div class="navigation" id="top">
+  <div class="tabs">
+    <ul>
+      <li><a href="main.html"><span>Página&nbsp;principal</span></a></li>
+      <li><a href="pages.html"><span>Páginas&nbsp;relacionadas</span></a></li>
+      <li><a href="annotated.html"><span>Clases</span></a></li>
+      <li class="current"><a href="files.html"><span>Archivos</span></a></li>
+    </ul>
+  </div>
+  <div class="tabs">
+    <ul>
+      <li><a href="files.html"><span>Lista&nbsp;de&nbsp;archivos</span></a></li>
+    </ul>
+  </div>
+<h1>Vista-gtkmm/VistaGtkmmAsignatura.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="preprocessor">#ifndef VISTAGTKMMASIGNATURA_H</span>
+<a name="l00002"></a>00002 <span class="preprocessor"></span><span class="preprocessor">#define VISTAGTKMMASIGNATURA_H</span>
+<a name="l00003"></a>00003 <span class="preprocessor"></span>
+<a name="l00004"></a>00004 <span class="preprocessor">#include &quot;Vista.h&quot;</span>
+<a name="l00005"></a>00005 <span class="preprocessor">#include &quot;Asignatura.h&quot;</span>
+<a name="l00006"></a>00006 <span class="preprocessor">#include &lt;libglademm/xml.h&gt;</span>
+<a name="l00007"></a>00007 <span class="preprocessor">#include &lt;gtkmm.h&gt;</span>
+<a name="l00008"></a>00008 
+<a name="l00013"></a><a class="code" href="classVistaGtkmmAsignatura.html">00013</a> <span class="keyword">class </span><a class="code" href="classVistaGtkmmAsignatura.html">VistaGtkmmAsignatura</a> : <span class="keyword">public</span> <a class="code" href="classVista.html">Vista</a>
+<a name="l00014"></a>00014 {
+<a name="l00015"></a>00015 <span class="keyword">public</span>:
+<a name="l00020"></a>00020     <a class="code" href="classVistaGtkmmAsignatura.html#aaba5288dedd8cfcfc8cfd6a8e194f026">VistaGtkmmAsignatura</a>(Glib::RefPtr&lt;Gnome::Glade::Xml&gt; refXml);
+<a name="l00021"></a>00021 
+<a name="l00026"></a>00026     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a11cf6c0f645b622d6abff8752e94861d">refrescar</a>();
+<a name="l00027"></a>00027     
+<a name="l00028"></a>00028 <span class="keyword">private</span>:
+<a name="l00029"></a>00029     Gtk::TreeModel::ColumnRecord columnas;
+<a name="l00030"></a>00030     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaNombre;
+<a name="l00031"></a>00031     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaEmail;
+<a name="l00032"></a>00032     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaTipo;
+<a name="l00033"></a>00033     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaLugar;
+<a name="l00034"></a>00034     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaDia;
+<a name="l00035"></a>00035     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaHoraInicio;
+<a name="l00036"></a>00036     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaHoraFin;
+<a name="l00037"></a>00037     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaDescripcion;
+<a name="l00038"></a>00038     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaFecha;
+<a name="l00039"></a>00039     Gtk::TreeModelColumn&lt;unsigned int&gt; columnaDuracion;
+<a name="l00040"></a>00040     Gtk::TreeModelColumn&lt;Glib::ustring&gt; columnaNota;
+<a name="l00041"></a>00041 
+<a name="l00042"></a>00042     Gtk::Button *buttonAnadirProfesor;
+<a name="l00043"></a>00043     Gtk::Button *buttonQuitarProfesor;
+<a name="l00044"></a>00044     Gtk::TreeView *treeviewProfesores;
+<a name="l00045"></a>00045     Glib::RefPtr&lt;Gtk::ListStore&gt; treemodelProfesores;
+<a name="l00046"></a>00046     Glib::RefPtr&lt;Gtk::TreeSelection&gt; treeselectionProfesores;
+<a name="l00047"></a>00047     Gtk::Dialog *dialogProfesor;
+<a name="l00048"></a>00048     Gtk::Entry *entryNombreProfesor;
+<a name="l00049"></a>00049     Gtk::Entry *entryEmailProfesor;
+<a name="l00050"></a>00050     std::map&lt;Profesor*, Gtk::TreeModel::Row&gt; vinculosProfesores;
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052     Gtk::Button *buttonAnadirCompanero;
+<a name="l00053"></a>00053     Gtk::Button *buttonQuitarCompanero;
+<a name="l00054"></a>00054     Gtk::TreeView *treeviewCompaneros;
+<a name="l00055"></a>00055     Glib::RefPtr&lt;Gtk::ListStore&gt; treemodelCompaneros;
+<a name="l00056"></a>00056     Glib::RefPtr&lt;Gtk::TreeSelection&gt; treeselectionCompaneros;
+<a name="l00057"></a>00057     Gtk::Dialog *dialogCompanero;
+<a name="l00058"></a>00058     Gtk::Entry *entryNombreCompanero;
+<a name="l00059"></a>00059     Gtk::Entry *entryEmailCompanero;
+<a name="l00060"></a>00060     std::map&lt;Companero*, Gtk::TreeModel::Row&gt; vinculosCompaneros;
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062     Gtk::Button *buttonAnadirSesion;
+<a name="l00063"></a>00063     Gtk::Button *buttonQuitarSesion;
+<a name="l00064"></a>00064     Gtk::TreeView *treeviewSesiones;
+<a name="l00065"></a>00065     Glib::RefPtr&lt;Gtk::ListStore&gt; treemodelSesiones;
+<a name="l00066"></a>00066     Glib::RefPtr&lt;Gtk::TreeSelection&gt; treeselectionSesiones;
+<a name="l00067"></a>00067     Gtk::Dialog *dialogSesion;
+<a name="l00068"></a>00068     Gtk::RadioButton *radiobuttonTeoria;
+<a name="l00069"></a>00069     Gtk::RadioButton *radiobuttonPracticas;
+<a name="l00070"></a>00070     Gtk::Entry *entryLugar;
+<a name="l00071"></a>00071     Gtk::ComboBox *comboboxDia;
+<a name="l00072"></a>00072     Gtk::SpinButton *spinbuttonHora;
+<a name="l00073"></a>00073     Gtk::SpinButton *spinbuttonMinuto;
+<a name="l00074"></a>00074     Gtk::SpinButton *spinbuttonSegundo;
+<a name="l00075"></a>00075     Gtk::SpinButton *spinbuttonHora2;
+<a name="l00076"></a>00076     Gtk::SpinButton *spinbuttonMinuto2;
+<a name="l00077"></a>00077     Gtk::SpinButton *spinbuttonSegundo2;
+<a name="l00078"></a>00078     std::map&lt;Sesion*, Gtk::TreeModel::Row&gt; vinculosSesiones;
+<a name="l00079"></a>00079 
+<a name="l00080"></a>00080     Gtk::Button *buttonAnadirCita;
+<a name="l00081"></a>00081     Gtk::Button *buttonQuitarCita;
+<a name="l00082"></a>00082     Gtk::TreeView *treeviewCitas;
+<a name="l00083"></a>00083     Glib::RefPtr&lt;Gtk::ListStore&gt; treemodelCitas;
+<a name="l00084"></a>00084     Glib::RefPtr&lt;Gtk::TreeSelection&gt; treeselectionCitas;
+<a name="l00085"></a>00085     Gtk::Dialog *dialogCita;
+<a name="l00086"></a>00086     Gtk::Entry *entryDescripcion;
+<a name="l00087"></a>00087     Gtk::Calendar *calendarCita;
+<a name="l00088"></a>00088     Gtk::SpinButton *spinbuttonHora3;
+<a name="l00089"></a>00089     Gtk::SpinButton *spinbuttonMinuto3;
+<a name="l00090"></a>00090     Gtk::SpinButton *spinbuttonSegundo3;
+<a name="l00091"></a>00091     Gtk::SpinButton *spinbuttonDuracion;
+<a name="l00092"></a>00092     std::map&lt;Cita*, Gtk::TreeModel::Row&gt; vinculosCitas;
+<a name="l00093"></a>00093 
+<a name="l00094"></a>00094     Gtk::Button *buttonAnadirNota;
+<a name="l00095"></a>00095     Gtk::Button *buttonQuitarNota;
+<a name="l00096"></a>00096     Gtk::TreeView *treeviewNotas;
+<a name="l00097"></a>00097     Glib::RefPtr&lt;Gtk::ListStore&gt; treemodelNotas;
+<a name="l00098"></a>00098     Glib::RefPtr&lt;Gtk::TreeSelection&gt; treeselectionNotas;
+<a name="l00099"></a>00099     Gtk::Dialog *dialogNota;
+<a name="l00100"></a>00100     Gtk::Entry *entryDescripcionNota;
+<a name="l00101"></a>00101     Gtk::SpinButton *spinbuttonNota;
+<a name="l00102"></a>00102     std::map&lt;Nota*, Gtk::TreeModel::Row&gt; vinculosNotas;
+<a name="l00103"></a>00103 
+<a name="l00108"></a>00108     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#ad104e711ae13a29b3b3d9811a835de73">anadirProfesor</a>();
+<a name="l00109"></a>00109 
+<a name="l00114"></a>00114     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a9891933bd8b55fdc61858eceac9902b2">quitarProfesor</a>();
+<a name="l00115"></a>00115 
+<a name="l00120"></a>00120     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a2580bff558667a9da235f7169bef559e">seleccionarProfesor</a>();
+<a name="l00121"></a>00121 
+<a name="l00128"></a>00128     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#ad23e03559c0e2ea3c09f5c5e8dcdf8fa">editarProfesor</a>(<span class="keyword">const</span> Gtk::TreeModel::Path &amp;path, Gtk::TreeViewColumn *col);
+<a name="l00129"></a>00129 
+<a name="l00134"></a>00134     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#af84b8234e497a3a7f073c392d8f4120e">anadirCompanero</a>();
+<a name="l00135"></a>00135 
+<a name="l00140"></a>00140     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a91321009fd31ba77b23da1b87a5ce0ee">quitarCompanero</a>();
+<a name="l00141"></a>00141 
+<a name="l00146"></a>00146     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a5c739f704cb08fa341b08a5f347d24b4">seleccionarCompanero</a>();
+<a name="l00147"></a>00147 
+<a name="l00154"></a>00154     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#ad534f33f77d0b48d5acf6d4b372feb2b">editarCompanero</a>(<span class="keyword">const</span> Gtk::TreeModel::Path &amp;path, Gtk::TreeViewColumn *col);
+<a name="l00155"></a>00155 
+<a name="l00160"></a>00160     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#aa7b8a746dc2ae82b88005744ee33d66e">anadirSesion</a>();
+<a name="l00161"></a>00161 
+<a name="l00166"></a>00166     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#accb8de8ec8cd028deb9e59f6c978de9f">quitarSesion</a>();
+<a name="l00167"></a>00167 
+<a name="l00172"></a>00172     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#aee98e3fec427c2b3fa5f9ba5e66fb2b0">seleccionarSesion</a>();
+<a name="l00173"></a>00173 
+<a name="l00180"></a>00180     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a128417d6bfcbf660efeb8a2df28f939f">editarSesion</a>(<span class="keyword">const</span> Gtk::TreeModel::Path &amp;path, Gtk::TreeViewColumn *col);
+<a name="l00181"></a>00181 
+<a name="l00186"></a>00186     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#aaf7a770544677f266e0fe6697b06d45f">anadirCita</a>();
+<a name="l00187"></a>00187 
+<a name="l00192"></a>00192     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#afc9f404edd230d1809283a73257bb98c">quitarCita</a>();
+<a name="l00193"></a>00193 
+<a name="l00198"></a>00198     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a2c6f6f62b5619eee71452e0601578d97">seleccionarCita</a>();
+<a name="l00199"></a>00199 
+<a name="l00206"></a>00206     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#ab026e7d95c565073e91ab8c01a771396">editarCita</a>(<span class="keyword">const</span> Gtk::TreeModel::Path &amp;path, Gtk::TreeViewColumn *col);
+<a name="l00207"></a>00207 
+<a name="l00212"></a>00212     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#aac95ed0d539b12646d3b625957234ae7">anadirNota</a>();
+<a name="l00213"></a>00213 
+<a name="l00218"></a>00218     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a9ae162820a22202b652a0010e1445255">quitarNota</a>();
+<a name="l00219"></a>00219 
+<a name="l00224"></a>00224     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#a115443a1451370438b9ddea2201c98b7">seleccionarNota</a>();
+<a name="l00225"></a>00225 
+<a name="l00232"></a>00232     <span class="keywordtype">void</span> <a class="code" href="classVistaGtkmmAsignatura.html#aa6024d4047575fb4f3e3f1873a04f025">editarNota</a>(<span class="keyword">const</span> Gtk::TreeModel::Path &amp;path, Gtk::TreeViewColumn *col);
+<a name="l00233"></a>00233 };
+<a name="l00234"></a>00234 
+<a name="l00235"></a>00235 <span class="preprocessor">#endif </span><span class="comment">/* VISTAGTKMMASIGNATURA_H */</span>
+<a name="l00236"></a>00236 
+</pre></div></div>
+<hr class="footer"/><address style="text-align: right;"><small>Generado el Mon Apr 25 18:18:54 2011 para Programación en Entornos Interactivos 2010/2011 por&nbsp;
+<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.6.3 </small></address>
+</body>
+</html>
