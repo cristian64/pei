@@ -1,5 +1,5 @@
 #ifndef NOTA_H
-#define	NOTA_H
+#define NOTA_H
 
 #include <string>
 
@@ -26,4 +26,4 @@ private:
     float nota;
 };
 
-#endif	/* NOTA_H */
+#endif /* NOTA_H */

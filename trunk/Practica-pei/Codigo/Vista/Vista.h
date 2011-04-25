@@ -1,5 +1,5 @@
 #ifndef VISTA_H
-#define	VISTA_H
+#define VISTA_H
 
 #include <iostream> //TODO:quitar
 using std::cout;
@@ -29,4 +29,4 @@ protected:
     Modelo *modelo;
 };
 
-#endif	/* VISTA_H */
+#endif /* VISTA_H */

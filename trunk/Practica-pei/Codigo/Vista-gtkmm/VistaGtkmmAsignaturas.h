@@ -1,5 +1,5 @@
 #ifndef VISTAGTKMMASIGNATURAS_H
-#define	VISTAGTKMMASIGNATURAS_H
+#define VISTAGTKMMASIGNATURAS_H
 
 #include "Vista.h"
 #include <libglademm/xml.h>
@@ -59,5 +59,5 @@ private:
     std::map<Asignatura*, Gtk::TreeModel::Row> vinculos;
 };
 
-#endif	/* VISTAGTKMMASIGNATURAS_H */
+#endif /* VISTAGTKMMASIGNATURAS_H */
 

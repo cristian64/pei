@@ -5,25 +5,25 @@
 #include "Asignatura.h"
 
 namespace Ui {
-	class DialogoCompanero;
+    class DialogoCompanero;
 }
 
 class DialogoCompanero : public QDialog
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit DialogoCompanero(Companero *companero, Asignatura *asignatura, QWidget *parent = 0);
-	~DialogoCompanero();
+    explicit DialogoCompanero(Companero *companero, Asignatura *asignatura, QWidget *parent = 0);
+    ~DialogoCompanero();
 
 private:
-	Ui::DialogoCompanero *ui;
-	Asignatura *asignatura;
-	Companero *companero;
+    Ui::DialogoCompanero *ui;
+    Asignatura *asignatura;
+    Companero *companero;
 
 private slots:
-	void on_buttonBox_rejected();
-	void on_buttonBox_accepted();
+    void on_buttonBox_rejected();
+    void on_buttonBox_accepted();
 };
 
 #endif // DIALOGOCOMPANERO_H

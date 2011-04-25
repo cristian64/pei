@@ -243,7 +243,7 @@ void VistaGtkmmResumen::recargarCitas()
 
 bool comparadorSesiones(Sesion *a, Sesion *b)
 {
-	return a->getFechaInicio() < b->getFechaInicio();
+    return a->getFechaInicio() < b->getFechaInicio();
 }
 
 void VistaGtkmmResumen::recargarHorario()

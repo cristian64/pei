@@ -2,46 +2,46 @@
 #include "ui_DialogoNota.h"
 
 DialogoNota::DialogoNota(Nota *nota, Asignatura *asignatura, QWidget *parent) :
-	QDialog(parent),
-	ui(new Ui::DialogoNota)
+    QDialog(parent),
+    ui(new Ui::DialogoNota)
 {
-	ui->setupUi(this);
+    ui->setupUi(this);
 
-	this->asignatura = asignatura;
-	this->nota = nota;
-	if (nota != NULL)
-	{
-		this->setWindowTitle("Editando nota");
-		ui->lineEditDescripcion->setText(QString::fromStdString(nota->getDescripcion()));
-		ui->doubleSpinBoxNota->setValue(nota->getNota());
-	}
-	else
-	{
-		this->setWindowTitle("Añadiendo nueva nota");
-	}
+    this->asignatura = asignatura;
+    this->nota = nota;
+    if (nota != NULL)
+    {
+        this->setWindowTitle("Editando nota");
+        ui->lineEditDescripcion->setText(QString::fromStdString(nota->getDescripcion()));
+        ui->doubleSpinBoxNota->setValue(nota->getNota());
+    }
+    else
+    {
+        this->setWindowTitle("Añadiendo nueva nota");
+    }
 }
 
 DialogoNota::~DialogoNota()
 {
-	delete ui;
+    delete ui;
 }
 
 void DialogoNota::on_buttonBox_accepted()
 {
-	if (nota == NULL)
-	{
-		nota = new Nota();
-		asignatura->anadirNota(nota);
-	}
+    if (nota == NULL)
+    {
+        nota = new Nota();
+        asignatura->anadirNota(nota);
+    }
 
-	nota->setDescripcion(ui->lineEditDescripcion->text().toStdString());
-	nota->setNota(ui->doubleSpinBoxNota->value());
-	asignatura->refrescarVistas();
+    nota->setDescripcion(ui->lineEditDescripcion->text().toStdString());
+    nota->setNota(ui->doubleSpinBoxNota->value());
+    asignatura->refrescarVistas();
 
-	close();
+    close();
 }
 
 void DialogoNota::on_buttonBox_rejected()
 {
-	close();
+    close();
 }

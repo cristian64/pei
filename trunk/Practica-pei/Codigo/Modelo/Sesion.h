@@ -1,5 +1,5 @@
 #ifndef SESION_H
-#define	SESION_H
+#define    SESION_H
 
 #include <string>
 #include "Fecha.h"
@@ -43,4 +43,4 @@ private:
     Fecha fechaFin;
 };
 
-#endif	/* CITA_H */
+#endif    /* CITA_H */

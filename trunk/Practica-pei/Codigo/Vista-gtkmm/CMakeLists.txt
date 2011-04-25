@@ -26,14 +26,14 @@ add_dependencies(VistaGtkmm interfaces.glade)
 # El fichero que se genera (interfaces.glade.h) es una variable del tipo std::string a la que se le asigna el contenido del .glade.
 # En el código del programa se realiza un #include "interfaces.glade.h" para que el preprocesador coloque ahí la variable std::string ya definida.
 add_custom_command(TARGET VistaGtkmm
-	PRE_BUILD
-	COMMAND echo \"interfacesGlade = \\\"\" >interfaces.glade.aux
-	COMMAND sed -e \"s/\\\\\\\"/\\\\\\\\\\\"/g\" interfaces.glade >>interfaces.glade.aux
-	COMMAND echo \"\\\"\;\" >>interfaces.glade.aux
-	COMMAND tr -d \"\\n\" < interfaces.glade.aux >interfaces.glade.h
-	COMMAND rm -f interfaces.glade.aux
-	DEPENDS interfaces.glade
-	COMMENT "Generating interfaces.glade.h")
+    PRE_BUILD
+    COMMAND echo \"interfacesGlade = \\\"\" >interfaces.glade.aux
+    COMMAND sed -e \"s/\\\\\\\"/\\\\\\\\\\\"/g\" interfaces.glade >>interfaces.glade.aux
+    COMMAND echo \"\\\"\;\" >>interfaces.glade.aux
+    COMMAND tr -d \"\\n\" < interfaces.glade.aux >interfaces.glade.h
+    COMMAND rm -f interfaces.glade.aux
+    DEPENDS interfaces.glade
+    COMMENT "Generating interfaces.glade.h")
 
 #echo "interfacesGlade = \"" >interfaces.glade.aux;
 #sed -e "s/\\\"/\\\\\"/g" interfaces.glade >>interfaces.glade.aux;

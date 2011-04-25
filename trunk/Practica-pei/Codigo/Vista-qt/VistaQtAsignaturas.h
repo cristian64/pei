@@ -7,32 +7,32 @@
 #include "Asignatura.h"
 
 namespace Ui {
-	class VistaQtAsignaturas;
+    class VistaQtAsignaturas;
 }
 
 class VistaQtAsignaturas : public QListWidget, public Vista
 {
-	Q_OBJECT
+    Q_OBJECT
 
 public:
-	explicit VistaQtAsignaturas(QWidget *parent = 0);
-	~VistaQtAsignaturas();
-	void refrescar();
-	void quitarAsignaturaSeleccionada();
-	Asignatura* obtenerSeleccionada() const;
-	void deseleccionar();
+    explicit VistaQtAsignaturas(QWidget *parent = 0);
+    ~VistaQtAsignaturas();
+    void refrescar();
+    void quitarAsignaturaSeleccionada();
+    Asignatura* obtenerSeleccionada() const;
+    void deseleccionar();
 
 private:
-	Ui::VistaQtAsignaturas *ui;
-	std::map<Asignatura*, QListWidgetItem*> vinculos;
+    Ui::VistaQtAsignaturas *ui;
+    std::map<Asignatura*, QListWidgetItem*> vinculos;
 
 signals:
-	void asignaturaSeleccionadaCambio(Asignatura *asignatura);
+    void asignaturaSeleccionadaCambio(Asignatura *asignatura);
 
 private slots:
-	void itemClicked(QListWidgetItem* item);
-	void itemSelectionChanged();
-	void itemChanged(QListWidgetItem *item);
+    void itemClicked(QListWidgetItem* item);
+    void itemSelectionChanged();
+    void itemChanged(QListWidgetItem *item);
 };
 
 #endif // VISTAQTASIGNATURAS_H
