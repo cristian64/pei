@@ -3,6 +3,7 @@
 #include <QTextCodec>
 #include <QInputDialog>
 #include <QFileDialog>
+#include "DialogoAcercaDe.h"
 
 MainWindow::MainWindow(Asignaturas *asignaturas) :
     QMainWindow(NULL),
@@ -120,7 +121,8 @@ void MainWindow::on_actionSalir_triggered()
 
 void MainWindow::on_actionAcercaDe_triggered()
 {
-
+	DialogoAcercaDe dialogo(this);
+	dialogo.exec();
 }
 
 void MainWindow::asignaturaSeleccionadaCambio(Asignatura *asignatura)

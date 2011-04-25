@@ -33,7 +33,8 @@ SOURCES += main.cpp\
         DialogoSesion.cpp \
         DialogoCita.cpp \
         DialogoNota.cpp \
-        VistaQtResumen.cpp
+        VistaQtResumen.cpp \
+        DialogoAcercaDe.cpp
 
 HEADERS  += MainWindow.h \
         VistaQtAsignatura.h \
@@ -55,7 +56,8 @@ HEADERS  += MainWindow.h \
         DialogoSesion.h \
         DialogoCita.h \
         DialogoNota.h \
-        VistaQtResumen.h
+        VistaQtResumen.h \
+        DialogoAcercaDe.h
 
 FORMS    += MainWindow.ui \
         VistaQtAsignatura.ui \
@@ -65,8 +67,10 @@ FORMS    += MainWindow.ui \
         DialogoSesion.ui \
         DialogoCita.ui \
         DialogoNota.ui \
-        VistaQtResumen.ui
+        VistaQtResumen.ui \
+        DialogoAcercaDe.ui
 
 RESOURCES += icons.qrc
 
 INCLUDEPATH += ../Modelo ../Modelo/tinyxml ../Vista
+
